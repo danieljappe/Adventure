@@ -26,4 +26,7 @@ public class Room {
     public void setRoomDescription(String roomDescription) {
         this.roomDescription = roomDescription;
     }
+
+
+
 }
