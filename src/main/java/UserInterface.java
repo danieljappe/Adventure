@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class UserInterface {
+    private Adventure adventure = new Adventure();
     public void start() {
+
         Scanner scan = new Scanner(System.in);
 
         do {
@@ -13,7 +15,7 @@ public class UserInterface {
                 case "go east","east","e" -> System.out.println("Going east");
                 case "go south","south","s" -> System.out.println("Going south");
                 case "go west","west","w" -> System.out.println("Going west");
-                case "look" -> System.out.println("Kigger rundt i rum");
+                case "look" -> System.out.println(adventure.getCurrentRoom());
                 case "help" -> System.out.println("Print hjælp ud");
                 case "exit" -> System.exit(0);
                 default -> System.out.println("Invalid input");
