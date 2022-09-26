@@ -9,4 +9,7 @@ public class Adventure {
     Room room8 = new Room("room8","room8 description","","","","");
     Room room9 = new Room("room9","room9 description","","","","");
 
+    private Room currentRoom = new Room("","","","","","");
+
+
 }
