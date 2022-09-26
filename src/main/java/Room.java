@@ -6,13 +6,8 @@ public class Room {
     private Room east;
     private Room west;
 
-    public Room(String roomName,String roomDescription,
-                String northLeadTo, String southLeadTo, String eastLeadTo, String westLeadTo){
+    public Room(String roomName,String roomDescription){
         this.roomName = roomName;
         this.roomDescription = roomDescription;
-        this.north= north;
-        this.south = south;
-        this.east= east;
-        this.west=west;
     }
 }
