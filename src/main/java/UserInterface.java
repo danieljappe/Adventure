@@ -14,38 +14,38 @@ public class UserInterface {
             switch (choice) {
                 case "go north", "north", "n" -> {
                     if (adventure.goNorth()) {
-                        System.out.println("Going north");
+                        System.out.println("\u001B[32mGoing north\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
-                        System.out.println("Can´t go that way");
+                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
                 case "go east", "east", "e" -> {
                     if (adventure.goEast()) {
-                        System.out.println("Going east");
+                        System.out.println("\u001B[32mGoing east\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
-                        System.out.println("Can´t go that way");
+                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
                 case "go south", "south", "s" -> {
                     if (adventure.goSouth()) {
-                        System.out.println("Going south");
+                        System.out.println("\u001B[32mGoing south\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
-                        System.out.println("Can´t go that way");
+                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
 
                 case "go west", "west", "w" -> {
                     if (adventure.goWest()) {
-                        System.out.println("Going west");
+                        System.out.println("\u001B[32mGoing west\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
-                        System.out.println("Can´t go that way");
+                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
