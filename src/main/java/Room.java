@@ -43,25 +43,12 @@ public class Room {
     public Room getNorth() {
         return north;
     }
-    public void setEast(Room east) {
-        this.east = east;
-    }
-
-
     public Room getSouth() {
         return south;
     }
-
-
-
     public Room getEast() {
         return east;
     }
-
-    public void setWest(Room west) {
-        this.west = west;
-    }
-
     public Room getWest() {
         return west;
     }

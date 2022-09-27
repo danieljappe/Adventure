@@ -89,13 +89,16 @@ public class Adventure {
     }
 
 
-    private String storyLine(int i) {
+    public String storyLine(int i) {
         String line = "";
         switch (i) {
             case 0:
-                line = "After a couple of beers at the after class fridays bar , a couple of you and your fellow  " +
-                        "students decided to enjoy the sun on the grass of a nearby sematary. At least, that is what you remember" +
-                        "You mut have fallen asleep.. But why did no one wake you up";
+                line = "After a couple of beers at the after-class-fridays-bar,\n" +
+                        "a couple of you and your fellow students,\n" +
+                        "decided to enjoy the sun on the grass of a nearby sematary.\n" +
+                        "At least, that is what you remember\n" +
+                        "You mut have fallen asleep..\n " +
+                        "But why did no one wake you up?";
                 break;
             case 1:
                 line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n " +
