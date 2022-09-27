@@ -9,6 +9,7 @@ public class Room {
     private String eastDescription;
     private Room west;
     private String westDescription;
+    boolean benThere;
 
     public Room(String roomName, String roomDescription) {
         this.roomName = roomName;
