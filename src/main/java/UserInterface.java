@@ -7,13 +7,14 @@ public class UserInterface {
 
         Scanner scan = new Scanner(System.in);
 
+
         do {
             System.out.println("Go north/west/east/south");
             String choice = scan.nextLine().toLowerCase();
 
             switch (choice) {
                 case "go north","north","n" -> {if(adventure.goNorth()){System.out.println("Going north");
-                                                adventure.goNorth();}else System.out.println(); }
+                                                adventure.goNorth();}else System.out.println("Can´t go that way"); }
                 case "go east","east","e" -> {System.out.println("Going east");
                                                 adventure.goEast();}
                 case "go south","south","s" -> {System.out.println("Going south");}
