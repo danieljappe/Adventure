@@ -16,6 +16,12 @@ public class Adventure {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+    public void goNorth(){
+        currentRoom = currentRoom.getNorth();
+    }
+
+
+
 private String storyLine(int i) {
         String line ="";
         switch(i) {

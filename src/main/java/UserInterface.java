@@ -11,7 +11,7 @@ public class UserInterface {
             String choice = scan.nextLine().toLowerCase();
 
             switch (choice) {
-                case "go north","north","n" -> System.out.println("Going north");
+                case "go north","north","n" -> System.out.println("Going north"); // jeg kender ikke den måde, med komma som ELLER, og pil i stedet for kolon
                 case "go east","east","e" -> System.out.println("Going east");
                 case "go south","south","s" -> System.out.println("Going south");
                 case "go west","west","w" -> System.out.println("Going west");

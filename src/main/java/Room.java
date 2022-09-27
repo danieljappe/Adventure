@@ -27,6 +27,13 @@ public class Room {
         this.roomDescription = roomDescription;
     }
 
+    public void setNorth(Room room){
+        this.north = room;
+    }
+    public Room getNorth(){
+        return north;
+    }
+
 
 
 }
