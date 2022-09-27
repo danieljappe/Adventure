@@ -2,9 +2,13 @@ public class Room {
     private String roomName;
     private String roomDescription;
     private Room north;
+    private String northDescription;
     private Room south;
+    private String southDescription;
     private Room east;
+    private String eastDescription;
     private Room west;
+    private String westDescription;
 
     public Room(String roomName, String roomDescription) {
         this.roomName = roomName;
