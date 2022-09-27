@@ -19,6 +19,7 @@ public class Adventure {
         room1.setEast(room2);
         room1.setSouth(room4);
 
+
         room2.setWest(room1);
         room2.setEast(room3);
 
@@ -97,40 +98,41 @@ public class Adventure {
                         "You mut have fallen asleep.. But why did no one wake you up";
                 break;
             case 1:
-                line = "1: You are standing in the middle of a deserted graveyard, in the distance you hear the sound of " +
-                        "traffic rumbling and people from a local pub chatting away, as old crooked branches and the pail moonlight " +
-                        "shows you a path amidst silent tombstones";
+                line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n " +
+                        "traffic rumbling and people from a local pub chatting away, as old crooked branches and the pail\n" +
+                        " moonlight shows you a path amidst silent tombstones";
                 break;
             case 2:
-                line = "2: As you walk along the path, you suddenly get the creepy feeling that you are being watched ";
+                line = "As you walk along the path, you suddenly get the creepy feeling that you are being watched ";
                 break;
             case 3:
-                line = "3: You are standing by the grave of Soeren Kirkegaard, the famous danish philosefer ";
+                line = "You are standing by the grave of Soeren Kirkegaard, the famous danish philosefer ";
                 break;
             case 4:
-                line = "4: You are standing in front of are standing in front of a mausoleum";
+                line = "You are standing in front of are standing in front of a mausoleum";
                 break;
             case 5:
                 line = "5:";
                 break;
             case 6:
-                line = "6: You climb down the ladder into the sewer, the smell is unbearable. It is really dark, " +
-                        "but you can carefully walk by the sidewalk. As you walk for a couple of minutes, a crack in the wall appears.";
+                line = "You climb down the ladder into the sewer, the smell is unbearable.\n" +
+                        "It is really dark, but you can carefully walk by the sidewalk.\n" +
+                        "As you walk for a couple of minutes, a crack in the wall appears.";
                 break;
             case 7:
-                line = "7: One of the candles are looking a little out of place, do you want to pull it? (Ja / Nej)" +
-                        "y: A small door opens, you can barely fit but make it through and walk down the stairways -> case 8" +
-                        "n: You leave the candle and stay respectful towards the dead" +
+                line = "One of the candles are looking a little out of place, do you want to pull it? (Ja / Nej)\n" +
+                        "y: A small door opens, you can barely fit but make it through and walk down the stairways -> case 8\n" +
+                        "n: You leave the candle and stay respectful towards the dead\n" +
                         "It is dusty inside the mausoleum and really dark. There is something looking like a torch on the wall.";
                 break;
             case 8:
-                line = "8: As you continue down the hallways you find a big door with a huge lock on it. You need a key to open the door.";
+                line = "As you continue down the hallways you find a big door with a huge lock on it.\n" +
+                        "You need a key to open the door.";
                 break;
 
             case 9:
-                line = "9: You crawl through the crack in the wall and find yourself in some mysterious hallways";
+                line = "You crawl through the crack in the wall and find yourself in some mysterious hallways";
                 break;
-
 
         }
         return line;

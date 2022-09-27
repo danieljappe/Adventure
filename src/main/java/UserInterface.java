@@ -4,10 +4,9 @@ public class UserInterface {
     private Adventure adventure = new Adventure();
 
     public void start() {
-
         Scanner scan = new Scanner(System.in);
-
-
+        System.out.println(adventure.storyLine(0));
+        System.out.println(adventure.storyLine(1));
         do {
             System.out.println("Go north/west/east/south");
             String choice = scan.nextLine().toLowerCase();
