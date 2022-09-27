@@ -11,6 +11,7 @@ public class Adventure {
     Room room8 = new Room("room8",storyLine(8));
     Room room9 = new Room("room9",storyLine(9));
 
+
     private Room currentRoom = null;
 
     public Room getCurrentRoom() {
@@ -55,4 +56,5 @@ private String storyLine(int i) {
         }
         return line;
     }
+
 }
