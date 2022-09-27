@@ -6,10 +6,10 @@ public class Adventure {
     Room room3 = new Room("room3",storyLine(3));
     Room room4 = new Room("room4",storyLine(4));
     Room room5 = new Room("room5","room5 description");
-    Room room6 = new Room("room6","room6 description");
-    Room room7 = new Room("room7","room7 description");
-    Room room8 = new Room("room8","room8 description");
-    Room room9 = new Room("room9","room9 description");
+    Room room6 = new Room("room6",storyLine(6));
+    Room room7 = new Room("room7",storyLine(7));
+    Room room8 = new Room("room8",storyLine(8));
+    Room room9 = new Room("room9",storyLine(9));
 
     private Room currentRoom = null;
 
