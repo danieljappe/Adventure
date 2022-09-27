@@ -125,13 +125,14 @@ public class Adventure {
                 line = "";
                 break;
             case 300:
-                line = "It seams like you have reached a dead end, there is a pipe sticking out of the ground\n" +
+                line = "It seams like you have reached a dead end. You are a small circular clearing between hedges\n" +
+                        "  there a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
-                        "and spilling onto the ground and flowing down thru a grid\n" +
+                        "and spilling onto the ground, flowing down thru a grid\n" +
                         " It could be your imagination,\n" +
-                        "but it seams to you that you were hearing the sound of a violin playing\n" +
-                        " for a moment, and that the sound was coming from down there\n";
+                        "but it seams to you that you can hear the sound of a violin playing\n" +
+                        " for a moment, a sound that seamed to be coming from down there\n";
                 break;
             case 320:
                 line = "";
@@ -161,7 +162,10 @@ public class Adventure {
                         "As you walk for a couple of minutes, a crack in the wall appears.\n";
                 break;
             case 630:
-                line = "You climb up the ladder and out the sewer";
+                line = "You climb up the ladder and out of the sewer";//from room6 to room3
+                break;
+            case 690:
+                line = " ";
                 break;
             case 700:
                 line = "One of the candles are looking a little out of place, do you want to pull it? (Ja / Nej)\n" +
