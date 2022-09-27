@@ -18,7 +18,9 @@ public class Adventure {
         return currentRoom;
     }
     public void goNorth(){
+        //if(currentRoom.getNorth()==null)
         currentRoom = currentRoom.getNorth();
+        //return true;
     }
 
 
