@@ -1,5 +1,8 @@
 public class Adventure {
 
+    public Adventure(){
+        setupRooms();
+    }
 
     Room room1 = new Room("room1",storyLine(1));
     Room room2 = new Room("room2",storyLine(2));
@@ -12,15 +15,76 @@ public class Adventure {
     Room room9 = new Room("room9",storyLine(9));
 
 
-    private Room currentRoom = null;
+    public void setupRooms(){
+        room1.setEast(room2);
+        room1.setSouth(room4);
+
+        room2.setWest(room1);
+        room2.setEast(room3);
+
+        room3.setSouth(room6);
+        room3.setWest(room2);
+
+        room4.setNorth(room1);
+        room4.setSouth(room7);
+
+        room5.setSouth(room8);
+
+        room6.setSouth(room9);
+        room6.setNorth(room3);
+
+        room7.setNorth(room4);
+        room7.setEast(room8);
+
+        room8.setWest(room7);
+        room8.setEast(room9);
+        room8.setNorth(room5);
+
+        room9.setWest(room8);
+        room9.setNorth(room6);
+    }
+
+    Room currentRoom = room1;
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
-    public void goNorth(){
-        //if(currentRoom.getNorth()==null)
-        currentRoom = currentRoom.getNorth();
-        //return true;
+
+
+    public boolean goNorth(){
+        if(currentRoom.getNorth()==null){
+            return false;
+        }else{
+            currentRoom = currentRoom.getNorth();
+            return true;
+        }
+    }
+
+    public boolean goEast(){
+        if(currentRoom.getEast()==null){
+            return false;
+        } else {
+            currentRoom = currentRoom.getEast();
+            return true;
+        }
+    }
+
+    public boolean goSouth(){
+        if(currentRoom.getSouth()==null){
+            return false;
+        }else {
+            currentRoom = currentRoom.getSouth();
+            return true;
+        }
+    }
+
+    public boolean goWest(){
+        if(currentRoom.getWest()==null){
+            return false;
+        } else {
+            currentRoom = currentRoom.getWest();
+            return true;
+        }
     }
 
 

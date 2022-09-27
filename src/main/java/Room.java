@@ -9,10 +9,6 @@ public class Room {
     public Room(String roomName,String roomDescription){
         this.roomName = roomName;
         this.roomDescription = roomDescription;
-        this.north = null;
-        this.south = null;
-        this.east = null;
-        this.west = null;
     }
 
     public String getRoomName() {
