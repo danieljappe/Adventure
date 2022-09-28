@@ -7,7 +7,7 @@ public class UserInterface {
     public void start() {
         Scanner scan = new Scanner(System.in);
         System.out.println(adventure.getMap().storyLine(0));
-        System.out.println(adventure.getMap().storyLine(1));
+        System.out.println(adventure.getMap().storyLine(100));
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
             String choice = scan.nextLine().toLowerCase();
@@ -18,6 +18,8 @@ public class UserInterface {
                     if (adventure.go('n')) {
                         System.out.println("\u001B[32mGoing north\u001B[39m");
                         System.out.println(currentRoom.getNorthDescription());
+                        System.out.println(currentRoom.getRoomDescription());
+
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
