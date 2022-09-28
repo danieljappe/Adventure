@@ -82,11 +82,7 @@ public class Map {
                         "  there a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
-                        "and spilling onto the ground, flowing down through a grid\n" +
-                        "It could be your imagination,\n" +
-                        "but it seams to you that you can hear the sound of a violin playing\n" +
-                        "for a moment, a sound that seemed to be coming from down there\n";
-                        "and spilling onto the ground, flowing down a grid\n" +
+                        "and spilling onto the ground, flowing down through a grid\n";
 
                 break;
             case 320:

@@ -7,7 +7,7 @@ public class Adventure {
     }
 
 
-    public String go(char direction) {
+    public boolean go(char direction) {
         switch (direction) {
             case 'n' -> {
                 return player.goNorth();
@@ -16,7 +16,8 @@ public class Adventure {
                 return player.goSouth();
             }
             case 'e' -> {
-                String line;
+                return player.isEast();
+                /*String line;
                 if (player.isEast()) {
                     line = "\u001B[32mGoing east\u001B[39m \n"+
                     getCurrentRoom().getEastDescription();
@@ -30,7 +31,7 @@ public class Adventure {
                 } else {
                     line = "\u001B[31mCan´t go that way\u001B[39m";
                 }
-                return line;
+                return line;*/
             }
             case 'w' -> {
                 return player.goWest();
