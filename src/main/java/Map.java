@@ -123,33 +123,36 @@ public class Map {
                         "Its impossible to navigate around in these conditions\n";
                 break;
             case 710:
-                line = "You walk up the stairs back to the mausoleum." +
+                line = "You walk up the stairs back to the mausoleum.\n" +
                         "It is brighter here, thanks to the torches.";
                 break;
             case 720:
                 line = "You follow the archway out of the chamber, which leads to an endless hallway.";
                 break;
             case 800:
-                line = "In the middle of the hallway, there is a huge door." +
-                        "On closer inspection the door is locked with a gold padlock.";
+                line = "In the middle of the hallway, there is a huge door.\n" +
+                        "On closer inspection the door is locked with a gold padlock.\n" +
+                        "Something important must be in here. But how do you get in?";
                 break;
             case 810:
-                line = "";
+                line = "The door is locked! You need to find a key.";
                 break;
             case 820:
-                line = "";
+                line = "You walk down the hallways surrounded by old portraits and enter a smaller room,";
                 break;
             case 840:
-                line = "";
+                line = "You follow the hallways and enter a room.";
                 break;
             case 900:
-                line = "";
+                line = "This room is filled with barrels, some bigger than others.\n" +
+                        "It smells better in here, it might be wine stored in these barrels.\n";
                 break;
             case 910:
-                line = "";
+                line = "You crawl through the big crack in the wall behind one of the bigger barrels\n" +
+                        "It already smells horrible.";
                 break;
             case 940:
-                line = "";
+                line = "You leave the wine cellar and follow the path.";
                 break;
             // 10 = north / 20 = east / 30 = south / 40 = west
         }
