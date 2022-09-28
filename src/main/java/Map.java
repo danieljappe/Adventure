@@ -8,7 +8,7 @@ public class Map {
     Room room3 = new Room("room3", storyLine(300),"",storyLine(360),"",storyLine(320));
     Room room4 = new Room("room4", storyLine(400),storyLine(410),storyLine(470),"","");
     Room room5 = new Room("room5", "room5 description","","","","");
-    Room room6 = new Room("room6", storyLine(600),storyLine(630),storyLine(690),"","");
+    Room room6 = new Room("room6", storyLine(600),storyLine(610),storyLine(630),"","");
     Room room7 = new Room("room7", storyLine(700),storyLine(710),"",storyLine(720),"");
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
@@ -77,7 +77,7 @@ public class Map {
                         "there is a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
-                        "and spilling onto the ground, flowing down thru a grid\n" +
+                        "and spilling onto the ground, flowing down through a grid\n" +
                         "It could be your imagination,\n" +
                         "but it seams to you that you can hear the sound of a violin playing\n" +
                         "for a moment, a sound that seemed to be coming from down there\n";
@@ -109,11 +109,11 @@ public class Map {
                         "It is really dark, but you can carefully sneak by the sidewalk.\n" +
                         "As you walk for a couple of minutes, a crack in the wall appears.\n";
                 break;
-            case 630:
+            case 610:
                 line = "You climb up the ladder and out of the sewer.\n" +
                         "Finally some fresh air.";//from room6 to room3
                 break;
-            case 690:
+            case 630:
                 line = "You can barely fit through the crack, but you somehow manage to get through.\n" +
                         "It is really dark (Mulighed for at det kræver fakkel).\n";
                 break;
@@ -127,10 +127,11 @@ public class Map {
                         "It is brighter here, thanks to the torches.";
                 break;
             case 720:
-                line = "";
+                line = "You follow the archway out of the chamber, which leads to an endless hallway.";
                 break;
             case 800:
-                line = "";
+                line = "In the middle of the hallway, there is a huge door." +
+                        "On closer inspection the door is locked with a gold padlock.";
                 break;
             case 810:
                 line = "";
