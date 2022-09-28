@@ -14,10 +14,8 @@ public class Player {
 
     public boolean goEast() {
         if (currentRoom.getEast() == null) {
-            System.out.println("Player go east false");
             return false;
         } else {
-            System.out.println("Player go esat true");
             currentRoom = currentRoom.getEast();
             return true;
         }

@@ -17,7 +17,6 @@ public class Adventure {
                 return player.goSouth();
             }
             case 2 -> {
-                System.out.println("Adventure Metode kørt");
                 return player.goEast();
             }
             case 4 -> {
