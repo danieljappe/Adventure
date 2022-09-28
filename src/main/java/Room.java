@@ -13,8 +13,6 @@ public class Room {
     boolean beenThere;
 
 
-
-
     public Room(String roomName, String roomDescription) {
         this.roomName = roomName;
         this.roomDescription = roomDescription;
@@ -60,5 +58,18 @@ public class Room {
     }
     public Room getWest() {
         return west;
+    }
+
+    public String getNorthDescription() {
+        return northDescription;
+    }
+    public String getEastDescription() {
+        return eastDescription;
+    }
+    public String getSouthDescription() {
+        return southDescription;
+    }
+    public String getWestDescription() {
+        return westDescription;
     }
 }

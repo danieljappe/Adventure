@@ -40,7 +40,8 @@ public class Map {
                           [1;30m▐[0m███████████[1;30m▌[0m   [31m█[37m     [31m▀█▀█▄▄▄█[37m   [31m█▄█[37m   [31m█▄[37m    [31m█[37m   [31m█[37m [31m▀█[37m  [31m▄[37m [31m▀▄[37m [31m█▀[37m  [31m█[37m     [31m█▀▀▀[37m
                          [1;30m██████████████[0m  [31m▄▀[37m      [31m▀█[37m    [31m▀[37m    [31m▀[37m     [31m▀▀▀▀[37m [31m▀[37m   [31m▀[37m  [31m▀▀▀[37m   [31m▀▀▀[37m   [31m▀[37m     [31m▀█▄▄▄█[37m
                         [33m█[1;30;43m▀▀▀▀▀▀▀▀▀▀▀▀▀▀[0;33m▄[37m """ +
-                        "\n\u001B[39mAfter a couple of beers at the after-class-fridays-bar,\n" +
+                        "\n\u001B[39m" +
+                        "After a couple of beers at the after-class-fridays-bar,\n" +
                         "a couple of you and your fellow students,\n" +
                         "decided to enjoy the sun on the grass of a nearby sematary.\n" +
                         "At least, that is what you remember\n" +

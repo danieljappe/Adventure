@@ -1,7 +1,10 @@
 public class Player {
-    Map map = new Map();
+    private Map map = new Map();
+    private Room currentRoom = map.room1;
 
-    Room currentRoom = map.room1;
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
 
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {
@@ -38,4 +41,5 @@ public class Player {
             return true;
         }
     }
+
 }

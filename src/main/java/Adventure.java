@@ -1,9 +1,9 @@
 public class Adventure {
-
-    Player player = new Player();
+    private Map map = new Map();
+    private Player player = new Player();
 
     public Room getCurrentRoom() {
-        return player.currentRoom;
+        return player.getCurrentRoom();
     }
 
 
@@ -25,7 +25,10 @@ public class Adventure {
                 return false;
             }
         }
+    }
 
+    public Map getMap() {
+        return map;
     }
 }
 
