@@ -14,9 +14,10 @@ public class UserInterface {
 
             switch (choice) {
                 case "go north", "north", "n" -> {
+                    Room currentRoom = adventure.getCurrentRoom();
                     if (adventure.go('n')) {
                         System.out.println("\u001B[32mGoing north\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getNorthDescription());
+                        System.out.println(currentRoom.getNorthDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
@@ -34,8 +35,9 @@ public class UserInterface {
 
                 case "go south", "south", "s" -> {
                     if (adventure.go('s')) {
+                        Room currentRoom = adventure.getCurrentRoom();
                         System.out.println("\u001B[32mGoing south\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getSouthDescription());
+                        System.out.println(currentRoom.getSouthDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
@@ -43,9 +45,10 @@ public class UserInterface {
 
 
                 case "go west", "west", "w" -> {
+                    Room currentRoom = adventure.getCurrentRoom();
                     if (adventure.go('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getWestDescription());
+                        System.out.println(currentRoom.getWestDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
