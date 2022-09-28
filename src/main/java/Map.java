@@ -1,13 +1,13 @@
 public class Map {
-    private boolean door12open;
-    private boolean door23open;
-    private boolean door36open;
-    private boolean door69open;
+    //private boolean door12open = true; // her er bare en sti uden forhindring
+    private boolean door23open = false; // gitterlåge, her skal bruges nøgle
+    private boolean door36open = false; // kloak rist, måske skal bruge skruenøgle
+    //private boolean door69open = true; // revne i kloakens side, måske skal man bruge stearinlys
     private boolean door89open;
-    private boolean door58open;
+    private boolean door58open = false; // store dør i grotte
     private boolean door78open;
-    private boolean door47open;
-    private boolean door14open;
+    private boolean door47open = false; // tungt kistelåg, en løftestang el.
+    private boolean door14open = false;// dør til mausoleum, skal bruge nøgle
 
 
     public Map() {
@@ -65,9 +65,7 @@ public class Map {
                         "moonlight shows you a path amidst silent tombstones\n";
                 break;
             case 120 :
-                line = "Leaving the place going east you get to a smale rusty gate in a high spiked iron fence,\n" +
-                        "the gate is Locked/Open , You and turn and back/ \n" +
-                        "You put the key in the lock, turn it, it opens, and you walk through\n";
+                line = "You leve the place were woke and wonder into the darkness";
                 break;
             case 140:
                 line ="Your path ends in front of a mausoleum\n" +
@@ -75,30 +73,44 @@ public class Map {
                         "the dor is open you walk in\n";
                 break;
             case 200:
-                line = "As you walk along the path, you suddenly get the creepy feeling that you are being watched\n";
+                line = "As you walk along the path, you suddenly get the ery feeling that someone\n" +
+                        "or something is watching you\n";
                 break;
             case 210:
-                line = "";
+                line = "You walk out of the darkness back to the place were you woke up some time ago";
                 break;
             case 230:
-                line = "";
+                line = "following the path going east you get to a smale rusty gate in a high spiked iron fence,\n";
+                break;
+            case 231:
+                line = "the gate is Locked/Open , You and turn and back/ \n";
+                break;
+            case 232:
+                 line = "You put the key in the lock, turn it, it opens, and you walk through\n";
                 break;
             case 300:
                 line = "It seams like you have reached a dead end. You are a small circular clearing between hedges\n" +
                         "  there a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
-                        "and spilling onto the ground, flowing down thru a grid\n" +
-                        " It could be your imagination,\n" +
-                        "but it seams to you that you can hear the sound of a violin playing\n" +
-                        " for a moment, a sound that seamed to be coming from down there\n";
+                        "and spilling onto the ground, flowing down a grid\n" +
+
                 break;
             case 320:
-                line = "";
+                line = "leaving the clearing thru the rusty gate\n";
                 break;
             case 360:
-                line = "You climb down the ladder into the sewer\n";
+                line = "As you get closer, you can see a latter fixed into the cement on the other side of the grid."+
+                        "A person could with a little effort pass thue the opening. It could be your imagination,\n" +
+                        "but it seams to you that you can hear the sound of a violin playing\n" +
+                        " for a moment, and the sound seamed to be coming from down there\n";
                 break;
+            case 361:
+                line = "The grid is fixed with a bolt\n";
+                break;
+            case 362:
+                line = "You unscrew the bolt, and you are able to lift it aside,\n" +
+                        "and climb down the ladder into the sewer\n";
             case 400:
                 line = "You are inside a mausoleum, the room is lit with candles, its so quiet that it makes you feel uneasy,\n" +
                         "in the middle a sarcophagus of marble\n";

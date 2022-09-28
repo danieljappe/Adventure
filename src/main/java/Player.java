@@ -14,14 +14,15 @@ public class Player {
             return true;
         }
     }
-
-    public boolean goEast() {
-        if (currentRoom.getEast() == null) {
+    public boolean isEast(){
+        if (currentRoom.getEast()==null){
             return false;
-        } else {
-            currentRoom = currentRoom.getEast();
+        }else{
             return true;
         }
+    }
+    public void goEast() {
+            currentRoom = currentRoom.getEast();
     }
 
     public boolean goSouth() {

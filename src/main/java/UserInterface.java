@@ -24,13 +24,7 @@ public class UserInterface {
                 }
 
                 case "go east", "east", "e" -> {
-                    Room currentRoom = adventure.getCurrentRoom();
-                    if (adventure.go('e')) {
-                        System.out.println("\u001B[32mGoing east\u001B[39m");
-                        System.out.println(currentRoom.getEastDescription());
-                    } else {
-                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
-                    }
+                    System.out.println(adventure.go('e'));
                 }
 
                 case "go south", "south", "s" -> {
