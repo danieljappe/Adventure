@@ -2,13 +2,14 @@ import java.util.Scanner;
 
 public class UserInterface {
     private Adventure adventure = new Adventure();
+    Map map = new Map();
 
     public void start() {
         Scanner scan = new Scanner(System.in);
-        System.out.println(adventure.storyLine(0));
-        System.out.println(adventure.storyLine(1));
+        System.out.println(map.storyLine(0));
+        System.out.println(map.storyLine(1));
         do {
-            System.out.println("Go north/west/east/south");
+            System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
             String choice = scan.nextLine().toLowerCase();
 
             switch (choice) {
@@ -22,7 +23,7 @@ public class UserInterface {
                 }
 
                 case "go east", "east", "e" -> {
-                    if (adventure.goEast()) {
+                    if (adventure.go(2)) {
                         System.out.println("\u001B[32mGoing east\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
@@ -31,7 +32,7 @@ public class UserInterface {
                 }
 
                 case "go south", "south", "s" -> {
-                    if (adventure.goSouth()) {
+                    if (adventure.go(3)) {
                         System.out.println("\u001B[32mGoing south\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
@@ -41,14 +42,13 @@ public class UserInterface {
 
 
                 case "go west", "west", "w" -> {
-                    if (adventure.goWest()) {
+                    if (adventure.go(4)) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
-
 
                 case "look" -> {
                     System.out.println(adventure.getCurrentRoom().getRoomDescription());
