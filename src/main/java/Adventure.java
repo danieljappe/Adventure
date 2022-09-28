@@ -8,3 +8,27 @@ public class Adventure {
     }
 
 
+    public boolean go(int direction) {
+        switch (direction) {
+            case 1 -> {
+                return player.goNorth();
+            }
+            case 3 -> {
+                return player.goSouth();
+            }
+            case 2 -> {
+                System.out.println("Adventure Metode kørt");
+                return player.goEast();
+            }
+            case 4 -> {
+                return player.goWest();
+            }
+            default -> {
+                return false;
+            }
+        }
+
+    }
+}
+
+

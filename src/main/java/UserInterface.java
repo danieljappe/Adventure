@@ -14,7 +14,7 @@ public class UserInterface {
 
             switch (choice) {
                 case "go north", "north", "n" -> {
-                    if (adventure.goNorth()) {
+                    if (adventure.go(1)) {
                         System.out.println("\u001B[32mGoing north\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     } else {
