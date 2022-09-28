@@ -3,15 +3,15 @@ public class Map {
         buildMap();
     }
 
-    Room room1 = new Room("room1", storyLine(1));
-    Room room2 = new Room("room2", storyLine(2));
-    Room room3 = new Room("room3", storyLine(3));
-    Room room4 = new Room("room4", storyLine(4));
-    Room room5 = new Room("room5", "room5 description");
-    Room room6 = new Room("room6", storyLine(6));
-    Room room7 = new Room("room7", storyLine(7));
-    Room room8 = new Room("room8", storyLine(8));
-    Room room9 = new Room("room9", storyLine(9));
+    Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
+    Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
+    Room room3 = new Room("room3", storyLine(300),"",storyLine(360),"",storyLine(320));
+    Room room4 = new Room("room4", storyLine(400),storyLine(410),storyLine(470),"","");
+    Room room5 = new Room("room5", "room5 description","","","","");
+    Room room6 = new Room("room6", storyLine(600),storyLine(630),storyLine(690),"","");
+    Room room7 = new Room("room7", storyLine(700),storyLine(740),"",storyLine(780),"");
+    Room room8 = new Room("room8", storyLine(800),storyLine(850),"",storyLine(890),storyLine(870));
+    Room room9 = new Room("room9", storyLine(900),storyLine(960),"","",storyLine(980));
 
     public String storyLine(int i) {
         String line = "";
@@ -48,41 +48,78 @@ public class Map {
                         "You mut have fallen asleep..\n " +
                         "But why did no one wake you up?";
                 break;
-            case 1:
-                line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n " +
+            case 100:
+                line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n" +
                         "traffic rumbling and people from a local pub chatting away, as old crooked branches and the pail\n" +
-                        " moonlight shows you a path amidst silent tombstones";
+                        "moonlight shows you a path amidst silent tombstones\n";
                 break;
-            case 2:
-                line = "As you walk along the path, you suddenly get the creepy feeling that you are being watched ";
+            case 120 :
+                line = "Leaving the place going east you get to a smale rusty gate in a high spiked iron fence,\n" +
+                        "the gate is Locked/Open , You and turn and back/ \n" +
+                        "You put the key in the lock, turn it, it opens, and you walk through\n";
                 break;
-            case 3:
-                line = "You are standing by the grave of Soeren Kirkegaard, the famous danish philosefer ";
+            case 140:
+                line ="Your path ends in front of a mausoleum\n" +
+                        "the dor to the closed\n" +
+                        "the dor is open you walk in\n";
                 break;
-            case 4:
-                line = "You are standing in front of are standing in front of a mausoleum";
+            case 200:
+                line = "As you walk along the path, you suddenly get the creepy feeling that you are being watched\n";
                 break;
-            case 5:
+            case 210:
+                line = "";
+                break;
+            case 230:
+                line = "";
+                break;
+            case 300:
+                line = "It seams like you have reached a dead end. You are a small circular clearing between hedges\n" +
+                        "  there a bench and a pipe sticking out of the ground\n" +
+                        "with a water tab, where a small metal water bucket is hanging\n" +
+                        "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
+                        "and spilling onto the ground, flowing down thru a grid\n" +
+                        " It could be your imagination,\n" +
+                        "but it seams to you that you can hear the sound of a violin playing\n" +
+                        " for a moment, a sound that seamed to be coming from down there\n";
+                break;
+            case 320:
+                line = "";
+                break;
+            case 360:
+                line = "You climb down the ladder into the sewer\n";
+                break;
+            case 400:
+                line = "You are inside a mausoleum, the room is lit with candles, its so quiet that it makes you feel uneasy,\n" +
+                        "in the middle a sarcophagus of marble\n";
+                break;
+            case 410:
+                line = "You turn to the dor leading out of the mausoleum\n" +
+                        "it is closed\n" +
+                        "its open, you walk out\n";
+
+                break;
+            case 470:
+                line = "";
+                break;
+            case 500:
                 line = "5:";
                 break;
-            case 6:
-                line = "You climb down the ladder into the sewer, the smell is unbearable.\n" +
+            case 600:
+                line =  "The smell is unbearable.\n" +
                         "It is really dark, but you can carefully walk by the sidewalk.\n" +
-                        "As you walk for a couple of minutes, a crack in the wall appears.";
+                        "As you walk for a couple of minutes, a crack in the wall appears.\n";
                 break;
-            case 7:
+            case 630:
+                line = "You climb up the ladder and out of the sewer";//from room6 to room3
+                break;
+            case 690:
+                line = " ";
+                break;
+            case 700:
                 line = "One of the candles are looking a little out of place, do you want to pull it? (Ja / Nej)\n" +
                         "y: A small door opens, you can barely fit but make it through and walk down the stairways -> case 8\n" +
                         "n: You leave the candle and stay respectful towards the dead\n" +
                         "It is dusty inside the mausoleum and really dark. There is something looking like a torch on the wall.";
-                break;
-            case 8:
-                line = "As you continue down the hallways you find a big door with a huge lock on it.\n" +
-                        "You need a key to open the door.";
-                break;
-
-            case 9:
-                line = "You crawl through the crack in the wall and find yourself in some mysterious hallways";
                 break;
 
         }

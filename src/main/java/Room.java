@@ -3,19 +3,27 @@ public class Room {
     private String roomDescription;
     private Room north;
     private String northDescription;
+    private boolean northAccess;
     private Room south;
     private String southDescription;
+    private boolean southAccess;
     private Room east;
     private String eastDescription;
+    private boolean eastAccess;
     private Room west;
     private String westDescription;
     private boolean westAccess;
     boolean beenThere;
 
 
-    public Room(String roomName, String roomDescription) {
+    public Room(String roomName, String roomDescription, String northDescription, String southDescription,
+                String eastDescription, String westDescription) {
         this.roomName = roomName;
         this.roomDescription = roomDescription;
+        this.northDescription = northDescription;
+        this.southDescription = southDescription;
+        this.eastDescription = eastDescription;
+        this.westDescription = westDescription;
     }
 
     public String getRoomName() {
