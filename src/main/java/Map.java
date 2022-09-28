@@ -9,9 +9,9 @@ public class Map {
     Room room4 = new Room("room4", storyLine(400),storyLine(410),storyLine(470),"","");
     Room room5 = new Room("room5", "room5 description","","","","");
     Room room6 = new Room("room6", storyLine(600),storyLine(630),storyLine(690),"","");
-    Room room7 = new Room("room7", storyLine(700),storyLine(740),"",storyLine(780),"");
-    Room room8 = new Room("room8", storyLine(800),storyLine(850),"",storyLine(890),storyLine(870));
-    Room room9 = new Room("room9", storyLine(900),storyLine(960),"","",storyLine(980));
+    Room room7 = new Room("room7", storyLine(700),storyLine(710),"",storyLine(720),"");
+    Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
+    Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
     public String storyLine(int i) {
         String line = "";
@@ -60,8 +60,8 @@ public class Map {
                 break;
             case 140:
                 line ="Your path ends in front of a mausoleum\n" +
-                        "the dor to the closed\n" +
-                        "the dor is open you walk in\n";
+                        "the door to the closed\n" +
+                        "the door is open you walk in\n";
                 break;
             case 200:
                 line = "As you walk along the path, you suddenly get the creepy feeling that you are being watched\n";
@@ -73,14 +73,14 @@ public class Map {
                 line = "";
                 break;
             case 300:
-                line = "It seams like you have reached a dead end. You are a small circular clearing between hedges\n" +
-                        "  there a bench and a pipe sticking out of the ground\n" +
+                line = "It seems like you have reached a dead end. You are at a small circular clearing between hedges\n" +
+                        "there is a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
                         "and spilling onto the ground, flowing down thru a grid\n" +
-                        " It could be your imagination,\n" +
+                        "It could be your imagination,\n" +
                         "but it seams to you that you can hear the sound of a violin playing\n" +
-                        " for a moment, a sound that seamed to be coming from down there\n";
+                        "for a moment, a sound that seemed to be coming from down there\n";
                 break;
             case 320:
                 line = "";
@@ -93,7 +93,7 @@ public class Map {
                         "in the middle a sarcophagus of marble\n";
                 break;
             case 410:
-                line = "You turn to the dor leading out of the mausoleum\n" +
+                line = "You turn to the door leading out of the mausoleum\n" +
                         "it is closed\n" +
                         "its open, you walk out\n";
 
@@ -105,23 +105,52 @@ public class Map {
                 line = "5:";
                 break;
             case 600:
-                line =  "The smell is unbearable.\n" +
-                        "It is really dark, but you can carefully walk by the sidewalk.\n" +
+                line =  "The smell is unbearable and big rodents rushes away into the shadows.\n" +
+                        "It is really dark, but you can carefully sneak by the sidewalk.\n" +
                         "As you walk for a couple of minutes, a crack in the wall appears.\n";
                 break;
             case 630:
-                line = "You climb up the ladder and out of the sewer";//from room6 to room3
+                line = "You climb up the ladder and out of the sewer.\n" +
+                        "Finally some fresh air.";//from room6 to room3
                 break;
             case 690:
-                line = " ";
+                line = "You can barely fit through the crack, but you somehow manage to get through.\n" +
+                        "It is really dark (Mulighed for at det kræver fakkel).\n";
                 break;
             case 700:
-                line = "One of the candles are looking a little out of place, do you want to pull it? (Ja / Nej)\n" +
-                        "y: A small door opens, you can barely fit but make it through and walk down the stairways -> case 8\n" +
-                        "n: You leave the candle and stay respectful towards the dead\n" +
-                        "It is dusty inside the mausoleum and really dark. There is something looking like a torch on the wall.";
+                line = "You enter some form of ancient chamber.\n" +
+                        "The room is pitch black and you get covered in spiderwebs where ever you move.\n" +
+                        "Its impossible to navigate around in these conditions\n";
                 break;
-
+            case 710:
+                line = "You walk up the stairs back to the mausoleum." +
+                        "It is brighter here, thanks to the torches.";
+                break;
+            case 720:
+                line = "";
+                break;
+            case 800:
+                line = "";
+                break;
+            case 810:
+                line = "";
+                break;
+            case 820:
+                line = "";
+                break;
+            case 840:
+                line = "";
+                break;
+            case 900:
+                line = "";
+                break;
+            case 910:
+                line = "";
+                break;
+            case 940:
+                line = "";
+                break;
+            // 10 = north / 20 = east / 30 = south / 40 = west
         }
         return line;
     }
