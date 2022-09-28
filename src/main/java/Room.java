@@ -3,16 +3,12 @@ public class Room {
     private String roomDescription;
     private Room north;
     private String northDescription;
-    private boolean northAccess;
     private Room south;
     private String southDescription;
-    private boolean southAccess;
     private Room east;
     private String eastDescription;
-    private boolean eastAccess;
     private Room west;
     private String westDescription;
-    private boolean westAccess;
     boolean beenThere;
 
 

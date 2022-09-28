@@ -1,4 +1,15 @@
 public class Map {
+    private boolean door12open;
+    private boolean door23open;
+    private boolean door36open;
+    private boolean door69open;
+    private boolean door89open;
+    private boolean door58open;
+    private boolean door78open;
+    private boolean door47open;
+    private boolean door14open;
+
+
     public Map() {
         buildMap();
     }
