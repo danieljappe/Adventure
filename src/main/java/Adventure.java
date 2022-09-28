@@ -1,6 +1,5 @@
 public class Adventure {
 
-    Map map = new Map();
     Player player = new Player();
 
     public Room getCurrentRoom() {
@@ -8,18 +7,18 @@ public class Adventure {
     }
 
 
-    public boolean go(int direction) {
+    public boolean go(char direction) {
         switch (direction) {
-            case 1 -> {
+            case 'n' -> {
                 return player.goNorth();
             }
-            case 3 -> {
+            case 's' -> {
                 return player.goSouth();
             }
-            case 2 -> {
+            case 'e' -> {
                 return player.goEast();
             }
-            case 4 -> {
+            case 'w' -> {
                 return player.goWest();
             }
             default -> {
