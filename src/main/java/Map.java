@@ -13,6 +13,16 @@ public class Map {
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
+    Door door12 = new Door("door12",true,"","","");
+    Door door12 = new Door("door23",true,"","","");
+    Door door12 = new Door("door36",true,"","","");
+    Door door12 = new Door("door69",true,"","","");
+    Door door12 = new Door("door89",true,"","","");
+    Door door12 = new Door("door58",true,"","","");
+    Door door12 = new Door("door78",true,"","","");
+    Door door12 = new Door("door47",true,"","","");
+    Door door12 = new Door("door14",true,"","","");
+
     public String storyLine(int i) {
         String line = "";
         switch (i) {
