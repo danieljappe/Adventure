@@ -3,9 +3,9 @@ public class Door {
     private boolean isOpen;
     private String closed;
     private String open;
-    private String rightKey;
+    private Item rightKey;
 
-    public Door(String name,boolean isOpen,String closed,String open,String rightKey){
+    public Door(String name,boolean isOpen,String closed,String open,Item rightKey){
         this.name = name;
         this.isOpen = isOpen;
         this.closed = closed;
@@ -17,7 +17,7 @@ public class Door {
         return isOpen;
     }
 
-    public void openDoor(String key){
+    public void openDoor(Item key){
         if(key==rightKey){
             isOpen = true;
         }

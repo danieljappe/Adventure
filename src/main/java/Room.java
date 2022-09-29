@@ -138,5 +138,15 @@ public class Room {
         this.eastDoor = east;
         this.westDoor = west;
     }
+    public Door getDoor(char position){
+        Door door = null;
+        switch (position){
+            case 'n' -> door = northDoor;
+            case 's' -> door = southDoor;
+            case 'e' -> door = eastDoor;
+            case 'w' -> door = westDoor;
+        }
+        return door;
+    }
 
 }

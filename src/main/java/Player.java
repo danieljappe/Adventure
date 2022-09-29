@@ -24,6 +24,7 @@ public class Player {
         }
     }
     public void goEast() {
+        if(currentRoom.getDoor('e').isOpen())
             currentRoom = currentRoom.getEast();
     }
 

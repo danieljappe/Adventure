@@ -13,15 +13,15 @@ public class Map {
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
-    Door door12 = new Door("door12",true,"","","");
-    Door door23 = new Door("d",true,"","","");
-    Door door36 = new Door("door36",true,"","","");
-    Door door69 = new Door("door69",true,"","","");
-    Door door89 = new Door("door89",true,"","","");
-    Door door58 = new Door("door58",true,"","","");
-    Door door78 = new Door("door78",true,"","","");
-    Door door47 = new Door("Stone slade of the coffin",true,"","","");
-    Door door14 = new Door("door14",true,"","","");
+    Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
+    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232),null);
+    Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
+    Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
+    Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
+    Door door58 = new Door("big gate",true,storyLine(851),storyLine(852),null);
+    Door door78 = new Door("door78",true,storyLine(781),storyLine(782),null);
+    Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),null);
+    Door door14 = new Door("door to the mausoleum",false,storyLine(141),storyLine(142),null);
 
     private Item item1 = new Item("item1");
     private Item item2 = new Item("item2");
