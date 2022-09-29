@@ -45,6 +45,10 @@ public class Adventure {
     public Map getMap() {
         return map;
     }
+
+    public Player getPlayer() {
+        return player;
+    }
 }
 
 

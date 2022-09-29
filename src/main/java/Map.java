@@ -21,7 +21,15 @@ public class Map {
     Door door58 = new Door("door58",true,"","","");
     Door door78 = new Door("door78",true,"","","");
     Door door47 = new Door("Stone slade of the coffin",true,"","","");
-    Door door14 = new Door("door14",true,"","","");
+    Door door14 = new Door("door14",true,"","","");*/
+
+    private Item item1 = new Item("item1");
+    private Item item2 = new Item("item2");
+    private Item item3 = new Item("item3");
+    private Item item4 = new Item("item4");
+    private Item item5 = new Item("item5");
+
+
 
     public String storyLine(int i) {
         String line = "";
@@ -211,4 +219,12 @@ public class Map {
         room9.setWest(room8);
         room9.setNorth(room6);
     }
+    // Getters:
+
+
+
+
+
+
+
 }
