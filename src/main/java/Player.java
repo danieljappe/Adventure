@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Player {
     private Map map = new Map();
     private Room currentRoom = map.room1;
@@ -42,5 +44,7 @@ public class Player {
             return true;
         }
     }
+
+    ArrayList<Item> playerInventory = new ArrayList<>();
 
 }
