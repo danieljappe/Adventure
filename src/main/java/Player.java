@@ -8,15 +8,17 @@ public class Player {
         return currentRoom;
     }
 
-    public boolean goNorth() {
+    public boolean isRoomNorth() {
         if (currentRoom.getNorth() == null) {
             return false;
         } else {
-            currentRoom = currentRoom.getNorth();
             return true;
         }
     }
-    public boolean isEast(){
+    public void goNorth(){
+        currentRoom = currentRoom.getNorth();
+    }
+    public boolean isRoomEast(){
         if (currentRoom.getEast()==null){
             return false;
         }else{
@@ -24,26 +26,29 @@ public class Player {
         }
     }
     public void goEast() {
-        if(currentRoom.getDoor('e').isOpen())
-            currentRoom = currentRoom.getEast();
+        currentRoom = currentRoom.getEast();
     }
 
-    public boolean goSouth() {
+    public boolean isRoomSouth() {
         if (currentRoom.getSouth() == null) {
             return false;
         } else {
-            currentRoom = currentRoom.getSouth();
             return true;
         }
     }
+    public void goSouth(){
+        currentRoom = currentRoom.getSouth();
+    }
 
-    public boolean goWest() {
+    public boolean isRoomWest() {
         if (currentRoom.getWest() == null) {
             return false;
         } else {
-            currentRoom = currentRoom.getWest();
             return true;
         }
+    }
+    public void goWest(){
+        currentRoom = currentRoom.getSouth();
     }
 
     ArrayList<Item> playerInventory = new ArrayList<>();
