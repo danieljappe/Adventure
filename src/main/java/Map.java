@@ -14,14 +14,14 @@ public class Map {
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
     Door door12 = new Door("door12",true,"","","");
-    Door door12 = new Door("door23",true,"","","");
-    Door door12 = new Door("door36",true,"","","");
-    Door door12 = new Door("door69",true,"","","");
-    Door door12 = new Door("door89",true,"","","");
-    Door door12 = new Door("door58",true,"","","");
-    Door door12 = new Door("door78",true,"","","");
-    Door door12 = new Door("door47",true,"","","");
-    Door door12 = new Door("door14",true,"","","");
+    Door door23 = new Door("d",true,"","","");
+    Door door36 = new Door("door36",true,"","","");
+    Door door69 = new Door("door69",true,"","","");
+    Door door89 = new Door("door89",true,"","","");
+    Door door58 = new Door("door58",true,"","","");
+    Door door78 = new Door("door78",true,"","","");
+    Door door47 = new Door("Stone slade of the coffin",true,"","","");
+    Door door14 = new Door("door14",true,"","","");
 
     public String storyLine(int i) {
         String line = "";
