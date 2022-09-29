@@ -5,12 +5,16 @@ public class Room {
     private String roomDescription;
     private Room north;
     private String northDescription;
+    private Door northDoor;
     private Room south;
     private String southDescription;
+    private Door southDoor;
     private Room east;
     private String eastDescription;
+    private Door eastDoor;
     private Room west;
     private String westDescription;
+    private Door westDoor;
     boolean beenThere;
 
 
@@ -105,20 +109,34 @@ public class Room {
         return isThere;
     }
 
-        public void addItemToRoom (Item item){
-            roomItems.add(item);
-        }
 
-        public Item takeItem (String itemSearch){
+    public void addItemToRoom (Item item){
+        roomItems.add(item);
+    }
+
+    public Item takeItem (String itemSearch){
         Item itemReturn = null;
-            for(Item item : roomItems){
-                if(item.getItemName().contains(itemSearch.toLowerCase().trim())){
+        for(Item item : roomItems){
+            if(item.getItemName().contains(itemSearch.toLowerCase().trim())){
                     itemReturn = item;
                     System.out.println("TAGER ITEM");
-                }
             }
-            roomItems.remove(itemReturn);
-            return itemReturn;
         }
-
+        roomItems.remove(itemReturn);
+        return itemReturn;
     }
+
+
+
+
+
+
+
+    public void setDoors(Door north,Door south,Door east,Door west){
+        this.northDoor = north;
+        this.southDoor = south;
+        this.eastDoor = east;
+        this.westDoor = west;
+    }
+
+}

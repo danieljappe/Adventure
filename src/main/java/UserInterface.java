@@ -25,6 +25,7 @@ public class UserInterface {
                     if (adventure.go('n')) {
                         System.out.println("\u001B[32mGoing north\u001B[39m");
                         System.out.println(currentRoom.getNorthDescription());
+                        currentRoom = adventure.getCurrentRoom();
                         System.out.println(currentRoom.getRoomDescription());
 
                     } else {
@@ -33,10 +34,12 @@ public class UserInterface {
                 }
 
                 case "go east", "east", "e" -> {
+                    Room currentRoom = adventure.getCurrentRoom();
                     if (adventure.go('e')) {
-                        Room currentRoom = adventure.getCurrentRoom();
                         System.out.println("\u001B[32mGoing south\u001B[39m");
-                        System.out.println(currentRoom.getSouthDescription());
+                        System.out.println(currentRoom.getEastDescription());
+                        currentRoom = adventure.getCurrentRoom();
+                        System.out.println(currentRoom.getRoomDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
@@ -44,10 +47,12 @@ public class UserInterface {
                 }
 
                 case "go south", "south", "s" -> {
+                    Room currentRoom = adventure.getCurrentRoom();
                     if (adventure.go('s')) {
-                        Room currentRoom = adventure.getCurrentRoom();
                         System.out.println("\u001B[32mGoing south\u001B[39m");
                         System.out.println(currentRoom.getSouthDescription());
+                        currentRoom = adventure.getCurrentRoom();
+                        System.out.println(currentRoom.getRoomDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
@@ -59,13 +64,15 @@ public class UserInterface {
                     if (adventure.go('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
                         System.out.println(currentRoom.getWestDescription());
+                        currentRoom = adventure.getCurrentRoom();
+                        System.out.println(currentRoom.getRoomDescription());
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
                 case "look"-> {
-                    System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                    //System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     System.out.println(adventure.getCurrentRoom().getRoomItems());
                 }
 

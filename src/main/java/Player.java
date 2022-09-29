@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Player {
     private Map map = new Map();
-    private Room currentRoom = map.room1;
+    private Room currentRoom = map.room1; // Bliver hentet uden getter!!
 
     public Room getCurrentRoom() {
         return currentRoom;
