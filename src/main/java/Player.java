@@ -47,4 +47,10 @@ public class Player {
 
     ArrayList<Item> playerInventory = new ArrayList<>();
 
+    public ArrayList<Item> getPlayerInventory() {
+        return playerInventory;
+    }
+    public void addToInventory(Item item){
+        playerInventory.add(item);
+    }
 }

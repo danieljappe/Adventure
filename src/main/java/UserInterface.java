@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -59,6 +60,24 @@ public class UserInterface {
 
                 case "look" -> {
                     System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                    System.out.println(adventure.getCurrentRoom().getRoomItems());
+                }
+
+                case "inventory" -> {
+                    System.out.println(adventure.getPlayer().getPlayerInventory());
+                }
+
+                case "take" -> {
+                    System.out.println("TAKE MENU");
+                    //System.out.println("what do you want to take?");
+                    //choice = scan.nextLine().toLowerCase();
+                    if(adventure.getCurrentRoom().isInRoom(itemWant)){
+                        System.out.println("ER I RUM");
+                        Item item = adventure.getCurrentRoom().takeItem(itemWant);
+                        adventure.getPlayer().addToInventory(item);
+                    } else {
+                        System.out.println("INTET FUNDET");
+                    }
                 }
 
                 case "help" -> {

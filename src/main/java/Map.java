@@ -13,7 +13,7 @@ public class Map {
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
-    Door door12 = new Door("door12",true,"","","");
+    /*Door door12 = new Door("door12",true,"","","");
     Door door23 = new Door("d",true,"","","");
     Door door36 = new Door("door36",true,"","","");
     Door door69 = new Door("door69",true,"","","");
@@ -184,7 +184,8 @@ public class Map {
     public void buildMap() {
         room1.setEast(room2);
         room1.setSouth(room4);
-
+        room1.addItemToRoom(item1);
+        room1.addItemToRoom(item2);
 
         room2.setWest(room1);
         room2.setEast(room3);
