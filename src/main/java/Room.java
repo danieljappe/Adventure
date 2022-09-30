@@ -94,10 +94,6 @@ public class Room {
 
     ArrayList<Item> roomItems = new ArrayList<>();
 
-    public ArrayList<Item> getRoomItems() {
-        return roomItems;
-    }
-
     public boolean isInRoom(String itemSearch) {
         boolean isThere = false;
         for (Item item : roomItems) {
@@ -108,23 +104,28 @@ public class Room {
         return isThere;
     }
 
-
     public void addItemToRoom (Item item){
         roomItems.add(item);
     }
 
-    public Item takeItem (String itemSearch){
-        Item itemReturn = null;
-        for(Item item : roomItems){
-            if(item.getItemName().contains(itemSearch.toLowerCase().trim())){
-                    itemReturn = item;
-                    System.out.println("TAGER ITEM");
-            }
-        }
-        roomItems.remove(itemReturn);
-        return itemReturn;
+
+    public void addItem(Item item){
+        roomItems.add(item);
     }
 
+    public Item removeItem(String itemName) {
+        for (Item item : roomItems) {
+            if (item.getItemName().equals(itemName)) {
+                roomItems.remove(item);
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public ArrayList<Item> getRoomItems() {
+        return roomItems;
+    }
 
 
 

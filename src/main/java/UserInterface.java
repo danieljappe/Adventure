@@ -11,17 +11,17 @@ public class UserInterface {
         System.out.println(adventure.getMap().storyLine(100));
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
-            String choice = scan.nextLine().toLowerCase();
 
-            String itemWant = null;
-            if(choice.contains("take")){//TODO find en bedre måde
-                itemWant = choice;
-                choice = "take";
-                System.out.println("CHOICE TAKE KØRER");
-                System.out.println(itemWant);
+            String choice = scan.nextLine();
+
+            String[] userInputList = choice.split(" ");
+            String command = userInputList[0];
+            String direction = "";
+            if (userInputList.length > 1) {
+                direction = userInputList[1];
             }
 
-            switch (choice) {
+            switch (command) {
                 case "go north", "north", "n" -> {
 
                     if (adventure.isRoom('n')) {
@@ -71,7 +71,6 @@ public class UserInterface {
                     }
                 }
 
-
                 case "go west", "west", "w" -> {
                     if (adventure.isRoom('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
@@ -100,7 +99,13 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    Item pickedUpItem = adventure.getPlayer().getCurrentRoom().takeItem(itemWant);
+                    Item pickedUpItem = adventure.getPlayer().getCurrentRoom().removeItem(direction);
+                    if (pickedUpItem == null){
+                        System.out.println("Nothing");
+                    } else {
+                        System.out.println("You have picked up " + pickedUpItem);
+                        adventure.getPlayer().addToInventory(pickedUpItem);
+                    }
                 }
 
                 case "help" -> {
