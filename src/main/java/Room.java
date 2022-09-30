@@ -95,7 +95,6 @@ public class Room {
     }
 
     public boolean isInRoom(String itemSearch) {
-
         boolean isThere = false;
         for (Item item : roomItems) {
             if (item.getItemName().toLowerCase().contains(itemSearch.toLowerCase().trim())) {

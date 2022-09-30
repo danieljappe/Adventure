@@ -2,8 +2,12 @@ public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
 
+    public void buildMap(){
+        map.buildMap();
+    }
+
     public Room getCurrentRoom() {
-        return player.getCurrentRoom();
+        return map.getCurrentRoom();
     }
 
 

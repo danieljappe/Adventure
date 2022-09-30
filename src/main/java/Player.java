@@ -1,12 +1,8 @@
 import java.util.ArrayList;
 
 public class Player {
-    private Map map = new Map();
-    private Room currentRoom = map.room1;
-
-    public Room getCurrentRoom() {
-        return currentRoom;
-    }
+    Adventure adventure = new Adventure();
+    private Room currentRoom = adventure.getCurrentRoom();
 
     public boolean goNorth() {
         if (currentRoom.getNorth() == null) {

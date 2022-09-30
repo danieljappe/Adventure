@@ -13,6 +13,12 @@ public class Map {
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
+    private Room currentRoom = room1;
+
+    public Room getCurrentRoom() {
+        return currentRoom;
+    }
+
     /*Door door12 = new Door("door12",true,"","","");
     Door door23 = new Door("d",true,"","","");
     Door door36 = new Door("door36",true,"","","");
