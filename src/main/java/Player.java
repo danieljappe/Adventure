@@ -19,6 +19,7 @@ public class Player {
             return true;
         }
     }
+
     public void goNorth(){
         currentRoom = currentRoom.getNorth();
     }

@@ -15,15 +15,6 @@ public class Map {
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
 
-    /*Door door12 = new Door("door12",true,"","","");
-    Door door23 = new Door("d",true,"","","");
-    Door door36 = new Door("door36",true,"","","");
-    Door door69 = new Door("door69",true,"","","");
-    Door door89 = new Door("door89",true,"","","");
-    Door door58 = new Door("door58",true,"","","");
-    Door door78 = new Door("door78",true,"","","");
-    Door door47 = new Door("Stone slade of the coffin",true,"","","");
-    Door door14 = new Door("door14",true,"","","");*/
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
     Door door23 = new Door("iron gate",true,storyLine(231),storyLine(232),null);
     Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
@@ -247,7 +238,7 @@ public class Map {
 
         room9.setWest(room8);
         room9.setNorth(room6);
-        room8.setDoors(door69,null,null,door89); //n s e w
+        room9.setDoors(door69,null,null,door89); //n s e w
     }
     public Room getStartRoom() {
         return room1;
