@@ -66,7 +66,18 @@ public class Player {
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
     }
+
     public void addToInventory(Item item){
         playerInventory.add(item);
+    }
+
+    public Item removeItem(String itemName) {
+        for (Item item : playerInventory) {
+            if (item.getItemName().equals(itemName)) {
+                playerInventory.remove(item);
+                return item;
+            }
+        }
+        return null;
     }
 }

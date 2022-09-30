@@ -11,17 +11,17 @@ public class UserInterface {
         System.out.println(adventure.getMap().storyLine(100));
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
-            String choice = scan.nextLine().toLowerCase();
 
-            String[] splitInTwo = choice.split(" ");
-            String itemWant="";
-            System.out.println(splitInTwo.length);
-            if(splitInTwo.length>1){
-                itemWant = splitInTwo[1];
-                choice = splitInTwo[0];
-                System.out.println("splitter");
+            String choice = scan.nextLine();
+
+            String[] userInputList = choice.split(" ");
+            String command = userInputList[0];
+            String direction = "";
+            if (userInputList.length > 1) {
+                direction = userInputList[1];
             }
-            switch (choice) {
+
+            switch (command) {
                 case "go north", "north", "n" -> {
 
                     if (adventure.isRoom('n')) {
@@ -71,7 +71,6 @@ public class UserInterface {
                     }
                 }
 
-
                 case "go west", "west", "w" -> {
                     if (adventure.isRoom('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
@@ -100,12 +99,23 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    System.out.println("TAKE MENU");
-                    //System.out.println("what do you want to take?");
-                    //choice = scan.nextLine().toLowerCase();
-                     Item item = adventure.getCurrentRoom().takeItemFromRoom(itemWant);
-                     adventure.getPlayer().addToInventory(item);
-                     adventure.getCurrentRoom().removeItemFromRoom(item);
+                    Item pickedUpItem = adventure.getPlayer().getCurrentRoom().removeItem(direction);
+                    if (pickedUpItem == null){
+                        System.out.println("Nothing");
+                    } else {
+                        System.out.println("You have picked up " + pickedUpItem);
+                        adventure.getPlayer().addToInventory(pickedUpItem);
+                    }
+                }
+
+                case "drop" -> {
+                    Item droppedItem = adventure.getPlayer().removeItem(direction);
+                    if (droppedItem == null) {
+                        System.out.println("Nothing");
+                    } else {
+                        System.out.println("You have dropped " + droppedItem);
+                        adventure.getPlayer().getCurrentRoom().addItem(droppedItem);
+                    }
                 }
 
                 case "help" -> {

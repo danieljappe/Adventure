@@ -95,41 +95,38 @@ public class Room {
 
 
 
-    public ArrayList<Item> getRoomItems() {
-        return roomItems;
-    }
-
-    public Item takeItemFromRoom(String itemSearch) {
-        Item itemTake = null;
+    public boolean isInRoom(String itemSearch) {
+        boolean isThere = false;
         for (Item item : roomItems) {
             if (item.getItemName().toLowerCase().contains(itemSearch.toLowerCase().trim())) {
-                itemTake = item;
-                System.out.println("item found!!!!!!!!!!!!");
+                isThere=true;
             }
         }
-        return itemTake;
+        return isThere;
     }
-
 
     public void addItemToRoom (Item item){
         roomItems.add(item);
     }
-    public void removeItemFromRoom(Item item){
-        roomItems.remove(item);
+
+
+    public void addItem(Item item){
+        roomItems.add(item);
     }
 
-    public Item takeItem (String itemSearch){
-        Item itemReturn = null;
-        for(Item item : roomItems){
-            if(item.getItemName().contains(itemSearch.toLowerCase().trim())){
-                    itemReturn = item;
-                    System.out.println("TAGER ITEM");
+    public Item removeItem(String itemName) {
+        for (Item item : roomItems) {
+            if (item.getItemName().equals(itemName)) {
+                roomItems.remove(item);
+                return item;
             }
         }
-        roomItems.remove(itemReturn);
-        return itemReturn;
+        return null;
     }
 
+    public ArrayList<Item> getRoomItems() {
+        return roomItems;
+    }
 
 
 
