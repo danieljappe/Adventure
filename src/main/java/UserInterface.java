@@ -12,6 +12,7 @@ public class UserInterface {
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
             String choice = scan.nextLine().toLowerCase();
+
             String itemWant = null;
             if(choice.contains("take")){//TODO find en bedre måde
                 itemWant = choice;
@@ -19,6 +20,7 @@ public class UserInterface {
                 System.out.println("CHOICE TAKE KØRER");
                 System.out.println(itemWant);
             }
+
             switch (choice) {
                 case "go north", "north", "n" -> {
 
@@ -98,16 +100,7 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    System.out.println("TAKE MENU");
-                    //System.out.println("what do you want to take?");
-                    //choice = scan.nextLine().toLowerCase();
-                    if(adventure.getCurrentRoom().isInRoom(itemWant)){
-                        System.out.println("ER I RUM");
-                        Item item = adventure.getCurrentRoom().takeItem(itemWant);
-                        adventure.getPlayer().addToInventory(item);
-                    } else {
-                        System.out.println("INTET FUNDET");
-                    }
+                    Item pickedUpItem = adventure.getPlayer().getCurrentRoom().takeItem(itemWant);
                 }
 
                 case "help" -> {
