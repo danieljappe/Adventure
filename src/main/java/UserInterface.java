@@ -21,35 +21,49 @@ public class UserInterface {
             }
             switch (choice) {
                 case "go north", "north", "n" -> {
-                    Room currentRoom = adventure.getCurrentRoom();
-                    if (adventure.go('n')) {
-                        System.out.println("\u001B[32mGoing north\u001B[39m");
-                        System.out.println(currentRoom.getNorthDescription());
-                        System.out.println(currentRoom.getRoomDescription());
 
+                    if (adventure.isRoom('n')) {
+                        System.out.println("\u001B[32mGoing north\u001B[39m");
+                        System.out.println(adventure.getCurrentRoom().getNorthDescription());
+                        if(adventure.getCurrentRoom().getDoor('n').isOpen()) {
+                            adventure.go('n');
+                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                        }else{
+                            System.out.println(adventure.getCurrentRoom().getDoor('n').getClosedDescription());
+                            //TODO make option to use key
+                        }
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
                 case "go east", "east", "e" -> {
-                    if (adventure.go('e')) {
-                        Room currentRoom = adventure.getCurrentRoom();
+                    if (adventure.isRoom('e')) {
                         System.out.println("\u001B[32mGoing east\u001B[39m");
-                        System.out.println(currentRoom.getEastDescription());
-                        System.out.println(currentRoom.getRoomDescription());
+                        System.out.println(adventure.getCurrentRoom().getEastDescription());
+                        if(adventure.getCurrentRoom().getDoor('e').isOpen()) {
+                            adventure.go('e');
+                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                        }else{
+                            System.out.println(adventure.getCurrentRoom().getDoor('e').getClosedDescription());
+                            //TODO make option to use key
+                        }
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
-                    //System.out.println(adventure.go('e'));
                 }
 
                 case "go south", "south", "s" -> {
-                    if (adventure.go('s')) {
-                        Room currentRoom = adventure.getCurrentRoom();
+                    if (adventure.isRoom('s')) {
                         System.out.println("\u001B[32mGoing south\u001B[39m");
-                        System.out.println(currentRoom.getSouthDescription());
-                        System.out.println(currentRoom.getRoomDescription());
+                        System.out.println(adventure.getCurrentRoom().getSouthDescription());
+                        if(adventure.getCurrentRoom().getDoor('s').isOpen()) {
+                            adventure.go('s');
+                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                        }else{
+                            System.out.println(adventure.getCurrentRoom().getDoor('s').getClosedDescription());
+                            //TODO make option to use key
+                        }
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
@@ -57,18 +71,23 @@ public class UserInterface {
 
 
                 case "go west", "west", "w" -> {
-                    Room currentRoom = adventure.getCurrentRoom();
-                    if (adventure.go('w')) {
+                    if (adventure.isRoom('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
-                        System.out.println(currentRoom.getWestDescription());
-                        System.out.println(currentRoom.getRoomDescription());
+                        System.out.println(adventure.getCurrentRoom().getWestDescription());
+                        if(adventure.getCurrentRoom().getDoor('w').isOpen()) {
+                            adventure.go('w');
+                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                        }else{
+                            System.out.println(adventure.getCurrentRoom().getDoor('w').getClosedDescription());
+                            //TODO make option to use key
+                        }
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
                 case "look"-> {
-                    System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                    //System.out.println(adventure.getCurrentRoom().getRoomDescription());
                     System.out.println(adventure.getCurrentRoom().getRoomItems());
                 }
 
@@ -80,7 +99,7 @@ public class UserInterface {
                     System.out.println("TAKE MENU");
                     //System.out.println("what do you want to take?");
                     //choice = scan.nextLine().toLowerCase();
-                    if(true){//adventure.getCurrentRoom().isInRoom(itemWant)
+                    if(adventure.getCurrentRoom().isInRoom(itemWant)){
                         System.out.println("ER I RUM");
                         Item item = adventure.getCurrentRoom().takeItem(itemWant);
                         adventure.getPlayer().addToInventory(item);

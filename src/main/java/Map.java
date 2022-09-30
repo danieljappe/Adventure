@@ -28,6 +28,15 @@ public class Map {
     Door door78 = new Door("door78",true,"","","");
     Door door47 = new Door("Stone slade of the coffin",true,"","","");
     Door door14 = new Door("door14",true,"","","");*/
+    Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
+    Door door23 = new Door("iron gate",true,storyLine(231),storyLine(232),null);
+    Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
+    Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
+    Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
+    Door door58 = new Door("big gate",true,storyLine(851),storyLine(852),null);
+    Door door78 = new Door("door78",true,storyLine(781),storyLine(782),null);
+    Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),null);
+    Door door14 = new Door("door to the mausoleum",true,storyLine(141),storyLine(142),null);
 
     private Item item1 = new Item("item1");
     private Item item2 = new Item("item2");
@@ -81,9 +90,13 @@ public class Map {
                 line = "You leve the place were woke and wonder into the darkness";
                 break;
             case 140:
-                line ="Your path ends in front of a mausoleum\n" +
-                        "the door to the closed\n" +
-                        "the door is open you walk in\n";
+                line ="Your path ends in front of a mausoleum\n" ;
+                break;
+            case 141:
+                line ="the door to the closed\n";
+                break;
+            case 142:
+                line ="the door is open you walk in\n";
                 break;
             case 200:
                 line = "As you walk along the path, you suddenly get the ery feeling that someone\n" +
@@ -129,14 +142,20 @@ public class Map {
                         "in the middle a sarcophagus of marble\n";
                 break;
             case 410:
-                line = "You turn to the door leading out of the mausoleum\n" +
-                        "it is closed\n" +
-                        "its open, you walk out\n";
-
+                line = "You turn to the door leading out of the mausoleum\n";
+            case 411:
+                line ="it is closed, you cant get out\n";
+                break;
+            case 412:
+                line ="its open, you walk out\n";
                 break;
             case 470:
-                line = "";
+                line = "You walk down the stairs into the darkness\n";
                 break;
+            case 471:
+                line = "You push, but the stone slab won't budge\n";
+            case 472:
+                line = "The stone slab moves aside, revealing a hidden staircase\n ";
             case 500:
                 line = "5:";
                 break;
@@ -146,7 +165,7 @@ public class Map {
                         "As you walk for a couple of minutes, a crack in the wall appears.\n";
                 break;
             case 610:
-                line = "You climb up the ladder and out of the sewer.\n" +
+                line = "You climb up the ladder, out of the sewer, and into the moonlight\n" +
                         "Finally some fresh air.";//from room6 to room3
                 break;
             case 630:
@@ -200,30 +219,39 @@ public class Map {
         room1.setSouth(room4);
         room1.addItemToRoom(item1);
         room1.addItemToRoom(item2);
+        room1.setDoors(null,door14,door12,null);
 
         room2.setWest(room1);
         room2.setEast(room3);
+        room2.setDoors(null,null,door23,door12);
 
         room3.setSouth(room6);
         room3.setWest(room2);
+        room3.setDoors(null,door36,null,door23);
 
         room4.setNorth(room1);
         room4.setSouth(room7);
+        room4.setDoors(door14,door47,null,null);
 
         room5.setSouth(room8);
+        room5.setDoors(null,door58,null,null);
 
         room6.setSouth(room9);
         room6.setNorth(room3);
+        room6.setDoors(door36,door69,null,null);
 
         room7.setNorth(room4);
         room7.setEast(room8);
+        room7.setDoors(door47,null,door78,null);
 
         room8.setWest(room7);
         room8.setEast(room9);
         room8.setNorth(room5);
+        room8.setDoors(door58,null,door89,door78);
 
         room9.setWest(room8);
         room9.setNorth(room6);
+        room8.setDoors(door69,null,null,door89); //n s e w
     }
     // Getters:
 
