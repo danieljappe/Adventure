@@ -16,7 +16,7 @@ public class Room {
     private String westDescription;
     private Door westDoor;
     boolean beenThere;
-
+    private ArrayList<Item> roomItems;
 
     public Room(String roomName, String roomDescription, String northDescription, String southDescription,
                 String eastDescription, String westDescription) {
@@ -26,6 +26,7 @@ public class Room {
         this.southDescription = southDescription;
         this.eastDescription = eastDescription;
         this.westDescription = westDescription;
+        roomItems = new ArrayList<>();
     }
 
     public String getRoomName() {
@@ -92,25 +93,29 @@ public class Room {
         return westDescription;
     }
 
-    ArrayList<Item> roomItems = new ArrayList<>();
+
 
     public ArrayList<Item> getRoomItems() {
         return roomItems;
     }
 
-    public boolean isInRoom(String itemSearch) {
-        boolean isThere = false;
+    public Item takeItemFromRoom(String itemSearch) {
+        Item itemTake = null;
         for (Item item : roomItems) {
             if (item.getItemName().toLowerCase().contains(itemSearch.toLowerCase().trim())) {
-                isThere=true;
+                itemTake = item;
+                System.out.println("item found!!!!!!!!!!!!");
             }
         }
-        return isThere;
+        return itemTake;
     }
 
 
     public void addItemToRoom (Item item){
         roomItems.add(item);
+    }
+    public void removeItemFromRoom(Item item){
+        roomItems.remove(item);
     }
 
     public Item takeItem (String itemSearch){

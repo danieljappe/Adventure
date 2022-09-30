@@ -3,6 +3,11 @@ import java.util.ArrayList;
 public class Player {
 
     private Room currentRoom;
+    private ArrayList<Item> playerInventory;
+
+    public Player(){
+        playerInventory = new ArrayList<>();
+    }
 
     public Room getCurrentRoom() {
         return currentRoom;
@@ -56,7 +61,7 @@ public class Player {
         currentRoom = currentRoom.getWest();
     }
 
-    ArrayList<Item> playerInventory = new ArrayList<>();
+
 
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
