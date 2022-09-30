@@ -6,10 +6,13 @@ public class Adventure {
         map.buildMap();
     }
 
-    public Room getCurrentRoom() {
-        return map.getCurrentRoom();
+    public Adventure() {
+        player.setCurrentRoom(map.getStartRoom());
     }
 
+    public Room getCurrentRoom() {
+        return player.getCurrentRoom();
+    }
 
     public void go(char direction) {
 

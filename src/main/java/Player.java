@@ -8,6 +8,10 @@ public class Player {
         return currentRoom;
     }
 
+    public void setCurrentRoom(Room currentRoom) {
+        this.currentRoom = currentRoom;
+    }
+
     public boolean isRoomNorth() {
         if (currentRoom.getNorth() == null) {
             return false;
