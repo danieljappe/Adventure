@@ -12,11 +12,14 @@ public class UserInterface {
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
             String choice = scan.nextLine().toLowerCase();
-            String itemWant = null;
-            if(choice.contains("take")){//TODO find en bedre måde
-                itemWant = choice;
-                choice = "take";
 
+            String[] splitInTwo = choice.split(" ");
+            String itemWant="";
+            System.out.println(splitInTwo.length);
+            if(splitInTwo.length>1){
+                itemWant = splitInTwo[1];
+                choice = splitInTwo[0];
+                System.out.println("splitter");
             }
             switch (choice) {
                 case "go north", "north", "n" -> {
