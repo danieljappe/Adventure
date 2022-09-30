@@ -80,7 +80,7 @@ public class UserInterface {
                     System.out.println("TAKE MENU");
                     //System.out.println("what do you want to take?");
                     //choice = scan.nextLine().toLowerCase();
-                    if(adventure.getCurrentRoom().isInRoom(itemWant)){
+                    if(true){//adventure.getCurrentRoom().isInRoom(itemWant)
                         System.out.println("ER I RUM");
                         Item item = adventure.getCurrentRoom().takeItem(itemWant);
                         adventure.getPlayer().addToInventory(item);
