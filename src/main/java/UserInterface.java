@@ -108,6 +108,16 @@ public class UserInterface {
                     }
                 }
 
+                case "drop" -> {
+                    Item droppedItem = adventure.getPlayer().removeItem(direction);
+                    if (droppedItem == null) {
+                        System.out.println("Nothing");
+                    } else {
+                        System.out.println("You have dropped " + droppedItem);
+                        adventure.getPlayer().getCurrentRoom().addItem(droppedItem);
+                    }
+                }
+
                 case "help" -> {
                     System.out.println("Print hjælp ud");
                 }
