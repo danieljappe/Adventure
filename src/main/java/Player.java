@@ -48,7 +48,7 @@ public class Player {
         }
     }
     public void goWest(){
-        currentRoom = currentRoom.getSouth();
+        currentRoom = currentRoom.getWest();
     }
 
     ArrayList<Item> playerInventory = new ArrayList<>();

@@ -11,7 +11,7 @@ public class Adventure {
 
         switch (direction) {
             case 'n' -> {
-                player.goNorth()
+                player.goNorth();
             }
             case 's' -> {
                 player.goSouth();
