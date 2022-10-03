@@ -71,7 +71,7 @@ public class Player {
         playerInventory.add(item);
     }
 
-    public Item removeItem(String itemName) {
+    public Item getAndRemoveItem(String itemName) {
         for (Item item : playerInventory) {
             if (item.getItemName().equals(itemName)) {
                 playerInventory.remove(item);
@@ -80,4 +80,17 @@ public class Player {
         }
         return null;
     }
+    public Item getItemFromInventory(String itemSearch){ //get but not remove item
+        for (Item item : playerInventory) {
+          if(item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())){
+              return item;
+          }
+        }
+        return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
+    }
+    public void removeItemFromInventory(Item itemToRemove){
+        playerInventory.remove(itemToRemove);
+    }
+
+
 }

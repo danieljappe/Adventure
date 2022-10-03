@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -109,13 +108,16 @@ public class UserInterface {
                 }
 
                 case "drop" -> {
-                    Item droppedItem = adventure.getPlayer().removeItem(direction);
+                    Item droppedItem = adventure.getPlayer().getAndRemoveItem(direction);
                     if (droppedItem == null) {
                         System.out.println("Nothing");
                     } else {
                         System.out.println("You have dropped " + droppedItem);
                         adventure.getPlayer().getCurrentRoom().addItem(droppedItem);
                     }
+                }
+                case "use" -> {
+                    
                 }
 
                 case "help" -> {
