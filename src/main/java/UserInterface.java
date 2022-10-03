@@ -121,16 +121,26 @@ public class UserInterface {
                     }
                 }
                 case "use" -> {
-                    Item item;
-                    item = adventure.getPlayer().getItemFromInventory(direction);
-                    if(item == null){
-                        System.out.println("You dont have that item");
+                    //System.out.println(adventure.use(direction,obstacle));
+                    Item keyItem;
+                    keyItem = adventure.getPlayer().getItemFromInventory(direction);
+                    if(keyItem == null){
+                        System.out.println("You don't have that item");
                     }else{
                         char[] nsew ={'n','s','e','w'};
-                        Door door;
+                        Door door = null;
                         for(int i =0; i<nsew.length;i++) {
                             if (adventure.getCurrentRoom().getDoor(nsew[i]).getName().contains(obstacle.toLowerCase().trim())) {
                                 door = adventure.getCurrentRoom().getDoor(nsew[i]);
+                            }
+                        }
+                        if(door == null){
+                            System.out.println("cant find "+obstacle);
+                        }else{
+                            if(door.openDoor(keyItem)){
+                                System.out.println(door.getOpenDescription());
+                            }else {
+                                System.out.println("You try it,\nbut it doesn't work ");
                             }
                         }
                     }

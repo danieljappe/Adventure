@@ -3,6 +3,11 @@ public class Map {
     public Map() {
         buildMap();
     }
+    private Item item1 = new Item("item1");
+    private Item item2 = new Item("item2");
+    private Item item3 = new Item("item3");
+    private Item item4 = new Item("item4");
+    private Item item5 = new Item("item5");
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
@@ -16,7 +21,7 @@ public class Map {
 
 
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
-    Door door23 = new Door("iron gate",true,storyLine(231),storyLine(232),null);
+    Door door23 = new Door("iron gate",true,storyLine(231),storyLine(232),item1);
     Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
     Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
@@ -25,11 +30,6 @@ public class Map {
     Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),null);
     Door door14 = new Door("door to the mausoleum",true,storyLine(141),storyLine(142),null);
 
-    private Item item1 = new Item("item1");
-    private Item item2 = new Item("item2");
-    private Item item3 = new Item("item3");
-    private Item item4 = new Item("item4");
-    private Item item5 = new Item("item5");
 
 
 

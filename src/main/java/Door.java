@@ -23,9 +23,12 @@ public class Door {
         return closed;
     }
 
-    public void openDoor(Item key){
+    public boolean openDoor(Item key){
         if(key==rightKey){
             isOpen = true;
+            return true;
+        }else {
+            return false;
         }
     }
     public String getName(){
