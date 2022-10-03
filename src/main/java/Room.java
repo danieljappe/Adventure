@@ -105,10 +105,15 @@ public class Room {
         return isThere;
     }
 
+    // bruges i buildMap()
     public void addItemToRoom (Item item){
         roomItems.add(item);
     }
 
+
+    public ArrayList<Item> getRoomItems() {
+        return roomItems;
+    }
 
     public void addItem(Item item){
         roomItems.add(item);
@@ -123,14 +128,6 @@ public class Room {
         }
         return null;
     }
-
-    public ArrayList<Item> getRoomItems() {
-        return roomItems;
-    }
-
-
-
-
 
 
     public void setDoors(Door north,Door south,Door east,Door west){

@@ -18,8 +18,6 @@ public class Adventure {
         return player.go(direction);
     }
 
-
-
     public Map getMap() {
         return map;
     }
@@ -29,15 +27,11 @@ public class Adventure {
     }
 
     public Item takeItem(String commandParameter) {
-        Item pickedUpItem = player.getCurrentRoom().removeItem(commandParameter);
-        player.addToInventory(pickedUpItem);
-        return pickedUpItem;
+        return player.takeItem(commandParameter);
     }
 
     public Item dropItem(String commandParameter) {
-        Item droppedItem = player.getCurrentRoom().addItem(commandParameter);
-        player.removeItemFromInventory(droppedItem);
-        return droppedItem;
+        return player.dropItem(commandParameter);
     }
 
 

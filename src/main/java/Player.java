@@ -25,8 +25,9 @@ public class Player {
     }
 
     public boolean go(String direction) {
+        Room requestedRoom = null;
+
         switch (direction) {
-            Room requestedRoom = null;
 
             case "n", "north" -> {
                 requestedRoom = currentRoom.getNorth();
@@ -40,67 +41,79 @@ public class Player {
             case "w", "west" -> {
                 requestedRoom = currentRoom.getWest();
             }
-            if (requestedRoom != null) {
-                currentRoom = requestedRoom;
-                return true;
-            } else {
-                return false;
-            }
         }
-
-        public boolean isRoomEast() {
-            if (currentRoom.getEast() == null) {
-                return false;
-            } else {
-                return true;
-            }
+        if (requestedRoom != null) {
+            currentRoom = requestedRoom;
+            return true;
+        } else {
+            return false;
         }
-
-        public boolean isRoomSouth() {
-            if (currentRoom.getSouth() == null) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        public boolean isRoomWest() {
-            if (currentRoom.getWest() == null) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-
-        public ArrayList<Item> getPlayerInventory() {
-            return playerInventory;
-        }
-
-        public void addToInventory (Item item){
-            playerInventory.add(item);
-        }
-
-        public Item getAndRemoveItem (String itemName){
-            for (Item item : playerInventory) {
-                if (item.getItemName().equals(itemName)) {
-                    playerInventory.remove(item);
-                    return item;
-                }
-            }
-            return null;
-        }
-        public Item getItemFromInventory (String itemSearch){ //get but not remove item
-            for (Item item : playerInventory) {
-                if (item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())) {
-                    return item;
-                }
-            }
-            return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
-        }
-        public void removeItemFromInventory (Item itemToRemove){
-            playerInventory.remove(itemToRemove);
-        }
-
-
     }
+
+    public boolean isRoomEast() {
+        if (currentRoom.getEast() == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isRoomSouth() {
+        if (currentRoom.getSouth() == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public boolean isRoomWest() {
+        if (currentRoom.getWest() == null) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    public ArrayList<Item> getPlayerInventory() {
+        return playerInventory;
+    }
+
+    public void addToInventory(Item item) {
+        playerInventory.add(item);
+    }
+
+    public Item removeFromInventory(String name) {
+        for (Item item : playerInventory) {
+            if (item.getItemName().equals(name)) {
+                playerInventory.remove(item);
+                return item;
+            }
+        }
+        return null;
+    }
+
+    public Item takeItem(String commandParameter) {
+        Item pickedUpItem = getCurrentRoom().removeItem(commandParameter);
+        addToInventory(pickedUpItem);
+        return pickedUpItem;
+    }
+
+    public Item dropItem(String commandParameter) {
+        Item droppedItem = removeFromInventory(commandParameter);
+        currentRoom.addItem(droppedItem);
+        return droppedItem;
+    }
+
+
+    public Item getItemFromInventory(String itemSearch) { //get but not remove item
+        for (Item item : playerInventory) {
+            if (item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())) {
+                return item;
+            }
+        }
+        return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
+    }
+
+
 }
+
