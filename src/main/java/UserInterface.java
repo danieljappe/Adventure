@@ -16,8 +16,12 @@ public class UserInterface {
             String[] userInputList = choice.split(" ");
             String command = userInputList[0];
             String direction = "";
+            String obstacle = "";
             if (userInputList.length > 1) {
                 direction = userInputList[1];
+                if(userInputList.length >2){
+                    obstacle = userInputList[userInputList.length-1];
+                }
             }
 
             switch (command) {
@@ -117,6 +121,19 @@ public class UserInterface {
                     }
                 }
                 case "use" -> {
+                    Item item;
+                    item = adventure.getPlayer().getItemFromInventory(direction);
+                    if(item == null){
+                        System.out.println("You dont have that item");
+                    }else{
+                        char[] nsew ={'n','s','e','w'};
+                        Door door;
+                        for(int i =0; i<nsew.length;i++) {
+                            if (adventure.getCurrentRoom().getDoor(nsew[i]).getName().contains(obstacle.toLowerCase().trim())) {
+                                door = adventure.getCurrentRoom().getDoor(nsew[i]);
+                            }
+                        }
+                    }
                     
                 }
 

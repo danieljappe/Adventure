@@ -28,6 +28,9 @@ public class Door {
             isOpen = true;
         }
     }
+    public String getName(){
+        return name;
+    }
 
 
 }
