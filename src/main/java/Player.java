@@ -1,11 +1,10 @@
 import java.util.ArrayList;
 
 public class Player {
-
     private Room currentRoom;
     private ArrayList<Item> playerInventory;
 
-    public Player(){
+    public Player() {
         playerInventory = new ArrayList<>();
     }
 
@@ -29,70 +28,59 @@ public class Player {
         currentRoom = currentRoom.getNorth();
     }
 
-    public boolean isRoomEast(){
-        if (currentRoom.getEast()==null){
-            return false;
-        }else{
-            return true;
-        }
-    }
-
-    public void goEast() {
-        currentRoom = currentRoom.getEast();
-    }
-
-    public boolean isRoomSouth() {
-        if (currentRoom.getSouth() == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public void goSouth(){
-        currentRoom = currentRoom.getSouth();
-    }
-
-    public boolean isRoomWest() {
-        if (currentRoom.getWest() == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    public void goWest(){
-        currentRoom = currentRoom.getWest();
-    }
-
-    public ArrayList<Item> getPlayerInventory() {
-        return playerInventory;
-    }
-
-    public void addToInventory(Item item){
-        playerInventory.add(item);
-    }
-
-    public Item getAndRemoveItem(String itemName) {
-        for (Item item : playerInventory) {
-            if (item.getItemName().equals(itemName)) {
-                playerInventory.remove(item);
-                return item;
+        public boolean isRoomEast() {
+            if (currentRoom.getEast() == null) {
+                return false;
+            } else {
+                return true;
             }
         }
-        return null;
-    }
-    public Item getItemFromInventory(String itemSearch){ //get but not remove item
-        for (Item item : playerInventory) {
-          if(item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())){
-              return item;
-          }
+
+        public boolean isRoomSouth() {
+            if (currentRoom.getSouth() == null) {
+                return false;
+            } else {
+                return true;
+            }
         }
-        return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
-    }
-    public void removeItemFromInventory(Item itemToRemove){
-        playerInventory.remove(itemToRemove);
-    }
+
+        public boolean isRoomWest() {
+            if (currentRoom.getWest() == null) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+
+        public ArrayList<Item> getPlayerInventory() {
+            return playerInventory;
+        }
+
+        public void addToInventory (Item item){
+            playerInventory.add(item);
+        }
+
+        public Item getAndRemoveItem (String itemName){
+            for (Item item : playerInventory) {
+                if (item.getItemName().equals(itemName)) {
+                    playerInventory.remove(item);
+                    return item;
+                }
+            }
+            return null;
+        }
+        public Item getItemFromInventory (String itemSearch){ //get but not remove item
+            for (Item item : playerInventory) {
+                if (item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())) {
+                    return item;
+                }
+            }
+            return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
+        }
+        public void removeItemFromInventory (Item itemToRemove){
+            playerInventory.remove(itemToRemove);
+        }
 
 
+    }
 }

@@ -6,6 +6,8 @@ public class UserInterface {
 
     public void start() {
         Scanner scan = new Scanner(System.in);
+        Room room = adventure.getCurrentRoom();
+
         System.out.println(adventure.getMap().storyLine(0));
         System.out.println(adventure.getMap().storyLine(100));
         do {
@@ -15,10 +17,10 @@ public class UserInterface {
 
             String[] userInputList = choice.split(" ");
             String command = userInputList[0];
-            String direction = "";
+            String commandParameter = "";
             String obstacle = "";
             if (userInputList.length > 1) {
-                direction = userInputList[1];
+                commandParameter = userInputList[1];
                 if(userInputList.length >2){
                     obstacle = userInputList[userInputList.length-1];
                 }
@@ -92,9 +94,9 @@ public class UserInterface {
 
                 case "look"-> {
                     //System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                    System.out.println(adventure.getCurrentRoom().getRoomName());
-                    System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                    System.out.println(adventure.getCurrentRoom().getRoomItems());
+                    System.out.println(room.getRoomName());
+                    System.out.println(room.getRoomDescription());
+                    System.out.println(room.getRoomItems());
                 }
 
                 case "inventory" -> {
@@ -112,18 +114,17 @@ public class UserInterface {
                 }
 
                 case "drop" -> {
-                    Item droppedItem = adventure.getPlayer().getAndRemoveItem(direction);
+                    Item droppedItem = adventure.dropItem(commandParameter);
                     if (droppedItem == null) {
                         System.out.println("Nothing");
                     } else {
                         System.out.println("You have dropped " + droppedItem);
-                        adventure.getPlayer().getCurrentRoom().addItem(droppedItem);
                     }
                 }
                 case "use" -> {
-                    //System.out.println(adventure.use(direction,obstacle));
+                    //System.out.println(adventure.use(commandParameter,obstacle));
                     Item keyItem;
-                    keyItem = adventure.getPlayer().getItemFromInventory(direction);
+                    keyItem = adventure.getPlayer().getItemFromInventory(commandParameter);
                     if(keyItem == null){
                         System.out.println("You don't have that item");
                     }else{
