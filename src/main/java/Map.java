@@ -21,7 +21,7 @@ public class Map {
 
 
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
-    Door door23 = new Door("iron gate",true,storyLine(231),storyLine(232),item1);
+    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232),item1);
     Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
     Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
