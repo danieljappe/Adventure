@@ -14,44 +14,11 @@ public class Adventure {
         return player.getCurrentRoom();
     }
 
-    public void go(char direction) {
-
-        switch (direction) {
-            case 'n' -> {
-                player.goNorth();
-            }
-            case 's' -> {
-                player.goSouth();
-            }
-            case 'e' -> {
-                player.goEast();
-            }
-            case 'w' -> {
-                player.goWest();
-            }
-        }
+    public boolean go(String direction) {
+        return player.go(direction);
     }
 
-    public boolean isRoom(char direction) {
 
-        switch (direction) {
-            case 'n' -> {
-                return player.isRoomNorth();
-            }
-            case 's' -> {
-                return player.isRoomSouth();
-            }
-            case 'e' -> {
-                return player.isRoomEast();
-            }
-            case 'w' -> {
-               return player.isRoomWest();
-            }
-            default -> {
-                return false;
-            }
-        }
-    }
 
     public Map getMap() {
         return map;
@@ -60,6 +27,20 @@ public class Adventure {
     public Player getPlayer() {
         return player;
     }
+
+    public Item takeItem(String commandParameter) {
+        Item pickedUpItem = player.getCurrentRoom().removeItem(commandParameter);
+        player.addToInventory(pickedUpItem);
+        return pickedUpItem;
+    }
+
+    public Item dropItem(String commandParameter) {
+        Item droppedItem = player.getCurrentRoom().addItem(commandParameter);
+        player.removeItemFromInventory(droppedItem);
+        return droppedItem;
+    }
+
+
 }
 
 

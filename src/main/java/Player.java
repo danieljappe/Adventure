@@ -24,9 +24,29 @@ public class Player {
         }
     }
 
-    public void goNorth(){
-        currentRoom = currentRoom.getNorth();
-    }
+    public boolean go(String direction) {
+        switch (direction) {
+            Room requestedRoom = null;
+
+            case "n", "north" -> {
+                requestedRoom = currentRoom.getNorth();
+            }
+            case "s", "south" -> {
+                requestedRoom = currentRoom.getSouth();
+            }
+            case "e", "east" -> {
+                requestedRoom = currentRoom.getEast();
+            }
+            case "w", "west" -> {
+                requestedRoom = currentRoom.getWest();
+            }
+            if (requestedRoom != null) {
+                currentRoom = requestedRoom;
+                return true;
+            } else {
+                return false;
+            }
+        }
 
         public boolean isRoomEast() {
             if (currentRoom.getEast() == null) {

@@ -27,55 +27,15 @@ public class UserInterface {
             }
 
             switch (command) {
-                case "go north", "north", "n" -> {
-
-                    if (adventure.isRoom('n')) {
-                        System.out.println("\u001B[32mGoing north\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getNorthDescription());
-                        if(adventure.getCurrentRoom().getDoor('n').isOpen()) {
-                            adventure.go('n');
-                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                        }else{
-                            System.out.println(adventure.getCurrentRoom().getDoor('n').getClosedDescription());
-                            //TODO make option to use key
-                        }
-                    } else {
+                case "go" -> {
+                    if(adventure.go(commandParameter)){
+                        System.out.println("\u001B[32mGoing "+commandParameter+"\u001B[39m");
+                    }else{
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
                 }
 
-                case "go east", "east", "e" -> {
-                    if (adventure.isRoom('e')) {
-                        System.out.println("\u001B[32mGoing east\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getEastDescription());
-                        if(adventure.getCurrentRoom().getDoor('e').isOpen()) {
-                            adventure.go('e');
-                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                        }else{
-                            System.out.println(adventure.getCurrentRoom().getDoor('e').getClosedDescription());
-                            //TODO make option to use key
-                        }
-                    } else {
-                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
-                    }
-                }
-
-                case "go south", "south", "s" -> {
-                    if (adventure.isRoom('s')) {
-                        System.out.println("\u001B[32mGoing south\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getSouthDescription());
-                        if(adventure.getCurrentRoom().getDoor('s').isOpen()) {
-                            adventure.go('s');
-                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                        }else{
-                            System.out.println(adventure.getCurrentRoom().getDoor('s').getClosedDescription());
-                            //TODO make option to use key
-                        }
-                    } else {
-                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
-                    }
-                }
-
+              /*
                 case "go west", "west", "w" -> {
                     if (adventure.isRoom('w')) {
                         System.out.println("\u001B[32mGoing west\u001B[39m");
@@ -90,7 +50,7 @@ public class UserInterface {
                     } else {
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }
-                }
+                }*/
 
                 case "look"-> {
                     //System.out.println(adventure.getCurrentRoom().getRoomDescription());
@@ -104,12 +64,11 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    Item pickedUpItem = adventure.getPlayer().getCurrentRoom().removeItem(direction);
+                    Item pickedUpItem = adventure.takeItem(commandParameter);
                     if (pickedUpItem == null){
                         System.out.println("Nothing");
                     } else {
                         System.out.println("You have picked up " + pickedUpItem);
-                        adventure.getPlayer().addToInventory(pickedUpItem);
                     }
                 }
 
