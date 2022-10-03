@@ -26,7 +26,6 @@ public class UserInterface {
 
             switch (command) {
                 case "go north", "north", "n" -> {
-
                     if (adventure.isRoom('n')) {
                         System.out.println("\u001B[32mGoing north\u001B[39m");
                         System.out.println(adventure.getCurrentRoom().getNorthDescription());
@@ -104,7 +103,7 @@ public class UserInterface {
                 case "take" -> {
                     Item pickedUpItem = adventure.getPlayer().getCurrentRoom().removeItem(direction);
                     if (pickedUpItem == null){
-                        System.out.println("Nothing");
+                        System.out.println("Item could not be found");
                     } else {
                         System.out.println("You have picked up " + pickedUpItem);
                         adventure.getPlayer().addToInventory(pickedUpItem);
@@ -114,7 +113,7 @@ public class UserInterface {
                 case "drop" -> {
                     Item droppedItem = adventure.getPlayer().getAndRemoveItem(direction);
                     if (droppedItem == null) {
-                        System.out.println("Nothing");
+                        System.out.println("You do not have that item");
                     } else {
                         System.out.println("You have dropped " + droppedItem);
                         adventure.getPlayer().getCurrentRoom().addItem(droppedItem);
@@ -125,16 +124,15 @@ public class UserInterface {
                     item = adventure.getPlayer().getItemFromInventory(direction);
                     if(item == null){
                         System.out.println("You dont have that item");
-                    }else{
-                        char[] nsew ={'n','s','e','w'};
+                    }else {
+                        char[] nsew = {'n', 's', 'e', 'w'};
                         Door door;
-                        for(int i =0; i<nsew.length;i++) {
+                        for (int i = 0; i < nsew.length; i++) {
                             if (adventure.getCurrentRoom().getDoor(nsew[i]).getName().contains(obstacle.toLowerCase().trim())) {
                                 door = adventure.getCurrentRoom().getDoor(nsew[i]);
                             }
                         }
                     }
-                    
                 }
 
                 case "help" -> {

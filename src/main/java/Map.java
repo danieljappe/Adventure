@@ -61,12 +61,12 @@ public class Map {
                          [1;30m██████████████[0m  [31m▄▀[37m      [31m▀█[37m    [31m▀[37m    [31m▀[37m     [31m▀▀▀▀[37m [31m▀[37m   [31m▀[37m  [31m▀▀▀[37m   [31m▀▀▀[37m   [31m▀[37m     [31m▀█▄▄▄█[37m
                         [33m█[1;30;43m▀▀▀▀▀▀▀▀▀▀▀▀▀▀[0;33m▄[37m """ +
                         "\n\u001B[39m" +
-                        "After a couple of beers at the after-class-fridays-bar,\n" +
-                        "a couple of you and your fellow students,\n" +
-                        "decided to enjoy the sun on the grass of a nearby sematary.\n" +
+                        "After a couple of beers at the after class fridaysbar,\n" +
+                        "a couple of you and your fellow students decided\n" +
+                        "to enjoy the sun on the grass of a nearby sematary.\n" +
                         "At least, that is what you remember\n" +
-                        "You mut have fallen asleep..\n " +
-                        "But why did no one wake you up?";
+                        "You must have fallen asleep..\n" +
+                        "Why did no one wake you up?";
                 break;
             case 100:
                 line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n" +
@@ -74,7 +74,7 @@ public class Map {
                         "moonlight shows you a path amidst silent tombstones\n";
                 break;
             case 120 :
-                line = "You leve the place were woke and wonder into the darkness";
+                line = "You leave the place woke up and wander into the darkness";
                 break;
             case 140:
                 line ="Your path ends in front of a mausoleum\n" ;
@@ -93,7 +93,7 @@ public class Map {
                 line = "You walk out of the darkness back to the place were you woke up some time ago";
                 break;
             case 230:
-                line = "following the path going east you get to a smale rusty gate in a high spiked iron fence,\n";
+                line = "following the path going east you get to a small rusty gate in a high spiked iron fence,\n";
                 break;
             case 231:
                 line = "the gate is Locked/Open , You and turn and back/ \n";
@@ -102,21 +102,21 @@ public class Map {
                  line = "You put the key in the lock, turn it, it opens, and you walk through\n";
                 break;
             case 300:
-                line = "It seams like you have reached a dead end. You are a small circular clearing between hedges\n" +
-                        "  there a bench and a pipe sticking out of the ground\n" +
+                line = "It seems like you have reached a dead end. You are a small circular clearing between hedges\n" +
+                        "there is a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
                         "and spilling onto the ground, flowing down through a grid\n";
 
                 break;
             case 320:
-                line = "leaving the clearing thru the rusty gate\n";
+                line = "leaving the clearing through the rusty gate\n";
                 break;
             case 360:
-                line = "As you get closer, you can see a latter fixed into the cement on the other side of the grid."+
-                        "A person could with a little effort pass thue the opening. It could be your imagination,\n" +
+                line = "As you get closer, you can see a ladder fixed into the cement on the other side of the grid."+
+                        "A person could with a little effort pass through the opening. It could be your imagination,\n" +
                         "but it seams to you that you can hear the sound of a violin playing\n" +
-                        " for a moment, and the sound seamed to be coming from down there\n";
+                        "for a moment, and the sound seemed to be coming from down there\n";
                 break;
             case 361:
                 line = "The grid is fixed with a bolt\n";
@@ -144,7 +144,7 @@ public class Map {
             case 472:
                 line = "The stone slab moves aside, revealing a hidden staircase\n ";
             case 500:
-                line = "5:";
+                line = "Slutrum";
                 break;
             case 600:
                 line =  "The smell is unbearable and big rodents rushes away into the shadows.\n" +
@@ -153,7 +153,7 @@ public class Map {
                 break;
             case 610:
                 line = "You climb up the ladder, out of the sewer, and into the moonlight\n" +
-                        "Finally some fresh air.";//from room6 to room3
+                        "Finally some fresh air.";
                 break;
             case 630:
                 line = "You can barely fit through the crack, but you somehow manage to get through.\n" +
