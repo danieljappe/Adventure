@@ -31,6 +31,7 @@ public class Adventure {
             }
         }
     }
+
     public boolean isRoom(char direction) {
 
         switch (direction) {
@@ -51,6 +52,7 @@ public class Adventure {
             }
         }
     }
+
     public Map getMap() {
         return map;
     }

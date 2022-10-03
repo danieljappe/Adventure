@@ -28,6 +28,7 @@ public class Player {
     public void goNorth(){
         currentRoom = currentRoom.getNorth();
     }
+
     public boolean isRoomEast(){
         if (currentRoom.getEast()==null){
             return false;
@@ -35,6 +36,7 @@ public class Player {
             return true;
         }
     }
+
     public void goEast() {
         currentRoom = currentRoom.getEast();
     }
@@ -46,6 +48,7 @@ public class Player {
             return true;
         }
     }
+
     public void goSouth(){
         currentRoom = currentRoom.getSouth();
     }
@@ -57,11 +60,10 @@ public class Player {
             return true;
         }
     }
+
     public void goWest(){
         currentRoom = currentRoom.getWest();
     }
-
-
 
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
