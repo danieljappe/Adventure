@@ -53,10 +53,9 @@ public class UserInterface {
                 }*/
 
                 case "look"-> {
-                    //System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                    System.out.println(room.getRoomName());
-                    System.out.println(room.getRoomDescription());
-                    System.out.println(room.getRoomItems());
+                    System.out.println(adventure.getCurrentRoom().getRoomName());
+                    System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                    System.out.println(adventure.getCurrentRoom().getRoomItems());
                 }
 
                 case "inventory" -> {
