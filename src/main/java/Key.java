@@ -1,7 +1,10 @@
-public class Key {
-    private String keyWord;
+public class Key{
 
-    public Key(String keyWord){
+
+
+    //private String keyWord;
+
+    /*public Key(String keyWord){
         this.keyWord= keyWord;
-    }
+    }*/
 }

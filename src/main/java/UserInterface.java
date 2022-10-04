@@ -80,6 +80,9 @@ public class UserInterface {
                         System.out.println("You have dropped " + droppedItem);
                     }
                 }
+                case "health" -> {
+                    System.out.println(adventure.getHealth());
+                }
                 case "use" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));
                     Item keyItem;

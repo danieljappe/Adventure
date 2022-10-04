@@ -33,6 +33,9 @@ public class Adventure {
     public Item dropItem(String commandParameter) {
         return player.dropItem(commandParameter);
     }
+    public int getHealth(){
+        return player.getHealth();
+    }
 
 
 }
