@@ -83,6 +83,26 @@ public class UserInterface {
                 case "health" -> {
                     System.out.println(adventure.getHealth());
                 }
+                case "eat" -> {
+                    //findes ikke
+                    Item itemToEat = adventure.takeItem(commandParameter);
+                    if(itemToEat == null){
+                        itemToEat = adventure.dropItem(commandParameter);
+                        if(itemToEat == null){
+                            System.out.println("item not in room or inventory");
+                        }
+                    }
+                    if(itemToEat != null){
+
+                        if(itemToEat instanceof Food){
+                            Food foodToEat = (Food) itemToEat;
+                            int healthGained = adventure.eat(foodToEat);
+                            System.out.println("Du får "+ healthGained+" health point");
+                        }
+                        //TODO is item food???
+
+                    }
+                }
                 case "use" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));
                     Item keyItem;

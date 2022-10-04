@@ -1,15 +1,15 @@
 public class Item {
-    private String itemName;
+    protected String itemName;
 
-    //private Key key;
-    //private Weapon weapon;
-    //private Food food;
+
 
 
     public Item(String itemName){
         this.itemName = itemName;
 
     }
+
+
 
     /*public Item(String itemName, String keyWord){
         this.itemName = itemName;

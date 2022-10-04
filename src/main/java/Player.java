@@ -106,6 +106,12 @@ public class Player {
         return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
     }
 
+    public int eat(Food food){
+        addToHealth(food.getHealthValue());
+        return food.getHealthValue();
+    }
+
+
 
 }
 

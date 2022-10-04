@@ -119,6 +119,7 @@ public class Room {
         roomItems.add(item);
     }
 
+
     public Item removeItem(String itemName) {
         for (Item item : roomItems) {
             if (item.getItemName().equals(itemName)) {

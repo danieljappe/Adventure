@@ -36,6 +36,11 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
+    public int eat(Food food){
+        return player.eat(food);
+    }
+
+
 
 
 }
