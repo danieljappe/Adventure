@@ -53,20 +53,17 @@ public class UserInterface {
                 }*/
 
                 case "look"-> {
-                    //System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                    System.out.println(room.getRoomName());
-                    System.out.println(room.getRoomDescription());
-                    System.out.println(room.getRoomItems());
+                    System.out.println(adventure.look());
                 }
 
                 case "inventory" -> {
-                    System.out.println(adventure.getPlayer().getPlayerInventory());
+                    System.out.println(adventure.viewInventory());
                 }
 
                 case "take" -> {
                     Item pickedUpItem = adventure.takeItem(commandParameter);
                     if (pickedUpItem == null){
-                        System.out.println("Nothing");
+                        System.out.println("Nothing was picked up");
                     } else {
                         System.out.println("You have picked up " + pickedUpItem);
                     }
@@ -75,7 +72,7 @@ public class UserInterface {
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);
                     if (droppedItem == null) {
-                        System.out.println("Nothing");
+                        System.out.println("Nothing was dropped");
                     } else {
                         System.out.println("You have dropped " + droppedItem);
                     }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
@@ -41,6 +43,14 @@ public class Adventure {
     }
 
 
+
+    public String look() {
+        return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() + "\n" + getCurrentRoom().getRoomItems();
+    }
+
+    public ArrayList<Item> viewInventory() {
+        return player.getPlayerInventory();
+    }
 
 
 }
