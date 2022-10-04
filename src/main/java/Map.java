@@ -3,18 +3,20 @@ public class Map {
     public Map() {
         buildMap();
     }
+    // Items
     private Item item1 = new Item("item1");
     private Item item2 = new Item("item2");
     private Item item3 = new Item("item3");
     private Item item4 = new Item("item4");
     private Item item5 = new Item("item5");
 
-    private Food food1 = new Food("Cheese",10);
-    private Food food2 = new Food("Ham",15);
-    private Food food3 = new Food("Dead Rat",-10);
-    private Food food4 = new Food("Shoe",-5);
-    private Food food5 = new Food("Cheese",10);
-    private Food food6 = new Food("Cheese",10);
+    // Food items
+    private Food food1 = new Food("cheese",10);
+    private Food food2 = new Food("ham",15);
+    private Food food3 = new Food("dead rat",-10);
+    private Food food4 = new Food("shoe",-5);
+    private Food food5 = new Food("canned beans",20);
+    private Food food6 = new Food("apple",10);
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));

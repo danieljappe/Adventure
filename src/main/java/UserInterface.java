@@ -61,7 +61,7 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    Item pickedUpItem = adventure.takeItem(commandParameter);
+                    Item pickedUpItem = adventure.takeItemFromRoom(commandParameter);
                     if (pickedUpItem == null){
                         System.out.println("Nothing was picked up");
                     } else {
@@ -81,24 +81,29 @@ public class UserInterface {
                     System.out.println(adventure.getHealth());
                 }
                 case "eat" -> {
-                    //findes ikke
-                    Item itemToEat = adventure.takeItem(commandParameter);
-                    if(itemToEat == null){
-                        itemToEat = adventure.dropItem(commandParameter);
-                        if(itemToEat == null){
-                            System.out.println("item not in room or inventory");
-                        }
-                    }
-                    if(itemToEat != null){
+                Item itemInRoom = adventure.takeItemFromRoom(commandParameter);
+                Item itemInInventory = adventure.getPlayer().getItemFromInventory(commandParameter);
 
-                        if(itemToEat instanceof Food){
-                            Food foodToEat = (Food) itemToEat;
-                            int healthGained = adventure.eat(foodToEat);
-                            System.out.println("Du får "+ healthGained+" health point");
-                        }
-                        //TODO is item food???
-
+                if (itemInRoom != null) {
+                    if (itemInRoom instanceof Food) {
+                        adventure.getCurrentRoom().removeItem(commandParameter);
+                        System.out.println("You eat the " + itemInRoom.getItemName());
+                        //TODO: Add health points
+                    } else {
+                        System.out.println(itemInRoom.getItemName() + " is not edible");
                     }
+                } else if (itemInInventory != null) {
+                    if (itemInInventory instanceof Food) {
+                        adventure.getPlayer().removeFromInventory(commandParameter);
+                        System.out.println("You eat the " + itemInInventory.getItemName());
+                        //TODO: Add health points
+                    } else {
+                        System.out.println(itemInInventory.getItemName() + " is not edible");
+                    }
+                    } else {
+                    System.out.println("Invalid input");
+                }
+
                 }
                 case "use" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));

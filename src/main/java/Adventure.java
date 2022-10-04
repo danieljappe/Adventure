@@ -28,8 +28,8 @@ public class Adventure {
         return player;
     }
 
-    public Item takeItem(String commandParameter) {
-        return player.takeItem(commandParameter);
+    public Item takeItemFromRoom(String commandParameter) {
+        return player.takeItemFromRoom(commandParameter);
     }
 
     public Item dropItem(String commandParameter) {
