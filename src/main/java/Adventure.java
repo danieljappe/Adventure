@@ -3,7 +3,11 @@ import java.util.ArrayList;
 public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
-
+    private String returnString;
+    public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD,YOU_EAT}
+    public String getReturnString(){
+        return this.returnString;
+    }
     public void buildMap(){
         map.buildMap();
     }
@@ -38,9 +42,27 @@ public class Adventure {
     public int getHealth(){
         return player.getHealth();
     }
-    public int eat(Food food){
-        return player.eat(food);
+
+    public tryEat tryToEat(String commandParameter){
+        Item itemToEat = player.takeItem(commandParameter);
+        if(itemToEat == null) {
+            itemToEat = player.dropItem(commandParameter);
+        }
+        if(itemToEat != null){
+            if(itemToEat instanceof Food){
+                Food foodToEat = (Food) itemToEat;
+                int healthGained = player.eat(foodToEat);
+                returnString = Integer.toString(healthGained);
+                return tryEat.YOU_EAT;
+            }else{
+                return tryEat.IS_NOT_FOOD;
+            }
+
+        }else{
+            return tryEat.FOOD_NOT_FOUND ;
+        }
     }
+
 
 
 

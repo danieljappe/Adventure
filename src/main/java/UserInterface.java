@@ -81,24 +81,15 @@ public class UserInterface {
                     System.out.println(adventure.getHealth());
                 }
                 case "eat" -> {
-                    //findes ikke
-                    Item itemToEat = adventure.takeItem(commandParameter);
-                    if(itemToEat == null){
-                        itemToEat = adventure.dropItem(commandParameter);
-                        if(itemToEat == null){
-                            System.out.println("item not in room or inventory");
-                        }
+                    if(adventure.tryToEat(commandParameter) == Adventure.tryEat.FOOD_NOT_FOUND){
+                        System.out.println("Can't find the food you want to eat");
+                    }else if(adventure.tryToEat(commandParameter) == Adventure.tryEat.IS_NOT_FOOD){
+                        System.out.println("This thing is not eatable");
+                    }else if(adventure.tryToEat(commandParameter) == Adventure.tryEat.YOU_EAT){
+                        System.out.println("You eat the "+commandParameter+" and gain "+ adventure.getReturnString()+
+                                " points of health");
                     }
-                    if(itemToEat != null){
 
-                        if(itemToEat instanceof Food){
-                            Food foodToEat = (Food) itemToEat;
-                            int healthGained = adventure.eat(foodToEat);
-                            System.out.println("Du får "+ healthGained+" health point");
-                        }
-                        //TODO is item food???
-
-                    }
                 }
                 case "use" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));
