@@ -81,12 +81,12 @@ public class UserInterface {
                     System.out.println(adventure.getHealth());
                 }
                 case "eat" -> {
-                    Adventure.tryEat eat = adventure.tryToEat(commandParameter);
-                    if(eat == Adventure.tryEat.FOOD_NOT_FOUND){
-                        System.out.println("Can't find the food you want to eat");
-                    }else if(eat == Adventure.tryEat.IS_NOT_FOOD){
-                        System.out.println("This thing is not eatable");
-                    }else if(eat == Adventure.tryEat.YOU_EAT){
+                    ComandoOrd eat = adventure.tryToEat(commandParameter);
+                    if(eat == ComandoOrd.FOOD_NOT_FOUND){
+                        System.out.println("Can't find the "+commandParameter);
+                    }else if(eat == ComandoOrd.IS_NOT_FOOD){
+                        System.out.println("The "+commandParameter+" is not eatable");
+                    }else if(eat == ComandoOrd.YOU_EAT){
                         System.out.println("You eat the "+commandParameter+" and gain "+ adventure.getReturnString()+
                                 " points of health");
                     }
