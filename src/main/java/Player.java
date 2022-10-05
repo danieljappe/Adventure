@@ -86,7 +86,9 @@ public class Player {
 
     public Item takeItemFromRoom(String commandParameter) {
         Item pickedUpItem = getCurrentRoom().removeItem(commandParameter);
+        if(pickedUpItem!=null){
         addToInventory(pickedUpItem);
+        }
         return pickedUpItem;
     }
 
