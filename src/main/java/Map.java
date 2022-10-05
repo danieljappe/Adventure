@@ -4,8 +4,8 @@ public class Map {
         buildMap();
     }
     // Items
-    private Item item1 = new Item("item1");
-    private Item item2 = new Item("item2");
+    private Item item1 = new Item("torch");
+    private Item item2 = new Item("key");
     private Item item3 = new Item("item3");
     private Item item4 = new Item("item4");
     private Item item5 = new Item("item5");
