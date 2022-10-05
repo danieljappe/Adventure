@@ -35,23 +35,6 @@ public class UserInterface {
                     }
                 }
 
-              /*
-                case "go west", "west", "w" -> {
-                    if (adventure.isRoom('w')) {
-                        System.out.println("\u001B[32mGoing west\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getWestDescription());
-                        if(adventure.getCurrentRoom().getDoor('w').isOpen()) {
-                            adventure.go('w');
-                            System.out.println(adventure.getCurrentRoom().getRoomDescription());
-                        }else{
-                            System.out.println(adventure.getCurrentRoom().getDoor('w').getClosedDescription());
-                            //TODO make option to use key
-                        }
-                    } else {
-                        System.out.println("\u001B[31mCan´t go that way\u001B[39m");
-                    }
-                }*/
-
                 case "look"-> {
                     System.out.println(adventure.look());
                 }
@@ -81,16 +64,15 @@ public class UserInterface {
                     System.out.println(adventure.getHealth());
                 }
                 case "eat" -> {
-                    ComandoOrd eat = adventure.tryToEat(commandParameter);
-                    if(eat == ComandoOrd.FOOD_NOT_FOUND){
+                    TryEatResponse eat = adventure.tryToEat(commandParameter);
+                    if(eat == TryEatResponse.FOOD_NOT_FOUND){
                         System.out.println("Can't find the "+commandParameter);
-                    }else if(eat == ComandoOrd.IS_NOT_FOOD){
+                    }else if(eat == TryEatResponse.IS_NOT_FOOD){
                         System.out.println("The "+commandParameter+" is not eatable");
-                    }else if(eat == ComandoOrd.YOU_EAT){
+                    }else if(eat == TryEatResponse.YOU_EAT){
                         System.out.println("You eat the "+commandParameter+" and gain "+ adventure.getReturnString()+
                                 " points of health");
                     }
-
                 }
                 case "use" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));

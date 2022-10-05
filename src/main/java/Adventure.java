@@ -43,7 +43,7 @@ public class Adventure {
         return player.getHealth();
     }
 
-    public ComandoOrd tryToEat(String commandParameter){
+    public TryEatResponse tryToEat(String commandParameter){
         Item itemToEat = player.takeItemFromRoom(commandParameter);
         if(itemToEat == null) {
             itemToEat = player.dropItem(commandParameter);
@@ -53,13 +53,13 @@ public class Adventure {
                 Food foodToEat = (Food) itemToEat;
                 int healthGained = player.eat(foodToEat);
                 returnString = Integer.toString(healthGained);
-                return ComandoOrd.YOU_EAT;
+                return TryEatResponse.YOU_EAT;
             }else{
-                return ComandoOrd.IS_NOT_FOOD;
+                return TryEatResponse.IS_NOT_FOOD;
             }
 
         }else{
-            return ComandoOrd.FOOD_NOT_FOUND;
+            return TryEatResponse.FOOD_NOT_FOUND;
         }
     }
 
