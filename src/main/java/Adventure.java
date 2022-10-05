@@ -44,7 +44,7 @@ public class Adventure {
     }
 
     public tryEat tryToEat(String commandParameter){
-        Item itemToEat = player.takeItem(commandParameter);
+        Item itemToEat = player.takeItemFromRoom(commandParameter);
         if(itemToEat == null) {
             itemToEat = player.dropItem(commandParameter);
         }

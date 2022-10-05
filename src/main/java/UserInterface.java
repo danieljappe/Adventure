@@ -61,7 +61,7 @@ public class UserInterface {
                 }
 
                 case "take" -> {
-                    Item pickedUpItem = adventure.takeItem(commandParameter);
+                    Item pickedUpItem = adventure.takeItemFromRoom(commandParameter);
                     if (pickedUpItem == null){
                         System.out.println("Nothing was picked up");
                     } else {
