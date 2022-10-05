@@ -81,7 +81,7 @@ public class UserInterface {
                     System.out.println(adventure.getHealth());
                 }
                 case "eat" -> {
-                Item itemInRoom = adventure.takeItemFromRoom(commandParameter);
+                Item itemInRoom = adventure.getPlayer().getCurrentRoom().getItemFromRoom(commandParameter);
                 Item itemInInventory = adventure.getPlayer().getItemFromInventory(commandParameter);
 
                 if (itemInRoom != null) {

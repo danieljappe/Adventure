@@ -115,6 +115,15 @@ public class Room {
         return roomItems;
     }
 
+    public Item getItemFromRoom(String itemSearch) {
+        for (Item item : roomItems){
+            if (item.getItemName().equals(itemSearch)) {
+                return item;
+            }
+        }
+        return null;
+    }
+
     public void addItem(Item item){
         roomItems.add(item);
     }
