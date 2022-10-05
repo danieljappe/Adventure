@@ -84,7 +84,7 @@ public class Player {
         return null;
     }
 
-    public Item takeItem(String commandParameter) {
+    public Item takeItemFromRoom(String commandParameter) {
         Item pickedUpItem = getCurrentRoom().removeItem(commandParameter);
         addToInventory(pickedUpItem);
         return pickedUpItem;
