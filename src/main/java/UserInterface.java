@@ -39,7 +39,7 @@ public class UserInterface {
                     System.out.println(adventure.look());
                 }
 
-                case "inventory" -> {
+                case "inventory", "inv" -> {
                     System.out.println(adventure.viewInventory());
                 }
 
@@ -60,9 +60,11 @@ public class UserInterface {
                         System.out.println("You have dropped " + droppedItem);
                     }
                 }
-                case "health" -> {
+
+                case "health", "hp" -> {
                     System.out.println(adventure.getHealth());
                 }
+
                 case "eat" -> {
                     TryEatResponse eat = adventure.tryToEat(commandParameter);
                     if(eat == TryEatResponse.FOOD_NOT_FOUND){

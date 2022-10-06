@@ -18,10 +18,10 @@ public class Player {
     }
     public void addToHealth(int healthValue){
         this.health += healthValue;
-        if(health>100){
+        if(health>=100){
             this.health = 100;
         }
-        if(health<0){
+        if(health<=0){
             this.health = 0;
         }
     }
