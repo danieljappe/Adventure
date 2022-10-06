@@ -5,4 +5,8 @@ public abstract class Weapons extends Item{
         super(itemName);
         this.weaponDamage=weaponDamage;
     }
+    public int getWeaponDamage(){
+        return weaponDamage;
+    }
+    public abstract void useOneShot();
 }

@@ -4,4 +4,7 @@ public class MeleeWeapon extends Weapons{
         super(itemName, weaponDamage);
 
     }
+
+    @Override
+    public void useOneShot() {} // fordi der er en abstract metode i superclassen
 }

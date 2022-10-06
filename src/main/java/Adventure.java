@@ -76,30 +76,32 @@ public class Adventure {
     public TryUseWeapon useWeapon(String commandParameter){
         Weapons inHandWeapon;
         for(Weapons weapon : player.getEquippedWeapons()){
-            if(weapon.getItemName().equals(commandParameter.toLowerCase().trim())){
-                if(weapon instanceof RangedWeapon){
-                    if(((RangedWeapon) weapon).getShots() > 0){
+            if(weapon.getItemName().equals(commandParameter.toLowerCase().trim())) {
+                if (weapon instanceof RangedWeapon) {
+                    if (((RangedWeapon) weapon).getShots() > 0) {
+                        returnString = Integer.toString(weapon.getWeaponDamage());
+                        weapon.useOneShot();
+                        //TODO monster takes damage
                         return TryUseWeapon.YOU_HIT_TARGET; // hvis vi går ud fra vi rammer hver gang
                         //TODO hvis du ikke rammer
                         //return TryUseWeapon.YOU_MISS;
-                    }else{
+                    } else {
                         return TryUseWeapon.NO_AMMO;
                     }
-                }else{
+                } else {
                     return TryUseWeapon.YOU_HIT_TARGET; // med svær, hvis vi rammer hver gang
                     //TODO hvis du ikke rammer
                     //return TryUseWeapon.YOU_MISS;
                 }
-            }else{
-                return TryUseWeapon.WEAPON_NOT_IN_HAND;
             }
         }
-        return null;// ved ikke hvorfor den er nødvendig
+        return TryUseWeapon.WEAPON_NOT_IN_HAND;
     }
 
 
     public String look() {
-        return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() + "\n" + getCurrentRoom().getRoomItems();
+        return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() +
+                "\n" + getCurrentRoom().getRoomItems();
     }
 
     public ArrayList<Item> viewInventory() {

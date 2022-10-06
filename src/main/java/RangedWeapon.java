@@ -8,5 +8,8 @@ public class RangedWeapon extends Weapons{
     public int getShots(){
         return shots;
     }
+    public void useOneShot(){
+        shots--;
+    }
 
 }
