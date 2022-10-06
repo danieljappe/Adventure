@@ -6,7 +6,7 @@ public class RangedWeapon extends Weapons{
         this.ammo = ammo;
     }
     public int getShots(){
-        return shots;
+        return ammo;
     }
 
 }

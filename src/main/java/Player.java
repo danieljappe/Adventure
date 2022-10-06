@@ -17,7 +17,7 @@ public class Player {
     }
 
     public ArrayList<Weapons> getCurrentWeapon(){
-        return currentWeapon;
+        return equippedWeapons;
     }
 
     public int getHealth(){
@@ -124,7 +124,7 @@ public class Player {
     }
 
     public boolean hasWeapon(){
-        if (currentWeapon.size()>=1) {
+        if (equippedWeapons.size()>=1) {
             return true;
         } else {return false;}
     }
