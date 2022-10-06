@@ -61,6 +61,8 @@ public class UserInterface {
                         System.out.println(commandParameter + " is not a weapon");
                     } else if (equipWeapon == TryEquipWeapon.IS_WEAPON){
                         System.out.println("You have equipped " + commandParameter);
+                    } else if (equipWeapon == TryEquipWeapon.ALREADY_TWO_WEAPONS){
+                        System.out.println("You already have two weapons, unequip one weapon");
                     }
                 }
 

@@ -137,8 +137,12 @@ public class Player {
         Item equipWeapon = getItemFromInventory(commandParameter);
         if (equipWeapon != null) {
             if(equipWeapon instanceof Weapons) {
-                currentWeapon.add((Weapons) equipWeapon);
-                playerInventory.remove(equipWeapon);
+                if(currentWeapon.size()!=2){
+                    currentWeapon.add((Weapons) equipWeapon);
+                    playerInventory.remove(equipWeapon);
+                }else {
+                    return TryEquipWeapon.ALREADY_TWO_WEAPONS;
+                }
                 return TryEquipWeapon.IS_WEAPON;
             } else {
                 return TryEquipWeapon.NOT_WEAPON;
