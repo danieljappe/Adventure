@@ -40,7 +40,8 @@ public class UserInterface {
                 }
 
                 case "inventory", "inv" -> {
-                    System.out.println(adventure.viewInventory());
+                    System.out.println("Backpack: " + adventure.viewInventory());
+                    System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons());
                 }
 
                 case "take" -> {
@@ -49,6 +50,17 @@ public class UserInterface {
                         System.out.println("Nothing was picked up");
                     } else {
                         System.out.println("You have picked up " + pickedUpItem);
+                    }
+                }
+
+                case "equip" -> {
+                    TryEquipWeapon equipWeapon = adventure.equipWeapon(commandParameter);
+                    if (equipWeapon == TryEquipWeapon.ITEM_NOT_FOUND) {
+                        System.out.println(commandParameter+" is not in inventory");
+                    } else if (equipWeapon == TryEquipWeapon.NOT_WEAPON){
+                        System.out.println(commandParameter + " is not a weapon");
+                    } else if (equipWeapon == TryEquipWeapon.IS_WEAPON){
+                        System.out.println("You have equipped " + commandParameter);
                     }
                 }
 

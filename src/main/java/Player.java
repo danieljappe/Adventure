@@ -70,6 +70,10 @@ public class Player {
         return playerInventory;
     }
 
+    public ArrayList<Weapons> getEquippedWeapons() {
+        return currentWeapon;
+    }
+
     public void addToInventory(Item item) {
         playerInventory.add(item);
     }
@@ -114,6 +118,20 @@ public class Player {
     }
 
 
+    public TryEquipWeapon equipWeapon(String commandParameter) {
+        Item equipWeapon = getItemFromInventory(commandParameter);
+        if (equipWeapon != null) {
+            if(equipWeapon instanceof Weapons) {
+                currentWeapon.add((Weapons) equipWeapon);
+                playerInventory.remove(equipWeapon);
+                return TryEquipWeapon.IS_WEAPON;
+            } else {
+                return TryEquipWeapon.NOT_WEAPON;
+            }
+        } else{
+            return TryEquipWeapon.ITEM_NOT_FOUND;
+        }
+    }
 
 }
 

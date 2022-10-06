@@ -18,6 +18,10 @@ public class Map {
     private Food beans = new Food("beans",20);
     private Food apple = new Food("apple",10);
 
+    // Weapons
+    private Item sword = new MeleeWeapon("sword",20);
+    private Weapons revolver = new RangedWeapon("revolver", 15, 6);
+
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
     Room room3 = new Room("room3", storyLine(300),"",storyLine(360),"",storyLine(320));
@@ -218,6 +222,8 @@ public class Map {
         room1.setDoors(null,door14,door12,null);
         room1.addItem(cheese);
         room1.addItem(ham);
+        room1.addItem(sword);
+        room1.addItem(revolver);
 
         room2.setWest(room1);
         room2.setEast(room3);

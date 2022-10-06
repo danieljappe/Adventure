@@ -4,6 +4,7 @@ public class Adventure {
     private Map map = new Map();
     private Player player = new Player();
     private String returnString;
+
     public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD,YOU_EAT}
     public String getReturnString(){
         return this.returnString;
@@ -63,7 +64,9 @@ public class Adventure {
         }
     }
 
-
+    public TryEquipWeapon equipWeapon(String commandParameter) {
+        return player.equipWeapon(commandParameter);
+    }
 
 
     public String look() {
@@ -72,6 +75,10 @@ public class Adventure {
 
     public ArrayList<Item> viewInventory() {
         return player.getPlayerInventory();
+    }
+
+    public ArrayList<Weapons> viewEquippedWeapons() {
+        return player.getEquippedWeapons();
     }
 
 

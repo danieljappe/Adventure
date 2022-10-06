@@ -1,4 +1,4 @@
-public class Item {
+public class Item { //TODO: Lav til abstract når ny underklasse laves
     protected String itemName;
 
 
