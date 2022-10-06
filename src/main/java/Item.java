@@ -7,8 +7,6 @@ public class Item {
 
     }
 
-
-
     /*public Item(String itemName, String keyWord){
         this.itemName = itemName;
         key = new Key(keyWord);
