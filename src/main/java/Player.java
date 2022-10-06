@@ -15,6 +15,7 @@ public class Player {
     public Room getCurrentRoom() {
         return currentRoom;
     }
+
     public ArrayList<Weapons> getCurrentWeapon(){
         return currentWeapon;
     }
@@ -22,6 +23,7 @@ public class Player {
     public int getHealth(){
         return health;
     }
+
     public void addToHealth(int healthValue){
         this.health += healthValue;
         if(health>=100){
@@ -127,6 +129,12 @@ public class Player {
         return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
     }
 
+    public boolean hasWeapon(){
+        if (currentWeapon.size()>=1) {
+            return true;
+        } else {return false;}
+    }
+
     public int eat(Food food){
         addToHealth(food.getHealthValue());
         return food.getHealthValue();
@@ -162,5 +170,10 @@ public class Player {
             return TryEquipWeapon.ITEM_NOT_FOUND;
         }
     }
+
+    //public Item attack(String commandParameter) {
+    //    Weapons attack =
+
+    //}
 }
 

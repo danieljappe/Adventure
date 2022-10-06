@@ -76,6 +76,14 @@ public class UserInterface {
                     }
                 }
 
+                case "attack" -> {
+                    if (adventure.getPlayer().hasWeapon()) {
+                    System.out.println("returns true");
+                    } else {
+                        System.out.println("returns false");
+                    }
+                }
+
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);
                     if (droppedItem == null) {

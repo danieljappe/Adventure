@@ -230,6 +230,7 @@ public class Map {
         room2.setWest(room1);
         room2.setEast(room3);
         room2.setDoors(null,null,door23,door12);
+        room2.addItem(shoe);
 
         room3.setSouth(room6);
         room3.setWest(room2);
