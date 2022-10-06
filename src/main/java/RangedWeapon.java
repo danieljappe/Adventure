@@ -9,7 +9,7 @@ public class RangedWeapon extends Weapons{
         return ammo;
     }
     public void useOneShot(){
-        shots--;
+        ammo--;
     }
 
 }
