@@ -1,12 +1,12 @@
 public class RangedWeapon extends Weapons{
-    private int shots;
+    public int ammo;
 
-    public RangedWeapon(String itemName, int weaponDamage, int shots) {
+    public RangedWeapon(String itemName, int weaponDamage, int ammo) {
         super(itemName, weaponDamage);
-        this.shots = shots;
+        this.ammo = ammo;
     }
     public int getShots(){
-        return shots;
+        return ammo;
     }
     public void useOneShot(){
         shots--;

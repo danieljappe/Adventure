@@ -16,10 +16,14 @@ public class Player {
         return currentRoom;
     }
 
+    public ArrayList<Weapons> getCurrentWeapon(){
+        return equippedWeapons;
+    }
 
     public int getHealth(){
         return health;
     }
+
     public void addToHealth(int healthValue){
         this.health += healthValue;
         if(health>=100){
@@ -117,6 +121,12 @@ public class Player {
             }
         }
         return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
+    }
+
+    public boolean hasWeapon(){
+        if (equippedWeapons.size()>=1) {
+            return true;
+        } else {return false;}
     }
 
     public int eat(Food food){
