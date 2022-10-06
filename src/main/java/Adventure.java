@@ -83,7 +83,7 @@ public class Adventure {
                         //TODO hvis du ikke rammer
                         //return TryUseWeapon.YOU_MISS;
                     }else{
-                        return TryUseWeapon.NO_ARMO;
+                        return TryUseWeapon.NO_AMMO;
                     }
                 }else{
                     return TryUseWeapon.YOU_HIT_TARGET; // med svær, hvis vi rammer hver gang

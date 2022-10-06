@@ -75,6 +75,21 @@ public class UserInterface {
 
                     }
                 }
+                case "shoot","fire","throw","swing","stab" -> {
+                    TryUseWeapon useWeapon = adventure.useWeapon(commandParameter);
+                    if(useWeapon == TryUseWeapon.NO_AMMO){
+                        System.out.println("No more ammunition for your "+commandParameter+
+                                "\nTry to reload, or use another weapon");
+                    } else if(useWeapon == TryUseWeapon.YOU_MISS) {
+                        System.out.println("You almost hit the target, but you missed ");
+                    } else if(useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND){
+                        System.out.println("You are not holding the "+commandParameter+" in your hand right now\n"+
+                        "Try to equip the "+ commandParameter +" if you already picked it up");
+                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET){
+                        System.out.println("The "+commandParameter+" makes a perfect hit\n" +
+                                "The monster looses "+adventure.getReturnString()+" hitpoints" );
+                    }
+                }
 
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);
