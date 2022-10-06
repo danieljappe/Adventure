@@ -5,6 +5,8 @@ public class Adventure {
     private Player player = new Player();
     private String returnString;
 
+
+
     public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD,YOU_EAT}
     public String getReturnString(){
         return this.returnString;
@@ -66,6 +68,10 @@ public class Adventure {
 
     public TryEquipWeapon equipWeapon(String commandParameter) {
         return player.equipWeapon(commandParameter);
+    }
+
+    public TryEquipWeapon unEquipWeapon(String commandParameter) {
+        return player.unEquipWeapon(commandParameter);
     }
 
 

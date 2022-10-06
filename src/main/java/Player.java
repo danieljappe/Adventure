@@ -118,6 +118,15 @@ public class Player {
         return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
     }
 
+    public Item getItemFromEquippedWeapons(String itemSearch) { //get but not remove item
+        for (Item item : currentWeapon) {
+            if (item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())) {
+                return item;
+            }
+        }
+        return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
+    }
+
     public int eat(Food food){
         addToHealth(food.getHealthValue());
         return food.getHealthValue();
@@ -139,5 +148,15 @@ public class Player {
         }
     }
 
+    public TryEquipWeapon unEquipWeapon(String commandParameter) {
+        Item unEquipWeapon =  getItemFromEquippedWeapons(commandParameter);
+        if (unEquipWeapon != null) {
+            playerInventory.add(unEquipWeapon);
+            currentWeapon.remove(unEquipWeapon);
+            return TryEquipWeapon.IS_WEAPON;
+        } else {
+            return TryEquipWeapon.ITEM_NOT_FOUND;
+        }
+    }
 }
 

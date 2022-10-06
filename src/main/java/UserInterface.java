@@ -64,6 +64,16 @@ public class UserInterface {
                     }
                 }
 
+                case "unequip" -> {
+                    TryEquipWeapon unEquipWeapon = adventure.unEquipWeapon(commandParameter);
+                    if (unEquipWeapon == TryEquipWeapon.ITEM_NOT_FOUND) {
+                        System.out.println(commandParameter+" is not found or equipped");
+                    } else if (unEquipWeapon == TryEquipWeapon.IS_WEAPON) {
+                        System.out.println(commandParameter + " is unequipped and added to backpack");
+
+                    }
+                }
+
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);
                     if (droppedItem == null) {
