@@ -2,17 +2,23 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
+    private ArrayList<Weapons> currentWeapon;
     private ArrayList<Item> playerInventory;
     private int health;
 
     public Player() {
         playerInventory = new ArrayList<>();
+        currentWeapon = new ArrayList<>();
         health = 100;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
+    public ArrayList<Weapons> getCurrentWeapon(){
+        return currentWeapon;
+    }
+
     public int getHealth(){
         return health;
     }

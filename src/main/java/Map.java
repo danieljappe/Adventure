@@ -11,8 +11,8 @@ public class Map {
     private Item item5 = new Item("item5");
 
     // Food items
-    private Food cheese = new Food("cheese",10);
-    private Food ham = new Food("ham",15);
+    private Item cheese = new Food("cheese",10); // virker det stadig?
+    private Item ham = new Food("ham",15);
     private Food dead_rat = new Food("dead rat",-10);
     private Food shoe = new Food("shoe",-5);
     private Food beans = new Food("beans",20);
