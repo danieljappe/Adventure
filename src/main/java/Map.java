@@ -11,12 +11,12 @@ public class Map {
     private Item item5 = new Item("item5");
 
     // Food items
-    private Food food1 = new Food("cheese",10);
-    private Food food2 = new Food("ham",15);
-    private Food food3 = new Food("dead rat",-10);
-    private Food food4 = new Food("shoe",-5);
-    private Food food5 = new Food("beans",20);
-    private Food food6 = new Food("apple",10);
+    private Food cheese = new Food("cheese",10);
+    private Food ham = new Food("ham",15);
+    private Food dead_rat = new Food("dead rat",-10);
+    private Food shoe = new Food("shoe",-5);
+    private Food beans = new Food("beans",20);
+    private Food apple = new Food("apple",10);
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
@@ -216,8 +216,8 @@ public class Map {
         room1.addItemToRoom(item1);
         room1.addItemToRoom(item2);
         room1.setDoors(null,door14,door12,null);
-        room1.addItem(food1);
-        room1.addItem(food2);
+        room1.addItem(cheese);
+        room1.addItem(ham);
 
         room2.setWest(room1);
         room2.setEast(room3);
@@ -241,7 +241,7 @@ public class Map {
         room7.setNorth(room4);
         room7.setEast(room8);
         room7.setDoors(door47,null,door78,null);
-        room7.addItem(food5);
+        room7.addItem(beans);
 
         room8.setWest(room7);
         room8.setEast(room9);
