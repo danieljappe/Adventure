@@ -73,6 +73,29 @@ public class Adventure {
     public TryEquipWeapon unEquipWeapon(String commandParameter) {
         return player.unEquipWeapon(commandParameter);
     }
+    public TryUseWeapon useWeapon(String commandParameter){
+        Weapons inHandWeapon;
+        for(Weapons weapon : player.getEquippedWeapons()){
+            if(weapon.getItemName().equals(commandParameter.toLowerCase().trim())){
+                if(weapon instanceof RangedWeapon){
+                    if(((RangedWeapon) weapon).getShots() > 0){
+                        return TryUseWeapon.YOU_HIT_TARGET; // hvis vi går ud fra vi rammer hver gang
+                        //TODO hvis du ikke rammer
+                        //return TryUseWeapon.YOU_MISS;
+                    }else{
+                        return TryUseWeapon.NO_ARMO;
+                    }
+                }else{
+                    return TryUseWeapon.YOU_HIT_TARGET; // med svær, hvis vi rammer hver gang
+                    //TODO hvis du ikke rammer
+                    //return TryUseWeapon.YOU_MISS;
+                }
+            }else{
+                return TryUseWeapon.WEAPON_NOT_IN_HAND;
+            }
+        }
+        return null;// ved ikke hvorfor den er nødvendig
+    }
 
 
     public String look() {

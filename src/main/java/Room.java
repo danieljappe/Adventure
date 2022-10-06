@@ -106,9 +106,7 @@ public class Room {
     }
 
     // bruges i buildMap()
-    public void addItemToRoom (Item item){
-        roomItems.add(item);
-    }
+
 
 
     public ArrayList<Item> getRoomItems() {

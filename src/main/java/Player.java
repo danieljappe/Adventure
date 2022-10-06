@@ -2,22 +2,20 @@ import java.util.ArrayList;
 
 public class Player {
     private Room currentRoom;
-    private ArrayList<Weapons> currentWeapon;
+    private ArrayList<Weapons> equippedWeapons;
     private ArrayList<Item> playerInventory;
     private int health;
 
     public Player() {
         playerInventory = new ArrayList<>();
-        currentWeapon = new ArrayList<>();
+        equippedWeapons = new ArrayList<>();
         health = 100;
     }
 
     public Room getCurrentRoom() {
         return currentRoom;
     }
-    public ArrayList<Weapons> getCurrentWeapon(){
-        return currentWeapon;
-    }
+
 
     public int getHealth(){
         return health;
@@ -36,13 +34,7 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-    public boolean isRoomNorth() {
-        if (currentRoom.getNorth() == null) {
-            return false;
-        } else {
-            return true;
-        }
-    }
+
 
     public boolean go(String direction) {
         Room requestedRoom = null;
@@ -77,7 +69,7 @@ public class Player {
     }
 
     public ArrayList<Weapons> getEquippedWeapons() {
-        return currentWeapon;
+        return equippedWeapons;
     }
 
     public void addToInventory(Item item) {
@@ -119,7 +111,7 @@ public class Player {
     }
 
     public Item getItemFromEquippedWeapons(String itemSearch) { //get but not remove item
-        for (Item item : currentWeapon) {
+        for (Item item : equippedWeapons) {
             if (item.getItemName().toLowerCase().equals(itemSearch.toLowerCase().trim())) {
                 return item;
             }
@@ -137,8 +129,8 @@ public class Player {
         Item equipWeapon = getItemFromInventory(commandParameter);
         if (equipWeapon != null) {
             if(equipWeapon instanceof Weapons) {
-                if(currentWeapon.size()!=2){
-                    currentWeapon.add((Weapons) equipWeapon);
+                if(equippedWeapons.size()!=2){
+                    equippedWeapons.add((Weapons) equipWeapon);
                     playerInventory.remove(equipWeapon);
                 }else {
                     return TryEquipWeapon.ALREADY_TWO_WEAPONS;
@@ -156,7 +148,7 @@ public class Player {
         Item unEquipWeapon =  getItemFromEquippedWeapons(commandParameter);
         if (unEquipWeapon != null) {
             playerInventory.add(unEquipWeapon);
-            currentWeapon.remove(unEquipWeapon);
+            equippedWeapons.remove(unEquipWeapon);
             return TryEquipWeapon.IS_WEAPON;
         } else {
             return TryEquipWeapon.ITEM_NOT_FOUND;
