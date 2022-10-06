@@ -5,4 +5,8 @@ public class RangedWeapon extends Weapons{
         super(itemName, weaponDamage);
         this.ammo = ammo;
     }
+    public int getShots(){
+        return shots;
+    }
+
 }

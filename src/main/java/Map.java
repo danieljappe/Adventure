@@ -4,19 +4,19 @@ public class Map {
         buildMap();
     }
     // Items
-    private Item item1 = new Item("torch");
-    private Item item2 = new Item("key");
-    private Item item3 = new Item("item3");
-    private Item item4 = new Item("item4");
-    private Item item5 = new Item("item5");
+    private Item torch = new Key("torch",1);
+    private Item key = new Key("key",2);
+    //private Item item3 = new Item("item3");
+    //private Item item4 = new Item("item4");
+    //private Item item5 = new Item("item5");
 
     // Food items
     private Item cheese = new Food("cheese",10); // virker det stadig?
     private Item ham = new Food("ham",15);
-    private Food dead_rat = new Food("dead rat",-10);
-    private Food shoe = new Food("shoe",-5);
-    private Food beans = new Food("beans",20);
-    private Food apple = new Food("apple",10);
+    private Item dead_rat = new Food("dead rat",-10);
+    private Item shoe = new Food("shoe",-5);
+    private Item beans = new Food("beans",20);
+    private Item apple = new Food("apple",10);
 
     // Weapons
     private Item sword = new MeleeWeapon("sword",20);
@@ -35,7 +35,7 @@ public class Map {
 
 
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
-    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232),item1);
+    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), torch);
     Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
     Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
@@ -218,9 +218,9 @@ public class Map {
     public void buildMap() {
         room1.setEast(room2);
         room1.setSouth(room4);
-        room1.addItemToRoom(item1);
-        room1.addItemToRoom(item2);
         room1.setDoors(null,door14,door12,null);
+        room1.addItem(torch);
+        room1.addItem(key);
         room1.addItem(cheese);
         room1.addItem(ham);
         room1.addItem(sword);
