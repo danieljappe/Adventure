@@ -1,11 +1,13 @@
+import ENUMS.AmmunitionType;
+
 public class Map {
 
     public Map() {
         buildMap();
     }
     // Items
-    private Item torch = new Key("torch",1);
-    private Item key = new Key("key",2);
+    private Item torch = new Key("torch",KeyType.TORCH);
+    private Item key = new Key("key",KeyType.RUSTY_KEY);
     //private Item item3 = new Item("item3");
     //private Item item4 = new Item("item4");
     //private Item item5 = new Item("item5");
@@ -20,7 +22,7 @@ public class Map {
 
     // Weapons
     private Item sword = new MeleeWeapon("sword",20);
-    private Weapons revolver = new RangedWeapon("revolver", 15, 6,AmmunitionType.BULLETS);
+    private Weapons revolver = new RangedWeapon("revolver", 15, 6, AmmunitionType.BULLETS);
     private Weapons bow = new RangedWeapon("bow", 20, 5,AmmunitionType.ARROWS);
 
     // Ammo
@@ -38,7 +40,7 @@ public class Map {
 
 
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
-    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), torch);
+    Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), KeyType.RUSTY_KEY);
     Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
     Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);

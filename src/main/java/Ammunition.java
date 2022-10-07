@@ -1,3 +1,5 @@
+import ENUMS.AmmunitionType;
+
 public class Ammunition extends Item{
     private AmmunitionType ammunitionType;
     private int amount;

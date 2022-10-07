@@ -1,3 +1,6 @@
+import ENUMS.TryEatResponse;
+import ENUMS.TryEquipWeapon;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -140,10 +143,14 @@ public class UserInterface {
                         if(door == null){
                             System.out.println("cant find "+obstacle);
                         }else{
-                            if(door.openDoor(keyItem)){
-                                System.out.println(door.getOpenDescription());
-                            }else {
-                                System.out.println("You try it,\nbut it doesn't work ");
+                            if(keyItem instanceof Key) {
+                                if (door.openDoor(((Key) keyItem).getKeyType())) {
+                                    System.out.println(door.getOpenDescription());
+                                } else {
+                                    System.out.println("You try it,\nbut it doesn't work ");
+                                }
+                            }else{
+                                System.out.println("The "+commandParameter+" can't be used");
                             }
                         }
                     }
