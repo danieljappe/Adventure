@@ -20,8 +20,11 @@ public class Map {
 
     // Weapons
     private Item sword = new MeleeWeapon("sword",20);
-    private Weapons revolver = new RangedWeapon("revolver", 15, 6);
-    private Weapons bow = new RangedWeapon("bow", 20, 5);
+    private Weapons revolver = new RangedWeapon("revolver", 15, 6,AmmunitionType.BULLETS);
+    private Weapons bow = new RangedWeapon("bow", 20, 5,AmmunitionType.ARROWS);
+
+    // Ammo
+    private Item arrows = new Ammunition("arrows",3,AmmunitionType.ARROWS);
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
@@ -231,6 +234,7 @@ public class Map {
         room2.setEast(room3);
         room2.setDoors(null,null,door23,door12);
         room2.addItem(shoe);
+        room2.addItem(arrows);
 
         room3.setSouth(room6);
         room3.setWest(room2);
