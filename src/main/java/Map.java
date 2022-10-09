@@ -115,7 +115,8 @@ public class Map {
                 line = "following the path going east you get to a small rusty gate in a high spiked iron fence,\n";
                 break;
             case 231:
-                line = "the gate is Locked/Open , You and turn and back/ \n";
+                line = "Following the path going east, you get to a small rusty gate in a high spiked iron fence.\n" +
+                        "The gate is locked \n";
                 break;
             case 232:
                  line = "You put the key in the lock, turn it, it opens, and you walk through\n";

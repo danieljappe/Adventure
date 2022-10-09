@@ -26,8 +26,20 @@ public class Adventure {
         return player.getCurrentRoom();
     }
 
-    public boolean go(String direction) {
-        return player.go(direction);
+    public TryGo go(Direction direction) {
+        Room requestedRoom = null;
+        if(player.getCurrentRoom().getDoor(direction)==null||player.getCurrentRoom().getDoor(direction).isOpen()){
+            requestedRoom = player.getCurrentRoom().getDirection(direction);
+        }else {
+            returnString = player.getCurrentRoom().getDoor(direction).getClosedDescription();
+            return TryGo.IS_LOCKED;
+        }
+        if (requestedRoom != null) {
+            player.setCurrentRoom(requestedRoom);
+            return TryGo.GOING;
+        }else {
+            return TryGo.CANT_GO;
+        }
     }
 
     public Map getMap() {

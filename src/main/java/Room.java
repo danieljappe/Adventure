@@ -76,6 +76,16 @@ public class Room {
     public Room getWest() {
         return west;
     }
+    public Room getDirection(Direction direct){
+        Room returnRoom = null;
+        switch (direct){
+            case NORTH -> returnRoom = north;
+            case SOUTH -> returnRoom = south;
+            case EAST -> returnRoom = east;
+            case WEST -> returnRoom = west;
+        }
+        return returnRoom;
+    }
 
     public String getNorthDescription() {
         return northDescription;
@@ -144,13 +154,13 @@ public class Room {
         this.eastDoor = east;
         this.westDoor = west;
     }
-    public Door getDoor(char position){
+    public Door getDoor(Direction position){
         Door door = null;
         switch (position){
-            case 'n' -> door = northDoor;
-            case 's' -> door = southDoor;
-            case 'e' -> door = eastDoor;
-            case 'w' -> door = westDoor;
+            case NORTH -> door = northDoor;
+            case SOUTH -> door = southDoor;
+            case EAST -> door = eastDoor;
+            case WEST -> door = westDoor;
         }
         return door;
     }

@@ -9,7 +9,6 @@ public class UserInterface {
 
     public void start() {
         Scanner scan = new Scanner(System.in);
-        Room room = adventure.getCurrentRoom();
 
         System.out.println(adventure.getMap().storyLine(0));
         System.out.println(adventure.getMap().storyLine(100));
@@ -31,10 +30,25 @@ public class UserInterface {
 
             switch (command) {
                 case "go" -> {
-                    if(adventure.go(commandParameter)){
+                    Direction direction = null;
+                    switch (commandParameter){
+                        case "n","north","up" -> direction = Direction.NORTH;
+                        case "s","south","down" -> direction = Direction.SOUTH;
+                        case "e","east" -> direction = Direction.EAST;
+                        case "w","west" -> direction = Direction.WEST;
+                        default -> {
+                            System.out.println("invalid indput");
+                        }
+                    }
+                    if(direction==null) break;
+                    TryGo outcome = adventure.go(direction);
+                    if(outcome == TryGo.GOING){
                         System.out.println("\u001B[32mGoing "+commandParameter+"\u001B[39m");
-                    }else{
+                        System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                    }else if( outcome == TryGo.CANT_GO){
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
+                    }else if( outcome == TryGo.IS_LOCKED){
+                        System.out.println(adventure.getReturnString());
                     }
                 }
 
@@ -126,14 +140,14 @@ public class UserInterface {
                                 " points of health");
                     }
                 }
-                case "use" -> {
+                case "use", "unlock", "open" -> {
                     //System.out.println(adventure.use(commandParameter,obstacle));
                     Item keyItem;
                     keyItem = adventure.getPlayer().getItemFromInventory(commandParameter);
                     if(keyItem == null){
                         System.out.println("You don't have that item");
                     }else{
-                        char[] nsew ={'n','s','e','w'};
+                        Direction[] nsew ={Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST};
                         Door door = null;
                         for(int i =0; i<nsew.length;i++) {
                             if (adventure.getCurrentRoom().getDoor(nsew[i]).getName().contains(obstacle.toLowerCase().trim())) {
