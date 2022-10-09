@@ -1,3 +1,4 @@
+import ENUMS.AmmunitionType;
 import ENUMS.TryEatResponse;
 import ENUMS.TryEquipWeapon;
 
@@ -63,7 +64,6 @@ public class Adventure {
             }else{
                 return TryEatResponse.IS_NOT_FOOD;
             }
-
         }else{
             return TryEatResponse.FOOD_NOT_FOUND;
         }
@@ -76,30 +76,32 @@ public class Adventure {
     public TryEquipWeapon unEquipWeapon(String commandParameter) {
         return player.unEquipWeapon(commandParameter);
     }
-    public TryUseWeapon useWeapon(String commandParameter){
+
+    public TryUseWeapon useWeapon(){
         Weapons inHandWeapon;
         for(Weapons weapon : player.getEquippedWeapons()){
-            if(weapon.getItemName().equals(commandParameter.toLowerCase().trim())) {
                 if (weapon instanceof RangedWeapon) {
-                    if (((RangedWeapon) weapon).getShots() > 0) {
+                    if (((RangedWeapon) weapon).getAmmo() > 0) {
                         returnString = Integer.toString(weapon.getWeaponDamage());
+                        ((RangedWeapon) weapon).getAmmo();
                         weapon.useOneShot();
                         //TODO monster takes damage
-                        return TryUseWeapon.YOU_HIT_TARGET; // hvis vi går ud fra vi rammer hver gang
+                        return TryUseWeapon.YOU_HIT_TARGET_RANGED; // hvis vi går ud fra vi rammer hver gang
                         //TODO hvis du ikke rammer
                         //return TryUseWeapon.YOU_MISS;
                     } else {
                         return TryUseWeapon.NO_AMMO;
                     }
-                } else {
-                    return TryUseWeapon.YOU_HIT_TARGET; // med svær, hvis vi rammer hver gang
+                } else if (weapon instanceof MeleeWeapon){
+                    returnString = Integer.toString(weapon.getWeaponDamage());
+                    return TryUseWeapon.YOU_HIT_TARGET_MELEE; // med svær, hvis vi rammer hver gang
                     //TODO hvis du ikke rammer
                     //return TryUseWeapon.YOU_MISS;
                 }
             }
-        }
         return TryUseWeapon.WEAPON_NOT_IN_HAND;
     }
+
 
 
     public String look() {
@@ -113,6 +115,24 @@ public class Adventure {
 
     public ArrayList<Weapons> viewEquippedWeapons() {
         return player.getEquippedWeapons();
+    }
+
+    public int getAmmo() {
+        for (Weapons weapon : player.getEquippedWeapons()) {
+            if (weapon instanceof RangedWeapon) {
+               return ((RangedWeapon) weapon).getAmmo();
+            }
+        }
+        return 0;
+    }
+
+    public AmmunitionType getAmmoName() {
+        for (Weapons weapon : player.getEquippedWeapons()) {
+            if (weapon instanceof RangedWeapon) {
+                return ((RangedWeapon) weapon).getAmmoName();
+            }
+        }
+        return null;
     }
 
 

@@ -2,22 +2,23 @@ import ENUMS.AmmunitionType;
 
 public class RangedWeapon extends Weapons{
     private int ammo;
-    private AmmunitionType ammoType;
+    private AmmunitionType ammoName;
 
 
-    public RangedWeapon(String itemName, int weaponDamage, int ammo,AmmunitionType ammoType) {
+    public RangedWeapon(String itemName, int weaponDamage, int ammo,AmmunitionType ammoName) {
         super(itemName, weaponDamage);
         this.ammo = ammo;
-        this.ammoType = ammoType;
+        this.ammoName = ammoName;
+
     }
-    public int getShots(){
+    public int getAmmo(){
         return ammo;
     }
     public void useOneShot(){
         ammo--;
     }
-    public AmmunitionType getAmmoType(){
-        return ammoType;
+    public AmmunitionType getAmmoName(){
+        return ammoName;
     }
 
 }

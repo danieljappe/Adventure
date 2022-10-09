@@ -1,7 +1,14 @@
 package ENUMS;
 
 public enum AmmunitionType {
-    ARROWS,
-    BULLETS,
-    STONES;
+    ARROWS("arrows"),
+    BULLETS("bullets"),
+    STONES("stones");
+
+    final String ammoName;
+
+    AmmunitionType (String ammoName){
+        this.ammoName = ammoName;
+    }
+
 }
