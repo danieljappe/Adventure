@@ -1,5 +1,3 @@
-import ENUMS.AmmunitionType;
-
 public class Map {
 
     public Map() {
