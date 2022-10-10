@@ -58,7 +58,7 @@ public class UserInterface {
 
                 case "inventory", "inv" -> {
                     System.out.println("Backpack: " + adventure.viewInventory());
-                    System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons());
+                    System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons() + adventure.getAmmo());
                 }
 
                 case "take" -> {
@@ -79,7 +79,7 @@ public class UserInterface {
                     } else if (equipWeapon == TryEquipWeapon.IS_WEAPON){
                         System.out.println("You have equipped " + commandParameter);
                     } else if (equipWeapon == TryEquipWeapon.ALREADY_TWO_WEAPONS){
-                        System.out.println("You already have two weapons, unequip one weapon");
+                        System.out.println("You already have a weapon equipped, unequip the weapon");
                     }
                 }
 
@@ -92,29 +92,26 @@ public class UserInterface {
 
                     }
                 }
-                case "shoot","fire","throw","swing","stab" -> {
-                    TryUseWeapon useWeapon = adventure.useWeapon(commandParameter);
+                case "attack","shoot","fire","throw","swing","stab" -> {
+                    TryUseWeapon useWeapon = adventure.useWeapon();
                     if(useWeapon == TryUseWeapon.NO_AMMO){
-                        System.out.println("No more ammunition for your "+commandParameter+
+                        System.out.println("No more " + adventure.getAmmoName() + " for your "+adventure.viewEquippedWeapons()+
                                 "\nTry to reload, or use another weapon");
                     } else if(useWeapon == TryUseWeapon.YOU_MISS) {
                         System.out.println("You almost hit the target, but you missed ");
                     } else if(useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND){
-                        System.out.println("You are not holding the "+commandParameter+" in your hand right now\n"+
+                        System.out.println("You are not holding the "+adventure.viewEquippedWeapons()+" in your hand right now\n"+
                         "Try to equip the "+ commandParameter +" if you already picked it up");
-                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET){
-                        System.out.println("The "+commandParameter+" makes a perfect hit\n" +
-                                "The monster looses "+adventure.getReturnString()+" hitpoints" );
+                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED){
+                        System.out.println("The "+adventure.viewEquippedWeapons()+" makes a perfect hit\n" +
+                                "The monster loses "+adventure.getReturnString()+" hitpoints\n" +
+                                "You have " + adventure.getAmmo() + " " + adventure.getAmmoName());
+                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
+                        System.out.println("The "+adventure.viewEquippedWeapons()+" makes a perfect hit\n" +
+                                "The monster loses "+adventure.getReturnString()+" hitpoints\n");
                     }
                 }
 
-                case "attack" -> {
-                    if (adventure.getPlayer().hasWeapon()) {
-                    System.out.println("returns true");
-                    } else {
-                        System.out.println("returns false");
-                    }
-                }
 
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);

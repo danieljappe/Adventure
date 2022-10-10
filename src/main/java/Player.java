@@ -40,8 +40,6 @@ public class Player {
         this.currentRoom = currentRoom;
     }
 
-
-
     public boolean go(String direction) {
         Room requestedRoom = null;
 
@@ -67,8 +65,6 @@ public class Player {
             return false;
         }
     }
-
-
 
     public ArrayList<Item> getPlayerInventory() {
         return playerInventory;
@@ -125,23 +121,16 @@ public class Player {
         return null; // vil aldrig blive kaldt hvis return i ifstatement bliver kaldt
     }
 
-    public boolean hasWeapon(){
-        if (equippedWeapons.size()>=1) {
-            return true;
-        } else {return false;}
-    }
-
     public int eat(Food food){
         addToHealth(food.getHealthValue());
         return food.getHealthValue();
     }
 
-
     public TryEquipWeapon equipWeapon(String commandParameter) {
         Item equipWeapon = getItemFromInventory(commandParameter);
         if (equipWeapon != null) {
             if(equipWeapon instanceof Weapons) {
-                if(equippedWeapons.size()!=2){
+                if(equippedWeapons.size()!=1){
                     equippedWeapons.add((Weapons) equipWeapon);
                     playerInventory.remove(equipWeapon);
                 }else {

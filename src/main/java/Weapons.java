@@ -9,4 +9,6 @@ public abstract class Weapons extends Item{
         return weaponDamage;
     }
     public abstract void useOneShot();
+
+
 }
