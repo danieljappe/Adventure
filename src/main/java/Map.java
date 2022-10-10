@@ -5,11 +5,11 @@ public class Map {
     }
     // Keys
     private Item torch = new Key("torch",KeyType.TORCH);
-    private Item rustyKey = new Key("Rusty Key",KeyType.RUSTY_KEY);
-    private Item goldenKey = new Key("Golden Key",KeyType.GOLDEN_KEY);
-    private Item ironBar = new Key("Iron Bar",KeyType.IRON_BAR);
+    private Item rustyKey = new Key("RustyKey",KeyType.RUSTY_KEY);
+    private Item goldenKey = new Key("GoldenKey",KeyType.GOLDEN_KEY);
+    private Item ironBar = new Key("IronBar",KeyType.IRON_BAR);
     private Item wrench = new Key("Wrench",KeyType.WRENCH);
-    private Item boneKey = new Key("Key Made of Bone",KeyType.BONE_KEY);
+    private Item boneKey = new Key("BoneKey",KeyType.BONE_KEY);
 
     // Food items
     private Item cheese = new Food("cheese",10); // virker det stadig?
@@ -33,7 +33,9 @@ public class Map {
     private Enemy zombie = new Enemy("Zombie Student", 20);
     private Enemy giantRat = new Enemy("Giant Rat", 35);
     private Enemy spider = new Enemy("Spider", 20);
-    private Enemy werewolf = new Enemy("Werewolf", 40);
+    private Enemy werewolf = new Enemy("Werewolf",40);
+    private Enemy vampire = new Enemy("Vampire",35);
+    private Enemy rastaFairy = new Enemy("Rasta Fairy",20);
 
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
@@ -130,7 +132,7 @@ public class Map {
                  line = "You put the key in the lock, turn it, it opens, and you walk through\n";
                 break;
             case 300:
-                line = "It seems like you have reached a dead end. You are a small circular clearing between hedges\n" +
+                line = "It seems like you have reached a dead end. You are standing in small circular clearing between hedges\n" +
                         "there is a bench and a pipe sticking out of the ground\n" +
                         "with a water tab, where a small metal water bucket is hanging\n" +
                         "probably for watering flowers. The water from the tab is running into the already filled bucket\n" +
@@ -247,13 +249,14 @@ public class Map {
         room2.setDoors(null,null,door23,door12);
         room2.addItem(shoe);
         room2.addItem(arrows);
-        room2.addItem(rustyKey);
+        room2.addItem(wrench);
         room2.addEnemy(werewolf);
 
 
         room3.setSouth(room6);
         room3.setWest(room2);
         room3.setDoors(null,door36,null,door23);
+        room3.addEnemy(rastaFairy);
 
         room4.setNorth(room1);
         room4.setSouth(room7);
@@ -267,11 +270,13 @@ public class Map {
         room6.setNorth(room3);
         room6.setDoors(door36,door69,null,null);
         room6.addItem(boneKey);
+        room6.addEnemy(giantRat);
 
         room7.setNorth(room4);
         room7.setEast(room8);
         room7.setDoors(door47,null,door78,null);
         room7.addItem(beans);
+        room7.addEnemy(vampire);
 
         room8.setWest(room7);
         room8.setEast(room9);
@@ -282,7 +287,6 @@ public class Map {
         room9.setNorth(room6);
         room9.setDoors(door69,null,null,door89); //n s e w
         room9.addItem(ironBar);
-        room9.addEnemy(monster);
     }
     public Room getStartRoom() {
         return room1;
