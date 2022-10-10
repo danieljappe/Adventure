@@ -126,6 +126,40 @@ public class Adventure {
     public ArrayList<Weapons> viewEquippedWeapons() {
         return player.getEquippedWeapons();
     }
+    public TryOpen unlock(String doorSearch,String keySearch){
+        Item key = player.getItemFromInventory(keySearch);
+        if(key != null){
+            if(key instanceof Key){
+                Direction[] directions = {Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST};
+                Door door = null;
+                for(int i = 0; i <4 ; i++) {
+                    if(player.getCurrentRoom().getDoor(directions[i])!=null) {
+                        if (player.getCurrentRoom().getDoor(directions[i]).getName().contains(doorSearch)) {
+                            door = player.getCurrentRoom().getDoor(directions[i]);
+                        }
+                    }
+                }
+                if(door != null){
+                    if(door instanceof Door){
+                        if(door.openDoor(((Key) key).getKeyType())){
+                            returnString = door.getOpenDescription();
+                            return TryOpen.IT_OPENS;
+                        }else {
+                            return TryOpen.NOT_RIGHT_KEY;
+                        }
+                    }else {
+                        return TryOpen.IS_NOT_A_DOOR;
+                    }
+                }else {
+                    return TryOpen.CANT_FIND_DOOR;
+                }
+            }else {
+                return TryOpen.IS_NOT_A_KEY;
+            }
+        }else {
+            return TryOpen.DONT_HAVE_KEY;
+        }
+    }
 
 
 }

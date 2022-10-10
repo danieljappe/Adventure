@@ -20,11 +20,11 @@ public class UserInterface {
             String[] userInputList = choice.split(" ");
             String command = userInputList[0];
             String commandParameter = "";
-            String obstacle = "";
+            String secondParameter = "";
             if (userInputList.length > 1) {
                 commandParameter = userInputList[1];
                 if(userInputList.length >2){
-                    obstacle = userInputList[userInputList.length-1];
+                    secondParameter = userInputList[userInputList.length-1];
                 }
             }
 
@@ -140,35 +140,21 @@ public class UserInterface {
                                 " points of health");
                     }
                 }
-                case "use", "unlock", "open" -> {
-                    //System.out.println(adventure.use(commandParameter,obstacle));
-                    Item keyItem;
-                    keyItem = adventure.getPlayer().getItemFromInventory(commandParameter);
-                    if(keyItem == null){
-                        System.out.println("You don't have that item");
-                    }else{
-                        Direction[] nsew ={Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST};
-                        Door door = null;
-                        for(int i =0; i<nsew.length;i++) {
-                            if (adventure.getCurrentRoom().getDoor(nsew[i]).getName().contains(obstacle.toLowerCase().trim())) {
-                                door = adventure.getCurrentRoom().getDoor(nsew[i]);
-                            }
-                        }
-                        if(door == null){
-                            System.out.println("cant find "+obstacle);
-                        }else{
-                            if(keyItem instanceof Key) {
-                                if (door.openDoor(((Key) keyItem).getKeyType())) {
-                                    System.out.println(door.getOpenDescription());
-                                } else {
-                                    System.out.println("You try it,\nbut it doesn't work ");
-                                }
-                            }else{
-                                System.out.println("The "+commandParameter+" can't be used");
-                            }
-                        }
+                case  "unlock", "open" -> {
+                    TryOpen tryOpen = adventure.unlock(commandParameter, secondParameter);
+                    switch (tryOpen){
+                        case CANT_FIND_DOOR -> System.out.println("Cannot find the "+ commandParameter+ " you " +
+                                "wamted to open");
+                        case DONT_HAVE_KEY -> System.out.println("You dont have the "+secondParameter+" in your" +
+                                "inventory");
+                        case IS_NOT_A_DOOR -> System.out.println("The "+commandParameter+" cant be opend");
+                        case IS_NOT_A_KEY -> System.out.println("The "+ secondParameter+" cant be used to open " +
+                                "anything with");
+                        case NOT_RIGHT_KEY -> System.out.println("You try to open the "+ commandParameter+ " with" +
+                                "the "+secondParameter+",\nbut unfortunately it doesn't work ");
+                        case IT_OPENS -> System.out.println(adventure.getReturnString());
                     }
-                    
+
                 }
 
                 case "help" -> {
