@@ -170,5 +170,8 @@ public class Room {
         }
         return door;
     }
+    public ArrayList<Enemy> getEnemylist(){
+        return enemylist;
+    }
 
 }

@@ -180,6 +180,11 @@ public class Adventure {
         }
         return null;
     }
+    public BattelSys battle(String monster){
+        for(Enemy enemy : player.getCurrentRoom().getEnemylist()){
+            if(enemy.get)
+        }
+    }
 
 
 }
