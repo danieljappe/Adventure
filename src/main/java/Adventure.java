@@ -133,11 +133,13 @@ public class Adventure {
         if(key != null){
             if(key instanceof Key){
                 Direction[] directions = {Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST};
+                Direction directionSaved = null;
                 Door door = null;
                 for(int i = 0; i <4 ; i++) {
                     if(player.getCurrentRoom().getDoor(directions[i])!=null) {
                         if (player.getCurrentRoom().getDoor(directions[i]).getName().contains(doorSearch)) {
                             door = player.getCurrentRoom().getDoor(directions[i]);
+                            directionSaved = directions[i];
                         }
                     }
                 }
@@ -145,6 +147,7 @@ public class Adventure {
                     if(door instanceof Door){
                         if(door.openDoor(((Key) key).getKeyType())){
                             returnString = door.getOpenDescription();
+                            go(directionSaved);
                             return TryOpen.IT_OPENS;
                         }else {
                             return TryOpen.NOT_RIGHT_KEY;
