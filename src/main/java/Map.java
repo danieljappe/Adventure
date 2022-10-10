@@ -28,6 +28,10 @@ public class Map {
     // Ammo
     private Item arrows = new Ammunition("arrows",3,AmmunitionType.ARROWS);
 
+    // Enemy
+
+    private Enemy monster = new Enemy("monster", 50);
+
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
     Room room3 = new Room("room3", storyLine(300),"",storyLine(360),"",storyLine(320));
@@ -246,6 +250,7 @@ public class Map {
         room4.setNorth(room1);
         room4.setSouth(room7);
         room4.setDoors(door14,door47,null,null);
+        room4.addEnemy(monster);
 
         room5.setSouth(room8);
         room5.setDoors(null,door58,null,null);

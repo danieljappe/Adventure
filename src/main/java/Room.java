@@ -17,6 +17,7 @@ public class Room {
     private Door westDoor;
     boolean beenThere;
     private ArrayList<Item> roomItems;
+    private ArrayList<Enemy> enemylist;
 
     public Room(String roomName, String roomDescription, String northDescription, String southDescription,
                 String eastDescription, String westDescription) {
@@ -27,6 +28,7 @@ public class Room {
         this.eastDescription = eastDescription;
         this.westDescription = westDescription;
         roomItems = new ArrayList<>();
+
     }
 
     public String getRoomName() {
@@ -134,6 +136,10 @@ public class Room {
 
     public void addItem(Item item){
         roomItems.add(item);
+    }
+
+    public void addEnemy(Enemy enemy){
+        enemylist.add(enemy);
     }
 
 

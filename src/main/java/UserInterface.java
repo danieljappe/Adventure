@@ -58,7 +58,9 @@ public class UserInterface {
 
                 case "inventory", "inv" -> {
                     System.out.println("Backpack: " + adventure.viewInventory());
-                    System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons() + adventure.getAmmo());
+                    System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons());
+                    System.out.println("Ammunition: " + adventure.getAmmo() + " " + adventure.getAmmoName());
+
                 }
 
                 case "take" -> {

@@ -167,13 +167,13 @@ public class Adventure {
         }
     }
 
-    public int getAmmo() {
+    public String getAmmo() {
         for (Weapons weapon : player.getEquippedWeapons()) {
             if (weapon instanceof RangedWeapon) {
-               return ((RangedWeapon) weapon).getAmmo();
+               return String.valueOf(((RangedWeapon) weapon).getAmmo());
             }
         }
-        return 0;
+        return null;
     }
 
     public AmmunitionType getAmmoName() {
