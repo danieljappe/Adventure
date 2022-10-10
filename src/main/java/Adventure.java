@@ -148,6 +148,7 @@ public class Adventure {
                         if(door.openDoor(((Key) key).getKeyType())){
                             returnString = door.getOpenDescription();
                             go(directionSaved);
+                            returnString += player.getCurrentRoom().getRoomDescription();
                             return TryOpen.IT_OPENS;
                         }else {
                             return TryOpen.NOT_RIGHT_KEY;

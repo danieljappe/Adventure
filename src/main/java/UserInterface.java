@@ -66,7 +66,7 @@ public class UserInterface {
                     if (pickedUpItem == null){
                         System.out.println("Nothing was picked up");
                     } else {
-                        System.out.println("You have picked up " + pickedUpItem);
+                        System.out.println("You have picked up the " + pickedUpItem);
                     }
                 }
 
