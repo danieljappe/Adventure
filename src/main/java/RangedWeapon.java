@@ -1,5 +1,3 @@
-import ENUMS.AmmunitionType;
-
 public class RangedWeapon extends Weapons{
     private int ammo;
     private AmmunitionType ammoName;

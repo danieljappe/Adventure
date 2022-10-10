@@ -1,5 +1,3 @@
-package ENUMS;
-
 public enum AmmunitionType {
     ARROWS("arrows"),
     BULLETS("bullets"),
