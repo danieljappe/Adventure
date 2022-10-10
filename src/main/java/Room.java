@@ -28,6 +28,7 @@ public class Room {
         this.eastDescription = eastDescription;
         this.westDescription = westDescription;
         roomItems = new ArrayList<>();
+        enemylist = new ArrayList<>();
 
     }
 

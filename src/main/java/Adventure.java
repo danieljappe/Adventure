@@ -182,8 +182,11 @@ public class Adventure {
     }
     public BattelSys battle(String monster){
         for(Enemy enemy : player.getCurrentRoom().getEnemylist()){
-            if(enemy.get)
+            if(enemy.getEnemyName().toLowerCase().contains(monster.trim())){
+
+            }
         }
+        return BattelSys.THEY_MISS;
     }
 
 

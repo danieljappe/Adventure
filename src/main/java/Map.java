@@ -3,12 +3,13 @@ public class Map {
     public Map() {
         buildMap();
     }
-    // Items
+    // Keys
     private Item torch = new Key("torch",KeyType.TORCH);
-    private Item key = new Key("key",KeyType.RUSTY_KEY);
-    //private Item item3 = new Item("item3");
-    //private Item item4 = new Item("item4");
-    //private Item item5 = new Item("item5");
+    private Item rustyKey = new Key("Rusty Key",KeyType.RUSTY_KEY);
+    private Item goldenKey = new Key("Golden Key",KeyType.GOLDEN_KEY);
+    private Item ironBar = new Key("Iron Bar",KeyType.IRON_BAR);
+    private Item wrench = new Key("Wrench",KeyType.WRENCH);
+    private Item boneKey = new Key("Key Made of Bone",KeyType.BONE_KEY);
 
     // Food items
     private Item cheese = new Food("cheese",10); // virker det stadig?
@@ -28,7 +29,12 @@ public class Map {
 
     // Enemy
 
-    private Enemy monster = new Enemy("monster", 50);
+    private Enemy monster = new Enemy("Monster Teacher", 50);
+    private Enemy zombie = new Enemy("Zombie Student", 20);
+    private Enemy giantRat = new Enemy("Giant Rat", 35);
+    private Enemy spider = new Enemy("Spider", 20);
+    private Enemy werewolf = new Enemy("Werewolf", 40);
+
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
     Room room2 = new Room("room2", storyLine(200),"","",storyLine(230),storyLine(210));
@@ -43,13 +49,13 @@ public class Map {
 
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
     Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), KeyType.RUSTY_KEY);
-    Door door36 = new Door("grid in the ground",true,storyLine(361),storyLine(362),null);
+    Door door36 = new Door("grid in the ground",false,storyLine(361),storyLine(362),KeyType.WRENCH);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
     Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
-    Door door58 = new Door("big gate",true,storyLine(851),storyLine(852),null);
+    Door door58 = new Door("big gate",true,storyLine(851),storyLine(852),KeyType.GOLDEN_KEY);
     Door door78 = new Door("door78",true,storyLine(781),storyLine(782),null);
-    Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),null);
-    Door door14 = new Door("door to the mausoleum",true,storyLine(141),storyLine(142),null);
+    Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),KeyType.IRON_BAR);
+    Door door14 = new Door("door to the mausoleum",true,storyLine(141),storyLine(142),KeyType.BONE_KEY);
 
 
 
@@ -228,18 +234,22 @@ public class Map {
         room1.setSouth(room4);
         room1.setDoors(null,door14,door12,null);
         room1.addItem(torch);
-        room1.addItem(key);
+        room1.addItem(rustyKey);
         room1.addItem(cheese);
         room1.addItem(ham);
         room1.addItem(sword);
         room1.addItem(revolver);
         room1.addItem(bow);
+        room1.addEnemy(zombie);
 
         room2.setWest(room1);
         room2.setEast(room3);
         room2.setDoors(null,null,door23,door12);
         room2.addItem(shoe);
         room2.addItem(arrows);
+        room2.addItem(rustyKey);
+        room2.addEnemy(werewolf);
+
 
         room3.setSouth(room6);
         room3.setWest(room2);
@@ -248,7 +258,7 @@ public class Map {
         room4.setNorth(room1);
         room4.setSouth(room7);
         room4.setDoors(door14,door47,null,null);
-        room4.addEnemy(monster);
+        room4.addEnemy(spider);
 
         room5.setSouth(room8);
         room5.setDoors(null,door58,null,null);
@@ -256,6 +266,7 @@ public class Map {
         room6.setSouth(room9);
         room6.setNorth(room3);
         room6.setDoors(door36,door69,null,null);
+        room6.addItem(boneKey);
 
         room7.setNorth(room4);
         room7.setEast(room8);
@@ -270,6 +281,8 @@ public class Map {
         room9.setWest(room8);
         room9.setNorth(room6);
         room9.setDoors(door69,null,null,door89); //n s e w
+        room9.addItem(ironBar);
+        room9.addEnemy(monster);
     }
     public Room getStartRoom() {
         return room1;
