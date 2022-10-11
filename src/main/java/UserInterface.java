@@ -92,7 +92,15 @@ public class UserInterface {
                     }
                 }
                 case "attack","shoot","fire","throw","swing","stab" -> {
-                    adventure.battle(commandParameter);
+                    Enemy enemy = adventure.findEnemy(commandParameter);
+                    if(enemy!=null) {
+                        boolean inBattle = true;
+                        while (inBattle) {
+                            adventure.battle(enemy);
+                        }
+                    }else {
+                        System.out.println("There is no "+commandParameter+" in the room");
+                    }
 
                     /*TryUseWeapon useWeapon = adventure.useWeapon();
                     if(useWeapon == TryUseWeapon.NO_AMMO){

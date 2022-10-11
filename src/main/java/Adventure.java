@@ -181,10 +181,10 @@ public class Adventure {
         }
         return null;
     }
-    public BattleOutcome battle(String monster){
+    public BattleOutcome battle(Enemy enemy){
         int theyTakeDamage = 0;
         int youTakeDamage = 0;
-        Enemy enemy = findEnemy(monster);
+
         BattleOutcome outcome = new BattleOutcome();
 
 
@@ -211,13 +211,20 @@ public class Adventure {
     }
 
     public Enemy findEnemy(String monster){
-        Enemy enemy = null;
-        for(enemy : player.getCurrentRoom().getEnemylist()){
+        for(Enemy enemy : player.getCurrentRoom().getEnemylist()){
             if(enemy.getEnemyName().toLowerCase().contains(monster.trim())){
-
+                return enemy;
             }
         }
-        return enemy;
+        return null;
+    }
+    public TryUseWeapon enemyAttack(){
+        boolean hit = true;
+        if(hit){
+            return TryUseWeapon.THEY_HIT;
+        }else{
+            return TryUseWeapon.THEY_MISS;
+        }
     }
 
 }
