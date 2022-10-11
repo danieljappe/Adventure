@@ -94,6 +94,7 @@ public class Adventure {
                         ((RangedWeapon) weapon).getAmmo();
                         weapon.useOneShot();
                         //TODO monster takes damage
+
                         return TryUseWeapon.YOU_HIT_TARGET_RANGED; // hvis vi går ud fra vi rammer hver gang
                         //TODO hvis du ikke rammer
                         //return TryUseWeapon.YOU_MISS;
@@ -102,7 +103,7 @@ public class Adventure {
                     }
                 } else if (weapon instanceof MeleeWeapon){
                     returnString = Integer.toString(weapon.getWeaponDamage());
-                    return TryUseWeapon.YOU_HIT_TARGET_MELEE; // med svær, hvis vi rammer hver gang
+                    return TryUseWeapon.YOU_HIT_TARGET_MELEE; // med sværd, hvis vi rammer hver gang
                     //TODO hvis du ikke rammer
                     //return TryUseWeapon.YOU_MISS;
                 }

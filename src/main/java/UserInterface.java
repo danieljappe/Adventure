@@ -53,7 +53,7 @@ public class UserInterface {
                     System.out.println(adventure.look());
                 }
 
-                case "inventory", "inv" -> {
+                case "inventory", "inv", "ammo" -> {
                     System.out.println("Backpack: " + adventure.viewInventory());
                     System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons());
                     System.out.println("Ammunition: " + adventure.getAmmo() + " " + adventure.getAmmoName());
@@ -92,7 +92,9 @@ public class UserInterface {
                     }
                 }
                 case "attack","shoot","fire","throw","swing","stab" -> {
-                    TryUseWeapon useWeapon = adventure.useWeapon();
+                    adventure.battle(commandParameter);
+
+                    /*TryUseWeapon useWeapon = adventure.useWeapon();
                     if(useWeapon == TryUseWeapon.NO_AMMO){
                         System.out.println("No more " + adventure.getAmmoName() + " for your "+adventure.viewEquippedWeapons()+
                                 "\nTry to reload, or use another weapon");
@@ -108,7 +110,7 @@ public class UserInterface {
                     } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
                         System.out.println("The "+adventure.viewEquippedWeapons()+" makes a perfect hit\n" +
                                 "The monster loses "+adventure.getReturnString()+" hitpoints\n");
-                    }
+                    }*/
                 }
 
 

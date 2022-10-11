@@ -14,4 +14,9 @@ public class Enemy {
     public int getEnemyHealth() {
         return enemyHealth;
     }
+
+    public void setEnemyHealth(int enemyHealth) {
+        this.enemyHealth = enemyHealth;
+    }
+
 }
