@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Adventure {
@@ -184,6 +185,8 @@ public class Adventure {
     }
 
     public BattleOutcome battle(Enemy enemy){
+        Random dice = new Random();
+        dice.nextInt(1,10);
         int theyTakeDamage = 0;
         int youTakeDamage = 0;
 
@@ -198,7 +201,7 @@ public class Adventure {
             outcome.addOutcome(TryUseWeapon.WEAPON_NOT_IN_HAND);
         } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED){
             outcome.addOutcome(TryUseWeapon.YOU_HIT_TARGET_RANGED);
-            theyTakeDamage = -20;
+            theyTakeDamage = -dice.nextInt(1,player.getCurrentWeapon().get(0).weaponDamage);
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
             if (enemy.getEnemyHealth() > 0) {
 
@@ -207,7 +210,7 @@ public class Adventure {
                 switch (useWeapon){
                     case THEY_HIT -> {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
-                        youTakeDamage = -10;
+                        youTakeDamage = -dice.nextInt(1,enemy.getDamage());
                         player.setHealth(player.getHealth() + youTakeDamage);
                     }
                     case THEY_MISS -> {

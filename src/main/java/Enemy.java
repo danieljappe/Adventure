@@ -1,10 +1,12 @@
 public class Enemy {
     private String enemyName;
     private int enemyHealth;
+    private int damage;
 
-    public Enemy(String enemyName, int enemyHealth){
+    public Enemy(String enemyName, int enemyHealth, int damage){
         this.enemyName = enemyName;
         this.enemyHealth = enemyHealth;
+        this.damage = damage;
     }
 
     public String getEnemyName() {
@@ -18,6 +20,11 @@ public class Enemy {
     public void setEnemyHealth(int enemyHealth) {
         this.enemyHealth = enemyHealth;
     }
+
+    public int getDamage() {
+        return damage;
+    }
+
     @Override
     public String toString(){
         return enemyName;

@@ -29,13 +29,13 @@ public class Map {
 
     // Enemy
 
-    private Enemy monster = new Enemy("Monster Teacher", 50);
-    private Enemy zombie = new Enemy("Zombie Student", 30);
-    private Enemy giantRat = new Enemy("Giant Rat", 35);
-    private Enemy spider = new Enemy("Spider", 20);
-    private Enemy werewolf = new Enemy("Werewolf",40);
-    private Enemy vampire = new Enemy("Vampire",35);
-    private Enemy rastaFairy = new Enemy("Rasta Fairy",20);
+    private Enemy monster = new Enemy("Monster Teacher", 50,10);
+    private Enemy zombie = new Enemy("Zombie Student", 30,6);
+    private Enemy giantRat = new Enemy("Giant Rat", 35,7);
+    private Enemy spider = new Enemy("Spider", 20,5);
+    private Enemy werewolf = new Enemy("Werewolf",40,12);
+    private Enemy vampire = new Enemy("Vampire",35,8);
+    private Enemy rastaFairy = new Enemy("Rasta Fairy",20,12);
 
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
