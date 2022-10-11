@@ -98,22 +98,25 @@ public class UserInterface {
                         System.out.println(enemy + " found");
                         boolean inBattle = true;
                         while (inBattle){
+                            String weapon = adventure.getPlayer().getEquippedWeapons().get(0).getItemName();
+                            AmmunitionType ammo = adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName();
                             System.out.println("inBattle = true");
                             BattleOutcome outcome = adventure.battle(enemy);
                             ;
                             outcome.getPlayerDamage();
                             for(TryUseWeapon message: outcome.getOutComeList() ){
                                 switch (message){
-                                    case WEAPON_NOT_IN_HAND -> {}
+                                    case WEAPON_NOT_IN_HAND -> {
+                                        System.out.println("You have not equipped a weapon");
+                                        inBattle = false;
+                                    }
                                     case YOU_HIT_TARGET_MELEE -> {
-                                        System.out.println("You swing your "+
-                                                adventure.getPlayer().getEquippedWeapons().get(0).getItemName()+
+                                        System.out.println("You swing your "+ weapon+
                                                 " hitting the " +enemy+", giving it "
                                                 +outcome.getEnemyDamage()+" point of damage");
                                     }
                                     case YOU_HIT_TARGET_RANGED -> {
-                                        System.out.println("You fire a shot with your "+
-                                                adventure.getPlayer().getEquippedWeapons().get(0).getItemName()+
+                                        System.out.println("You fire a shot with your "+ weapon+
                                                 " and hit the " +enemy+", dealing it "
                                                 +outcome.getEnemyDamage()+" point of damage");
                                     }
@@ -121,10 +124,11 @@ public class UserInterface {
                                         System.out.println("So close, but you mis the "+enemy+" completeley");
                                     }
                                     case NO_AMMO -> {
-                                        System.out.println("Oh no you ran out of "+
-                                            adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName()+
+                                        System.out.println("Oh no you ran out of "+ ammo+
                                                 " you wasted your turn ");}
-                                    case YOU_RELOAD -> {}
+                                    case YOU_RELOAD -> {
+                                        System.out.println("You reload");
+                                    }
                                     case YOU_EAT -> {}
                                     case PLAYER_DIES -> {
                                         System.out.println(" Oh no you died\n The game is over");
