@@ -139,10 +139,6 @@ public class Room {
         roomItems.add(item);
     }
 
-    public void addEnemy(Enemy enemy){
-        enemylist.add(enemy);
-    }
-
 
     public Item removeItem(String itemName) {
         for (Item item : roomItems) {
@@ -173,6 +169,14 @@ public class Room {
     }
     public ArrayList<Enemy> getEnemylist(){
         return enemylist;
+    }
+
+    public void addEnemy(Enemy enemy){
+        enemylist.add(enemy);
+    }
+
+    public void removeEnemy(Enemy enemy){
+        enemylist.remove(enemy);
     }
 
 }
