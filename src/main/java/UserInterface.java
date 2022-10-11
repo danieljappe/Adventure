@@ -61,6 +61,7 @@ public class UserInterface {
                 case "inventory", "inv", "ammo" -> {
                     System.out.println("Backpack: " + adventure.viewInventory());
                     System.out.println("Equipped weapons: " + adventure.viewEquippedWeapons());
+                    //TODO if (adventure.viewEquippedWeapons() instanceof RangedWeapon)
                     System.out.println("Ammunition: " + adventure.getAmmo() + " " + adventure.getAmmoName());
 
                 }
@@ -99,14 +100,11 @@ public class UserInterface {
                 case "attack","shoot","fire","throw","swing","stab" -> {
                     Enemy enemy = adventure.findEnemy(commandParameter);
                     if(enemy!=null) {
-                        //System.out.println(enemy + " found");
                         boolean inBattle = true;
                         while (inBattle){
                             String weapon = adventure.getPlayer().getEquippedWeapons().get(0).getItemName();
                             AmmunitionType ammo = adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName();
-                            //System.out.println("inBattle = true");
                             BattleOutcome outcome = adventure.battle(enemy);
-                            ;
                             outcome.getPlayerDamage();
                             for(TryUseWeapon message: outcome.getOutComeList() ){
                                 switch (message){
@@ -125,8 +123,7 @@ public class UserInterface {
                                                 +outcome.getEnemyDamage()+" point of damage");
                                     }
                                     case YOU_MISS -> {
-                                        System.out.println("So close, but you mis the "+enemy.getEnemyName()+
-                                                " completeley");
+                                        System.out.println("So close, but you barely miss the "+enemy.getEnemyName());
                                     }
                                     case NO_AMMO -> {
                                         System.out.println("Oh no you ran out of "+ ammo.toString()+
@@ -146,14 +143,16 @@ public class UserInterface {
                                         System.out.println("The "+enemy.getEnemyName()+" attacks, but it misses you");
                                     }
                                     case ENEMY_DIES -> {
-                                        System.out.println(" Yay you managed to kill the "+ enemy.getEnemyName());
+                                        System.out.println("Yay you managed to kill the "+ enemy.getEnemyName());
                                         inBattle = false;
                                     }
 
                                 }
                             }
                             System.out.println("\nYou now have " + adventure.getPlayer().getHealth() + "hp");
-                            System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
+                                if (enemy.getEnemyHealth() > 0) {
+                                System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
+                                }
                             System.out.println("\nTo continue press enter\nTo reload type reload\n  " +
                                     "To run type run");
                             choice = scan.nextLine();
@@ -171,7 +170,7 @@ public class UserInterface {
 
                     }else {
                         System.out.println("There is no "+commandParameter+" in the room");
-                    }
+                    }//TODO mulighed for at skyde blindt
 
 
                 }
