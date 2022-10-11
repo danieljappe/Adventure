@@ -8,8 +8,10 @@ public enum TryUseWeapon {
     YOU_RELOAD,
     YOU_EAT,
 
-
     THEY_HIT,
-    THEY_MISS;
+    THEY_MISS,
+
+    ENEMY_DIES,
+    PLAYER_DIES;
 
 }

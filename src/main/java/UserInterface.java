@@ -94,10 +94,12 @@ public class UserInterface {
                 case "attack","shoot","fire","throw","swing","stab" -> {
                     Enemy enemy = adventure.findEnemy(commandParameter);
                     if(enemy!=null) {
-                        boolean inBattle = true;
-                        while (inBattle) {
+                        System.out.println(enemy + " found");
+                        /*boolean inBattle = true;
+                        while (inBattle)*/
+                            System.out.println("inBattle = true");
                             adventure.battle(enemy);
-                        }
+
                     }else {
                         System.out.println("There is no "+commandParameter+" in the room");
                     }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Adventure {
     private Map map = new Map();
@@ -181,12 +182,12 @@ public class Adventure {
         }
         return null;
     }
+
     public BattleOutcome battle(Enemy enemy){
         int theyTakeDamage = 0;
         int youTakeDamage = 0;
 
         BattleOutcome outcome = new BattleOutcome();
-
 
         TryUseWeapon useWeapon = useWeapon();
         if(useWeapon == TryUseWeapon.NO_AMMO){
@@ -202,14 +203,26 @@ public class Adventure {
             enemy.setEnemyHealth(getHealth() + theyTakeDamage);
 
         } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
-
+            theyTakeDamage = -25;
+            enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
+            System.out.println("Enemy takes " + theyTakeDamage + " health");
+            System.out.println("Enemy now has " + enemy.getEnemyHealth());
+            if (enemy.getEnemyHealth() > 0) {
+                enemyAttack();
+            } else {
+                System.out.println("Enemy dead");
+            }
         }
+
         // ENEMY ATTACK BACK
         useWeapon = enemyAttack();
         switch (useWeapon){
             case THEY_HIT -> {
                 outcome.addOutcome(TryUseWeapon.THEY_HIT);
                 youTakeDamage = -10;
+                System.out.println("Enemy hits you for " + youTakeDamage);
+                player.setHealth(player.getHealth() + youTakeDamage);
+                System.out.println("You now have " + player.getHealth() + "hp");
             }
             case THEY_MISS -> {
                 outcome.addOutcome(TryUseWeapon.THEY_MISS);

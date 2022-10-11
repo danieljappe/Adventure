@@ -30,7 +30,7 @@ public class Map {
     // Enemy
 
     private Enemy monster = new Enemy("Monster Teacher", 50);
-    private Enemy zombie = new Enemy("Zombie Student", 20);
+    private Enemy zombie = new Enemy("Zombie Student", 30);
     private Enemy giantRat = new Enemy("Giant Rat", 35);
     private Enemy spider = new Enemy("Spider", 20);
     private Enemy werewolf = new Enemy("Werewolf",40);

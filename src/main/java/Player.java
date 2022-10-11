@@ -24,6 +24,10 @@ public class Player {
         return health;
     }
 
+    public void setHealth(int health) {
+        this.health = health;
+    }
+
     public void addToHealth(int healthValue){
         this.health += healthValue;
         if(health>=100){
