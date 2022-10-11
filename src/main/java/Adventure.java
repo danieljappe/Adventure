@@ -116,7 +116,7 @@ public class Adventure {
 
     public String look() {
         return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() +
-                "\n" + getCurrentRoom().getRoomItems();
+                "\n" + getCurrentRoom().getRoomItems() +"\n"+ getCurrentRoom().getEnemylist();
     }
 
     public ArrayList<Item> viewInventory() {

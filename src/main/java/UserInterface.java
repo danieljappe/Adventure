@@ -42,7 +42,11 @@ public class UserInterface {
                     TryGo outcome = adventure.go(direction);
                     if(outcome == TryGo.GOING){
                         System.out.println("\u001B[32mGoing "+commandParameter+"\u001B[39m");
-                        System.out.println(adventure.getCurrentRoom().getRoomDescription());
+                        System.out.print(adventure.getCurrentRoom().getRoomDescription());
+                        if(adventure.getCurrentRoom().getEnemylist().size()>0){
+                            System.out.println("You are hurrayed to find a "+adventure.getCurrentRoom().getEnemylist()+
+                                    " here.");
+                        }
                     }else if( outcome == TryGo.CANT_GO){
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
                     }else if( outcome == TryGo.IS_LOCKED){
