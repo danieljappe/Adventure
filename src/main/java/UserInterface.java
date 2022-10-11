@@ -1,3 +1,4 @@
+import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -99,25 +100,58 @@ public class UserInterface {
                         while (inBattle){
                             System.out.println("inBattle = true");
                             BattleOutcome outcome = adventure.battle(enemy);
+                            ;
+                            outcome.getPlayerDamage();
                             for(TryUseWeapon message: outcome.getOutComeList() ){
                                 switch (message){
                                     case WEAPON_NOT_IN_HAND -> {}
-                                    case YOU_HIT_TARGET_MELEE -> {}
-                                    case YOU_HIT_TARGET_RANGED -> {}
-                                    case YOU_MISS -> {}
-                                    case NO_AMMO -> {}
+                                    case YOU_HIT_TARGET_MELEE -> {
+                                        System.out.println("You swing your "+
+                                                adventure.getPlayer().getEquippedWeapons().get(0).getItemName()+
+                                                " hitting the " +enemy+", giving it "
+                                                +outcome.getEnemyDamage()+" point of damage");
+                                    }
+                                    case YOU_HIT_TARGET_RANGED -> {
+                                        System.out.println("You fire a shot with your "+
+                                                adventure.getPlayer().getEquippedWeapons().get(0).getItemName()+
+                                                " and hit the " +enemy+", dealing it "
+                                                +outcome.getEnemyDamage()+" point of damage");
+                                    }
+                                    case YOU_MISS -> {
+                                        System.out.println("So close, but you mis the "+enemy+" completeley");
+                                    }
+                                    case NO_AMMO -> {
+                                        System.out.println("Oh no you ran out of "+
+                                            adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName()+
+                                                " you wasted your turn ");}
                                     case YOU_RELOAD -> {}
                                     case YOU_EAT -> {}
-                                    case PLAYER_DIES -> {}
+                                    case PLAYER_DIES -> {
+                                        System.out.println(" Oh no you died\n The game is over");
+                                        inBattle = false;
+                                    }
                                     case THEY_HIT -> {}
                                     case THEY_MISS -> {}
-                                    case ENEMY_DIES -> {}
+                                    case ENEMY_DIES -> {
+                                        System.out.println(" Yay you managed to kill the "+ enemy);
+                                        inBattle = false;
+                                    }
 
                                 }
                             }
 
+                            System.out.println("To continue press enter\nTo reload type reload\n  " +
+                                    "To run type run");
+                            choice = scan.nextLine();
+                            switch (choice){
+                                case "run" ->{
+                                    inBattle = false;
+                                }
+                                case "reload" ->{
+                                    // reload
+                                }
 
-
+                            }
 
                         }
 
@@ -125,23 +159,7 @@ public class UserInterface {
                         System.out.println("There is no "+commandParameter+" in the room");
                     }
 
-                    /*TryUseWeapon useWeapon = adventure.useWeapon();
-                    if(useWeapon == TryUseWeapon.NO_AMMO){
-                        System.out.println("No more " + adventure.getAmmoName() + " for your "+adventure.viewEquippedWeapons()+
-                                "\nTry to reload, or use another weapon");
-                    } else if(useWeapon == TryUseWeapon.YOU_MISS) {
-                        System.out.println("You almost hit the target, but you missed ");
-                    } else if(useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND){
-                        System.out.println("You are not holding the "+adventure.viewEquippedWeapons()+" in your hand right now\n"+
-                        "Try to equip the "+ commandParameter +" if you already picked it up");
-                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED){
-                        System.out.println("The "+adventure.viewEquippedWeapons()+" makes a perfect hit\n" +
-                                "The monster loses "+adventure.getReturnString()+" hitpoints\n" +
-                                "You have " + adventure.getAmmo() + " " + adventure.getAmmoName());
-                    } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
-                        System.out.println("The "+adventure.viewEquippedWeapons()+" makes a perfect hit\n" +
-                                "The monster loses "+adventure.getReturnString()+" hitpoints\n");
-                    }*/
+
                 }
 
 

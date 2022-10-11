@@ -7,4 +7,5 @@ public class Ammunition extends Item{
         this.amount = amount;
         this.ammunitionType = ammunitionType;
     }
+
 }
