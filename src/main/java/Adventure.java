@@ -200,7 +200,7 @@ public class Adventure {
             outcome.addOutcome(TryUseWeapon.YOU_HIT_TARGET_RANGED);
             theyTakeDamage = -20;
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
-            System.out.println("You shoot the enemy for " + theyTakeDamage);
+            //System.out.println("You shoot the enemy for " + theyTakeDamage);
             if (enemy.getEnemyHealth() > 0) {
 
                 // ENEMY ATTACK BACK
@@ -209,9 +209,9 @@ public class Adventure {
                     case THEY_HIT -> {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -10;
-                        System.out.println("Enemy hits you back for " + youTakeDamage);
+                        //System.out.println("Enemy hits you back for " + youTakeDamage);
                         player.setHealth(player.getHealth() + youTakeDamage);
-                        System.out.println("You now have " + player.getHealth() + "hp");
+
                     }
                     case THEY_MISS -> {
                         outcome.addOutcome(TryUseWeapon.THEY_MISS);
@@ -228,7 +228,7 @@ public class Adventure {
         } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
             theyTakeDamage = -25;
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
-            System.out.println("You hit the enemy for " + theyTakeDamage);
+            //System.out.println("You hit the enemy for " + theyTakeDamage);
             if (enemy.getEnemyHealth() > 0) {
 
                 // ENEMY ATTACK BACK
@@ -237,22 +237,23 @@ public class Adventure {
                     case THEY_HIT -> {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -10;
-                        System.out.println("Enemy hits you back for " + youTakeDamage);
+                        //System.out.println("Enemy hits you back for " + youTakeDamage);
                         player.setHealth(player.getHealth() + youTakeDamage);
-                        System.out.println("You now have " + player.getHealth() + "hp");
+                        //System.out.println("You now have " + player.getHealth() + "hp");
                     }
                     case THEY_MISS -> {
                         outcome.addOutcome(TryUseWeapon.THEY_MISS);
                     }
                 }
 
-                System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
+                //System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
             } else {
-                System.out.println("You have defeated " + enemy.getEnemyName());
+                //System.out.println("You have defeated " + enemy.getEnemyName());
+                outcome.addOutcome(TryUseWeapon.ENEMY_DIES);
                 getCurrentRoom().removeEnemy(enemy);
             }
         }
-
+        outcome.setEnemyDamage(theyTakeDamage);
         outcome.setPlayerDamage(youTakeDamage);
         return outcome;
     }

@@ -148,8 +148,9 @@ public class UserInterface {
 
                                 }
                             }
+                            System.out.println("\nYou now have " + adventure.getPlayer().getHealth() + "hp");
                             System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
-                            System.out.println("To continue press enter\nTo reload type reload\n  " +
+                            System.out.println("\nTo continue press enter\nTo reload type reload\n  " +
                                     "To run type run");
                             choice = scan.nextLine();
                             switch (choice){
