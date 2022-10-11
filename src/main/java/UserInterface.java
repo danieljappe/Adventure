@@ -162,6 +162,9 @@ public class UserInterface {
                 case "exit" -> {
                     System.exit(0);
                 }
+                case "attac" -> {
+                    adventure.battle()
+                }
 
                 default -> {
                     System.out.println("Invalid input");

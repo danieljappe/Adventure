@@ -3,6 +3,13 @@ public enum TryUseWeapon {
     NO_AMMO,
     YOU_MISS,
     YOU_HIT_TARGET_MELEE,
-    YOU_HIT_TARGET_RANGED;
+    YOU_HIT_TARGET_RANGED,
+
+    YOU_RELOAD,
+    YOU_EAT,
+
+
+    THEY_HIT,
+    THEY_MISS;
 
 }

@@ -181,15 +181,44 @@ public class Adventure {
         }
         return null;
     }
-    public BattelSys battle(String monster){
-        for(Enemy enemy : player.getCurrentRoom().getEnemylist()){
+    public BattleOutcome battle(String monster){
+        int theyTakeDamage = 0;
+        int youTakeDamage = 0;
+        Enemy enemy = findEnemy(monster);
+        BattleOutcome outcome = new BattleOutcome();
+
+
+        TryUseWeapon useWeapon = useWeapon();
+        if(useWeapon == TryUseWeapon.NO_AMMO){
+
+        } else if(useWeapon == TryUseWeapon.YOU_MISS) {
+            outcome.addOutcome(TryUseWeapon.THEY_MISS);
+        } else if(useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND){
+            outcome.addOutcome(TryUseWeapon.WEAPON_NOT_IN_HAND);
+        } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED){
+            outcome.addOutcome(TryUseWeapon.YOU_HIT_TARGET_RANGED);
+            theyTakeDamage = -20;
+            outcome.setEnemyDamage(theyTakeDamage);
+            enemy.setEnemyHealth(getHealth() + theyTakeDamage);
+
+        } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
+
+        }
+
+
+        outcome.setPlayerDamage(youTakeDamage);
+        return outcome;
+    }
+
+    public Enemy findEnemy(String monster){
+        Enemy enemy = null;
+        for(enemy : player.getCurrentRoom().getEnemylist()){
             if(enemy.getEnemyName().toLowerCase().contains(monster.trim())){
 
             }
         }
-        return BattelSys.THEY_MISS;
+        return enemy;
     }
-
 
 }
 
