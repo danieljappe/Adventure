@@ -205,12 +205,13 @@ public class Adventure {
         } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
             theyTakeDamage = -25;
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
-            System.out.println("Enemy takes " + theyTakeDamage + " health");
-            System.out.println("Enemy now has " + enemy.getEnemyHealth());
-            if (enemy.getEnemyHealth() > 0) {
+            System.out.println("You hit the enemy for " + theyTakeDamage);
+            if (enemy.getEnemyHealth() > 0) { //TODO: Angriber stadigt efter final blow
                 enemyAttack();
+                System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
             } else {
-                System.out.println("Enemy dead");
+                System.out.println("You have defeated " + enemy.getEnemyName());
+                getCurrentRoom().removeEnemy(enemy);
             }
         }
 
@@ -250,6 +251,7 @@ public class Adventure {
             return TryUseWeapon.THEY_MISS;
         }
     }
+
 
 }
 
