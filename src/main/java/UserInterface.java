@@ -95,12 +95,12 @@ public class UserInterface {
                 case "attack","shoot","fire","throw","swing","stab" -> {
                     Enemy enemy = adventure.findEnemy(commandParameter);
                     if(enemy!=null) {
-                        System.out.println(enemy + " found");
+                        //System.out.println(enemy + " found");
                         boolean inBattle = true;
                         while (inBattle){
                             String weapon = adventure.getPlayer().getEquippedWeapons().get(0).getItemName();
                             AmmunitionType ammo = adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName();
-                            System.out.println("inBattle = true");
+                            //System.out.println("inBattle = true");
                             BattleOutcome outcome = adventure.battle(enemy);
                             ;
                             outcome.getPlayerDamage();
@@ -112,19 +112,20 @@ public class UserInterface {
                                     }
                                     case YOU_HIT_TARGET_MELEE -> {
                                         System.out.println("You swing your "+ weapon+
-                                                " hitting the " +enemy+", giving it "
+                                                " hitting the " +enemy.getEnemyName()+", giving it "
                                                 +outcome.getEnemyDamage()+" point of damage");
                                     }
                                     case YOU_HIT_TARGET_RANGED -> {
                                         System.out.println("You fire a shot with your "+ weapon+
-                                                " and hit the " +enemy+", dealing it "
+                                                " and hit the " +enemy.getEnemyName()+", dealing it "
                                                 +outcome.getEnemyDamage()+" point of damage");
                                     }
                                     case YOU_MISS -> {
-                                        System.out.println("So close, but you mis the "+enemy+" completeley");
+                                        System.out.println("So close, but you mis the "+enemy.getEnemyName()+
+                                                " completeley");
                                     }
                                     case NO_AMMO -> {
-                                        System.out.println("Oh no you ran out of "+ ammo+
+                                        System.out.println("Oh no you ran out of "+ ammo.toString()+
                                                 " you wasted your turn ");}
                                     case YOU_RELOAD -> {
                                         System.out.println("You reload");
@@ -135,19 +136,19 @@ public class UserInterface {
                                         inBattle = false;
                                     }
                                     case THEY_HIT -> {
-                                        System.out.println("The "+enemy+" got you, and it deals you "+
+                                        System.out.println("The "+enemy.getEnemyName()+" got you, and it deals you "+
                                                 outcome.getPlayerDamage()+" points of damage ");}
                                     case THEY_MISS -> {
-                                        System.out.println("The "+enemy+" attacks, but it misses you");
+                                        System.out.println("The "+enemy.getEnemyName()+" attacks, but it misses you");
                                     }
                                     case ENEMY_DIES -> {
-                                        System.out.println(" Yay you managed to kill the "+ enemy);
+                                        System.out.println(" Yay you managed to kill the "+ enemy.getEnemyName());
                                         inBattle = false;
                                     }
 
                                 }
                             }
-
+                            System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
                             System.out.println("To continue press enter\nTo reload type reload\n  " +
                                     "To run type run");
                             choice = scan.nextLine();

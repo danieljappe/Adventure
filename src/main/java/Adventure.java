@@ -218,9 +218,10 @@ public class Adventure {
                     }
                 }
 
-                System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
+
             } else {
-                System.out.println("You have defeated " + enemy.getEnemyName());
+                outcome.addOutcome(TryUseWeapon.ENEMY_DIES);
+                //System.out.println("You have defeated " + enemy.getEnemyName());
                 getCurrentRoom().removeEnemy(enemy);
             }
 
