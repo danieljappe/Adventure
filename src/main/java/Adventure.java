@@ -204,6 +204,17 @@ public class Adventure {
         } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
 
         }
+        // ENEMY ATTACK BACK
+        useWeapon = enemyAttack();
+        switch (useWeapon){
+            case THEY_HIT -> {
+                outcome.addOutcome(TryUseWeapon.THEY_HIT);
+                youTakeDamage = -10;
+            }
+            case THEY_MISS -> {
+                outcome.addOutcome(TryUseWeapon.THEY_MISS);
+            }
+        }
 
 
         outcome.setPlayerDamage(youTakeDamage);
