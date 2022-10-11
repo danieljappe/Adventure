@@ -131,11 +131,15 @@ public class UserInterface {
                                     }
                                     case YOU_EAT -> {}
                                     case PLAYER_DIES -> {
-                                        System.out.println(" Oh no you died\n The game is over");
+                                        System.out.println("Oh no you died\nThe game is over");
                                         inBattle = false;
                                     }
-                                    case THEY_HIT -> {}
-                                    case THEY_MISS -> {}
+                                    case THEY_HIT -> {
+                                        System.out.println("The "+enemy+" got you, and it deals you "+
+                                                outcome.getPlayerDamage()+" points of damage ");}
+                                    case THEY_MISS -> {
+                                        System.out.println("The "+enemy+" attacks, but it misses you");
+                                    }
                                     case ENEMY_DIES -> {
                                         System.out.println(" Yay you managed to kill the "+ enemy);
                                         inBattle = false;
