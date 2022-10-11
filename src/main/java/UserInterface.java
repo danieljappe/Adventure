@@ -95,10 +95,31 @@ public class UserInterface {
                     Enemy enemy = adventure.findEnemy(commandParameter);
                     if(enemy!=null) {
                         System.out.println(enemy + " found");
-                        /*boolean inBattle = true;
-                        while (inBattle)*/
+                        boolean inBattle = true;
+                        while (inBattle){
                             System.out.println("inBattle = true");
-                            adventure.battle(enemy);
+                            BattleOutcome outcome = adventure.battle(enemy);
+                            for(TryUseWeapon message: outcome.getOutComeList() ){
+                                switch (message){
+                                    case WEAPON_NOT_IN_HAND -> {}
+                                    case YOU_HIT_TARGET_MELEE -> {}
+                                    case YOU_HIT_TARGET_RANGED -> {}
+                                    case YOU_MISS -> {}
+                                    case NO_AMMO -> {}
+                                    case YOU_RELOAD -> {}
+                                    case YOU_EAT -> {}
+                                    case PLAYER_DIES -> {}
+                                    case THEY_HIT -> {}
+                                    case THEY_MISS -> {}
+                                    case ENEMY_DIES -> {}
+
+                                }
+                            }
+
+
+
+
+                        }
 
                     }else {
                         System.out.println("There is no "+commandParameter+" in the room");

@@ -22,4 +22,15 @@ public class BattleOutcome {
         this.enemyDamage = enemyDamage;
     }
 
+    public ArrayList<TryUseWeapon> getOutComeList() {
+        return outComeList;
+    }
+
+    public int getEnemyDamage() {
+        return enemyDamage;
+    }
+
+    public int getPlayerDamage() {
+        return playerDamage;
+    }
 }
