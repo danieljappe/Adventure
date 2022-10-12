@@ -107,7 +107,7 @@ public class UserInterface {
                             AmmunitionType ammo = adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName();
                             while (inBattle) {
                                 BattleOutcome outcome = adventure.battle(enemy);
-                                outcome.getPlayerDamage();
+
                                 for (TryUseWeapon message : outcome.getOutComeList()) {
                                     switch (message) {
                                         case WEAPON_NOT_IN_HAND -> {

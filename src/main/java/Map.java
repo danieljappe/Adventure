@@ -93,11 +93,12 @@ public class Map {
                         [33m█[1;30;43m▀▀▀▀▀▀▀▀▀▀▀▀▀▀[0;33m▄[37m """ +
                         "\n\u001B[39m" +
                         "\nAfter a couple of beers at the after class fridaysbar,\n" +
-                        "a couple of you and your fellow students decided\n" +
-                        "to enjoy the sun on the grass of a nearby sematary.\n" +
+                        "you and a couple of your fellow students decided\n" +
+                        "to enjoy the sun on the grass of a nearby cemetery.\n" +
                         "At least, that is what you remember\n" +
                         "You must have fallen asleep..\n" +
-                        "Why did no one wake you?\n";
+                        "Why did no one wake you?\n"+
+                        "You get on your feat\n";
                 break;
             case 100:
                 line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n" +

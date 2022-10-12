@@ -112,13 +112,13 @@ public class Adventure {
                         return TryUseWeapon.NO_AMMO;
                     }
 
-                }else if (weapon instanceof MeleeWeapon) {
-                    returnString = Integer.toString(weapon.getWeaponDamage());
-                    if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
-                        return TryUseWeapon.YOU_HIT_TARGET_MELEE;
-                    } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
-                        return TryUseWeapon.YOU_MISS;
-                    }
+                }
+            }else if (weapon instanceof MeleeWeapon) {
+                returnString = Integer.toString(weapon.getWeaponDamage());
+                if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
+                    return TryUseWeapon.YOU_HIT_TARGET_MELEE;
+                } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
+                    return TryUseWeapon.YOU_MISS;
                 }
             }
         }
