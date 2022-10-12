@@ -205,15 +205,15 @@ public class Adventure {
         BattleOutcome outcome = new BattleOutcome();
 
         TryUseWeapon useWeapon = useWeapon();
-        if(useWeapon == TryUseWeapon.NO_AMMO){
-
-        } else if(useWeapon == TryUseWeapon.YOU_MISS) {
-            outcome.addOutcome(TryUseWeapon.THEY_MISS);
-        } else if(useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND){
+        if (useWeapon == TryUseWeapon.NO_AMMO) {
+            outcome.addOutcome(TryUseWeapon.NO_AMMO);
+        } else if (useWeapon == TryUseWeapon.YOU_MISS) {
+            outcome.addOutcome(TryUseWeapon.YOU_MISS);
+        } else if (useWeapon == TryUseWeapon.WEAPON_NOT_IN_HAND) {
             outcome.addOutcome(TryUseWeapon.WEAPON_NOT_IN_HAND);
-        } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED){
+        } else if (useWeapon == TryUseWeapon.YOU_HIT_TARGET_RANGED) {
             outcome.addOutcome(TryUseWeapon.YOU_HIT_TARGET_RANGED);
-            theyTakeDamage = -dice.nextInt(1,player.getCurrentWeapon().get(0).weaponDamage);
+            theyTakeDamage = -dice.nextInt(1, player.getCurrentWeapon().get(0).weaponDamage);
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
             if (enemy.getEnemyHealth() > 0) {
 
@@ -244,8 +244,8 @@ public class Adventure {
             if (enemy.getEnemyHealth() > 0) {
 
                 // ENEMY ATTACK BACK
-                useWeapon = enemyAttack();
-                switch (useWeapon){
+                useWeapon = enemyAttack(enemy);
+                switch (useWeapon) {
                     case THEY_HIT -> {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -10;
@@ -290,6 +290,37 @@ public class Adventure {
             return TryUseWeapon.THEY_MISS;
         }
     }
+
+    public TryUseWeapon reloadWeapon(){
+        Weapons weapon = getPlayer().getCurrentWeapon().get(0);
+        if (viewEquippedWeapons().get(0) instanceof RangedWeapon){
+            for(Item item : getPlayer().getPlayerInventory()){
+                if( item instanceof Ammunition) {
+                    if (((Ammunition) item).getAmmunitionType() == weapon.getAmmoName()) {
+                        //Tildel ammo
+                        if(((Ammunition)item).getAmount()>(((RangedWeapon)weapon).getAmmo()- //Hvis der er nok Ammo
+                                ((RangedWeapon)weapon).getMAX_AMMO())){
+                            ((RangedWeapon)weapon).setAmmo(((RangedWeapon)weapon).getMAX_AMMO());
+                            ((Ammunition)item).setAmount(((RangedWeapon)weapon).getAmmo()-
+                                    ((RangedWeapon)weapon).getMAX_AMMO());
+                        } else {
+                            ((RangedWeapon)weapon).setAmmo(((Ammunition)item).getAmount());
+                            ((Ammunition)item).setAmount(0);
+                        }
+                        return TryUseWeapon.YOU_RELOAD;
+
+                    }else{
+                        return TryUseWeapon.NO_AMMO_IN_INVT; // Not rigth ammo in inv
+                    }
+                }else return TryUseWeapon.NO_AMMO_IN_INVT;  // No ammo in inventory
+            }
+
+        }else{
+            return TryUseWeapon.NOT_RELOADABLE;
+        }
+        return null;
+    }
+
 
 
 }

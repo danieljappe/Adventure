@@ -3,12 +3,15 @@ public class Enemy {
     private String shortName;
     private int enemyHealth;
     private int damage;
+    private int chanceToHit;
+    private String enemyItem;
 
-    public Enemy(String enemyName, int enemyHealth, int damage){
+    public Enemy(String enemyName, int enemyHealth, int damage, int chanceToHit){
         this.enemyName = enemyName;
         this.shortName = enemyName;
         this.enemyHealth = enemyHealth;
         this.damage = damage;
+        this.chanceToHit = chanceToHit;
     }
 
     public Enemy(String enemyName, String shortName, int enemyHealth, int damage){
@@ -44,6 +47,10 @@ public class Enemy {
 
     public int getDamage() {
         return damage;
+    }
+
+    public int getChanceToHit() {
+        return chanceToHit;
     }
 
     @Override

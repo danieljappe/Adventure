@@ -1,5 +1,6 @@
 public class RangedWeapon extends Weapons{
     private int ammo;
+    private final int MAX_AMMO;
     private AmmunitionType ammoName;
 
 
@@ -7,11 +8,17 @@ public class RangedWeapon extends Weapons{
         super(itemName, weaponDamage, hitChance);
         this.ammo = ammo;
         this.ammoName = ammoName;
+        this.MAX_AMMO = ammo;
 
     }
     public int getAmmo(){
         return ammo;
     }
+
+    public int getMAX_AMMO() {
+        return MAX_AMMO;
+    }
+
     public void useOneShot(){
         ammo--;
     }
@@ -19,4 +26,7 @@ public class RangedWeapon extends Weapons{
         return ammoName;
     }
 
+    public void setAmmo(int ammo) {
+        this.ammo = ammo;
+    }
 }

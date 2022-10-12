@@ -8,4 +8,14 @@ public class Ammunition extends Item{
         this.ammunitionType = ammunitionType;
     }
 
+    public AmmunitionType getAmmunitionType() {
+        return ammunitionType;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
 }
