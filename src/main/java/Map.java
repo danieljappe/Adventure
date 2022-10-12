@@ -48,17 +48,19 @@ public class Map {
     Room room8 = new Room("room8", storyLine(800),storyLine(810),"",storyLine(820),storyLine(840));
     Room room9 = new Room("room9", storyLine(900),storyLine(910),"","",storyLine(940));
 
-
+    // doors, door12 is the door between room1 and room2 etc..
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
     Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), KeyType.RUSTY_KEY);
     Door door36 = new Door("grid in the ground",false,storyLine(361),storyLine(362),KeyType.WRENCH);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
-    Door door89 = new Door("door89",true,storyLine(981),storyLine(982),null);
-    Door door58 = new Door("big gate",true,storyLine(851),storyLine(852),KeyType.GOLDEN_KEY);
-    Door door78 = new Door("door78",true,storyLine(781),storyLine(782),null);
-    Door door47 = new Door("Stone slade of the coffin",true,storyLine(471),storyLine(472),KeyType.IRON_BAR);
-    Door door14 = new Door("door to the mausoleum",true,storyLine(141),storyLine(142),KeyType.BONE_KEY);
+    Door door89 = new Door("door89",false,storyLine(981),storyLine(982),KeyType.TORCH);
+    Door door58 = new Door("big gate",false,storyLine(851),storyLine(852),KeyType.GOLDEN_KEY);
+    Door door78 = new Door("door78",false,storyLine(781),storyLine(782),KeyType.TORCH);
+    Door door47 = new Door("Stone slade of the coffin",false,storyLine(471),storyLine(472),KeyType.IRON_BAR);
+    Door door14 = new Door("door to the mausoleum",false,storyLine(141),storyLine(142),KeyType.BONE_KEY);
 
+    SolidObject tombstone = new SolidObject("tombstone",true,"its the tombstone of Hans Christian Andersen","",null,null);
+    SolidObject bucket = new SolidObject("bucket",true,"the bucket is filled with water ","you reach down and find",null,bullets);
 
 
 
@@ -261,6 +263,7 @@ public class Map {
         room4.setNorth(room1);
         room4.setSouth(room7);
         room4.setDoors(door14,door47,null,null);
+        room4.addItem(goldenKey);
         room4.addEnemy(spider);
 
         room5.setSouth(room8);
@@ -269,6 +272,7 @@ public class Map {
         room6.setSouth(room9);
         room6.setNorth(room3);
         room6.setDoors(door36,door69,null,null);
+        room6.addItem(dead_rat);
         room6.addItem(boneKey);
         room6.addEnemy(giantRat);
 
@@ -281,7 +285,8 @@ public class Map {
         room8.setWest(room7);
         room8.setEast(room9);
         room8.setNorth(room5);
-        room8.setDoors(door58,null,door89,door78);
+        room8.setDoors(door58,null,null,null);
+        //room8.setDoors(door58,null,door89,door78);
 
         room9.setWest(room8);
         room9.setNorth(room6);
