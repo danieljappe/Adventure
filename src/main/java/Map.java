@@ -51,13 +51,13 @@ public class Map {
     // doors, door12 is the door between room1 and room2 etc..
     Door door12 = new Door("no obstical",true,storyLine(121),storyLine(122),null);
     Door door23 = new Door("iron gate",false,storyLine(231),storyLine(232), KeyType.RUSTY_KEY);
-    Door door36 = new Door("grid in the ground",false,storyLine(361),storyLine(362),KeyType.WRENCH);
+    Door door36 = new Door(" grid in the ground",false,storyLine(361),storyLine(362),KeyType.WRENCH);
     Door door69 = new Door("gap in the wall",true,storyLine(691),storyLine(692),null);
-    Door door89 = new Door("door89",false,storyLine(981),storyLine(982),KeyType.TORCH);
+    Door door89 = new Door("dark room",false,storyLine(981),storyLine(982),KeyType.TORCH);
     Door door58 = new Door("big gate",false,storyLine(851),storyLine(852),KeyType.GOLDEN_KEY);
-    Door door78 = new Door("door78",false,storyLine(781),storyLine(782),KeyType.TORCH);
-    Door door47 = new Door("Stone slade of the coffin",false,storyLine(471),storyLine(472),KeyType.IRON_BAR);
-    Door door14 = new Door("door to the mausoleum",false,storyLine(141),storyLine(142),KeyType.BONE_KEY);
+    Door door78 = new Door("dark room",false,storyLine(781),storyLine(782),KeyType.TORCH);
+    Door door47 = new Door("stone slade of the coffin",false,storyLine(471),storyLine(472),KeyType.IRON_BAR);
+    Door door14 = new Door("mausoleum door with scull keyhole",false,storyLine(141),storyLine(142),KeyType.BONE_KEY);
 
     SolidObject tombstone = new SolidObject("tombstone",true,"its the tombstone of Hans Christian Andersen","",null,null);
     SolidObject bucket = new SolidObject("bucket",true,"the bucket is filled with water ","you reach down and find",null,bullets);
@@ -112,8 +112,8 @@ public class Map {
                 line ="Your path ends in front of a grand pail mausoleum, glooming in the bark \n" ;
                 break;
             case 141:
-                line ="Your path ends in front of a mausoleum\n"+
-                        "The door to the closed\n It has a keyhole ornamented as a skeleton head";
+                line ="Your path ends in front of a grand pail mausoleum, glooming in the bark\n"+
+                        "The door to the closed\nThe keyhole isloo ornamented as a scull";
                 break;
             case 142:
                 line ="the door is open you walk in\n";
