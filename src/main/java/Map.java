@@ -31,11 +31,11 @@ public class Map {
     // Enemy
     private Enemy monster = new Enemy("monster", 50,10,20);
     private Enemy zombie = new Enemy("zombie", 30,6,75);
-    private Enemy giantRat = new Enemy("giant", 35,7,60);
+    private Enemy giantRat = new Enemy("rat", 35,7,60);
     private Enemy spider = new Enemy("spider", 20,5,50);
     private Enemy werewolf = new Enemy("werewolf",40,12,75);
     private Enemy vampire = new Enemy("vampire",35,8,50);
-    private Enemy rastaFairy = new Enemy("rasta fairy",20,12,90);
+    private Enemy rastaFairy = new Enemy("rastafairy",20,12,90);
 
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west
@@ -116,7 +116,7 @@ public class Map {
                         "The door to the closed\nThe keyhole isloo ornamented as a scull";
                 break;
             case 142:
-                line ="the door is open you walk in\n";
+                line ="You turn the bone key in the scull, rattling, the door opens and you walk inside\n";
                 break;
             case 200:
                 line = "As you walk along the path, you suddenly get the ery feeling that someone\n" +
@@ -162,8 +162,8 @@ public class Map {
                         "and climb down the ladder into the sewer\n";
                 break;
             case 400:
-                line = "You are inside a mausoleum, the room is lit with candles, its so quiet that it makes you feel uneasy,\n" +
-                        "in the middle a sarcophagus of marble\n";
+                line = "You are inside the mausoleum, the room is lit with candles, its so quiet that it makes you feel uneasy,\n" +
+                        "in the middle a sarcophagus of grey stone takes up most of the room\n";
                 break;
             case 410:
                 line = "You turn to the door leading out of the mausoleum\n";
@@ -264,7 +264,6 @@ public class Map {
         room1.setEast(room2);
         room1.setSouth(room4);
         room1.setDoors(null,door14,door12,null);
-        room1.addItem(torch);
         room1.addItem(rustyKey);
         room1.addItem(cheese);
         room1.addItem(ham);
@@ -308,6 +307,8 @@ public class Map {
         room7.setDoors(door47,null,door78,null);
         room7.addItem(beans);
         room7.addEnemy(vampire);
+        room7.addItem(torch);
+
 
         room8.setWest(room7);
         room8.setEast(room9);

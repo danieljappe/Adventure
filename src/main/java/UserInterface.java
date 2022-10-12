@@ -211,7 +211,7 @@ public class UserInterface {
                                 " points of health");
                     }
                 }
-                case  "unlock", "open" -> {
+                case  "unlock", "open","light","illuminate" -> {
                     TryOpen tryOpen = adventure.unlock(commandParameter, secondParameter);
                     switch (tryOpen){
                         case CANT_FIND_DOOR -> System.out.println("Cannot find the "+ commandParameter+ " you " +
