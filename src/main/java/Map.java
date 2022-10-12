@@ -160,12 +160,14 @@ public class Map {
             case 362:
                 line = "You unscrew the bolt, and you are able to lift it aside,\n" +
                         "and climb down the ladder into the sewer\n";
+                break;
             case 400:
                 line = "You are inside a mausoleum, the room is lit with candles, its so quiet that it makes you feel uneasy,\n" +
                         "in the middle a sarcophagus of marble\n";
                 break;
             case 410:
                 line = "You turn to the door leading out of the mausoleum\n";
+                break;
             case 411:
                 line ="it is closed, you cant get out\n";
                 break;
@@ -177,8 +179,10 @@ public class Map {
                 break;
             case 471:
                 line = "You push, but the stone slab won't budge\n";
+                break;
             case 472:
                 line = "The stone slab moves aside, revealing a hidden staircase\n ";
+                break;
             case 500:
                 line = "Slutrum";
                 break;

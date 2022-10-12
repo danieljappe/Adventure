@@ -9,6 +9,10 @@ public class UserInterface {
 
         System.out.println(adventure.getMap().storyLine(0));
         System.out.println(adventure.getMap().storyLine(100));
+        if(adventure.getCurrentRoom().getEnemylist().size()>0){
+            System.out.println("Out of the shadows emerges a horrific "+adventure.getCurrentRoom().getEnemylist()+
+                    " and its heading right for you.");
+        }
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
 
@@ -43,8 +47,8 @@ public class UserInterface {
                         System.out.println("\u001B[32mGoing "+commandParameter+"\u001B[39m");
                         System.out.print(adventure.getCurrentRoom().getRoomDescription());
                         if(adventure.getCurrentRoom().getEnemylist().size()>0){
-                            System.out.println("You are hurrayed to find a "+adventure.getCurrentRoom().getEnemylist()+
-                                    " here.");
+                            System.out.println("Out of the shadows emerges a horrific "+adventure.getCurrentRoom().getEnemylist()+
+                                    " and its heading right for you.");
                         }
                     }else if( outcome == TryGo.CANT_GO){
                         System.out.println("\u001B[31mCan´t go that way\u001B[39m");
