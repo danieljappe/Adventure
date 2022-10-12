@@ -6,6 +6,8 @@ public enum TryUseWeapon {
     YOU_HIT_TARGET_RANGED,
 
     YOU_RELOAD,
+    NOT_RELOADABLE,
+    NO_AMMO_IN_INVT,
     YOU_EAT,
 
     THEY_HIT,

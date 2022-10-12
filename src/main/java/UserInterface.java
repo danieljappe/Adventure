@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -99,81 +98,89 @@ public class UserInterface {
                 }
                 case "attack","shoot","fire","throw","swing","stab" -> {
                     Enemy enemy = adventure.findEnemy(commandParameter);
-                    if(enemy!=null) {
-                        boolean inBattle = true;
-                        while (inBattle){
+                    if (adventure.getPlayer().getEquippedWeapons().size() == 0) {
+                        System.out.println("You have no weapon equipped");
+                    }
+                        else if (enemy != null && adventure.getPlayer().getEquippedWeapons().size() > 0) {
+                            boolean inBattle = true;
                             String weapon = adventure.getPlayer().getEquippedWeapons().get(0).getItemName();
                             AmmunitionType ammo = adventure.getPlayer().getEquippedWeapons().get(0).getAmmoName();
-                            BattleOutcome outcome = adventure.battle(enemy);
-                            outcome.getPlayerDamage();
-                            for(TryUseWeapon message: outcome.getOutComeList() ){
-                                switch (message){
-                                    case WEAPON_NOT_IN_HAND -> {
-                                        System.out.println("You have not equipped a weapon");
-                                        inBattle = false;
-                                    }
-                                    case YOU_HIT_TARGET_MELEE -> {
-                                        System.out.println("You swing your "+ weapon+
-                                                " hitting the " +enemy.getEnemyName()+", giving it "
-                                                +outcome.getEnemyDamage()+" point of damage");
-                                    }
-                                    case YOU_HIT_TARGET_RANGED -> {
-                                        System.out.println("You fire a shot with your "+ weapon+
-                                                " and hit the " +enemy.getEnemyName()+", dealing it "
-                                                +outcome.getEnemyDamage()+" point of damage");
-                                    }
-                                    case YOU_MISS -> {
-                                        System.out.println("So close, but you barely miss the "+enemy.getEnemyName());
-                                    }
-                                    case NO_AMMO -> {
-                                        System.out.println("Oh no you ran out of "+ ammo.toString()+
-                                                " you wasted your turn ");}
-                                    case YOU_RELOAD -> {
-                                        System.out.println("You reload");
-                                    }
-                                    case YOU_EAT -> {}
-                                    case PLAYER_DIES -> {
-                                        System.out.println("Oh no you died\nThe game is over");
-                                        inBattle = false;
-                                    }
-                                    case THEY_HIT -> {
-                                        System.out.println("The "+enemy.getEnemyName()+" got you, and it deals you "+
-                                                outcome.getPlayerDamage()+" points of damage ");}
-                                    case THEY_MISS -> {
-                                        System.out.println("The "+enemy.getEnemyName()+" attacks, but it misses you");
-                                    }
-                                    case ENEMY_DIES -> {
-                                        System.out.println("Yay you managed to kill the "+ enemy.getEnemyName());
-                                        inBattle = false;
-                                    }
+                            while (inBattle) {
+                                BattleOutcome outcome = adventure.battle(enemy);
+                                outcome.getPlayerDamage();
+                                for (TryUseWeapon message : outcome.getOutComeList()) {
+                                    switch (message) {
+                                        case WEAPON_NOT_IN_HAND -> {
+                                            System.out.println("You have not equipped a weapon");
+                                            inBattle = false;
+                                        }
+                                        case YOU_HIT_TARGET_MELEE -> {
+                                            System.out.println("You swing your " + weapon +
+                                                    " hitting the " + enemy.getEnemyName() + ", giving it "
+                                                    + outcome.getEnemyDamage() + " point of damage");
+                                        }
+                                        case YOU_HIT_TARGET_RANGED -> {
+                                            System.out.println("You fire a shot with your " + weapon +
+                                                    " and hit the " + enemy.getEnemyName() + ", dealing it "
+                                                    + outcome.getEnemyDamage() + " point of damage");
+                                        }
+                                        case YOU_MISS -> {
+                                            System.out.println("So close, but you barely miss the " + enemy.getEnemyName());
+                                        }
+                                        case NO_AMMO -> {
+                                            System.out.println("Oh no you ran out of " + ammo.toString() +
+                                                    " you wasted your turn ");
+                                        }
+                                        case YOU_RELOAD -> {
+                                            System.out.println("You reload");
+                                        }
+                                        case YOU_EAT -> {
+                                        }
+                                        case PLAYER_DIES -> {
+                                            System.out.println("Oh no you died\nThe game is over");
+                                            System.exit(0);
+                                        }
+                                        case THEY_HIT -> {
+                                            System.out.println("The " + enemy.getEnemyName() + " got you, and it deals you " +
+                                                    outcome.getPlayerDamage() + " points of damage ");
+                                        }
+                                        case THEY_MISS -> {
+                                            System.out.println("The " + enemy.getEnemyName() + " attacks, but it misses you");
+                                        }
+                                        case ENEMY_DIES -> {
+                                            System.out.println("You managed to kill the " + enemy.getEnemyName());
+                                            inBattle = false;
+                                        }
 
+                                    }
                                 }
-                            }
-                            System.out.println("\nYou now have " + adventure.getPlayer().getHealth() + "hp");
+                                System.out.println("\nYou now have " + adventure.getPlayer().getHealth() + "hp");
                                 if (enemy.getEnemyHealth() > 0) {
-                                System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
+                                    System.out.println("Enemy now has " + enemy.getEnemyHealth() + "hp");
                                 }
-                            System.out.println("\nTo continue press enter\nTo reload type reload\n  " +
-                                    "To run type run");
-                            choice = scan.nextLine();
-                            switch (choice){
-                                case "run" ->{
-                                    inBattle = false;
-                                }
-                                case "reload" ->{
-                                    // reload
+                                System.out.println("\nTo continue press enter\nTo reload type reload\n" +
+                                        "To run type run");
+                                choice = scan.nextLine();
+                                switch (choice) {
+                                    case "run" -> {
+                                        System.out.println("You ran away from the fight");
+                                        inBattle = false;
+                                    }
+                                    case "reload" -> {
+                                        adventure.reloadWeapon();
+                                    }
+
                                 }
 
                             }
 
-                        }
-
-                    }else {
-                        System.out.println("There is no "+commandParameter+" in the room");
-                    }//TODO mulighed for at skyde blindt
+                        } else {
+                            System.out.println("There is no " + commandParameter + " in the room");
+                        }//TODO mulighed for at skyde blindt
 
 
-                }
+                    }
+
 
 
                 case "drop" -> {

@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Adventure {
     private Map map = new Map();
@@ -8,12 +7,13 @@ public class Adventure {
     private String returnString;
 
 
+    public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD, YOU_EAT}
 
-    public enum tryEat {FOOD_NOT_FOUND, IS_NOT_FOOD,YOU_EAT}
-    public String getReturnString(){
+    public String getReturnString() {
         return this.returnString;
     }
-    public void buildMap(){
+
+    public void buildMap() {
         map.buildMap();
     }
 
@@ -27,16 +27,16 @@ public class Adventure {
 
     public TryGo go(Direction direction) {
         Room requestedRoom = null;
-        if(player.getCurrentRoom().getDoor(direction)==null||player.getCurrentRoom().getDoor(direction).isOpen()){
+        if (player.getCurrentRoom().getDoor(direction) == null || player.getCurrentRoom().getDoor(direction).isOpen()) {
             requestedRoom = player.getCurrentRoom().getDirection(direction);
-        }else {
+        } else {
             returnString = player.getCurrentRoom().getDoor(direction).getClosedDescription();
             return TryGo.IS_LOCKED;
         }
         if (requestedRoom != null) {
             player.setCurrentRoom(requestedRoom);
             return TryGo.GOING;
-        }else {
+        } else {
             return TryGo.CANT_GO;
         }
     }
@@ -56,25 +56,26 @@ public class Adventure {
     public Item dropItem(String commandParameter) {
         return player.dropItem(commandParameter);
     }
-    public int getHealth(){
+
+    public int getHealth() {
         return player.getHealth();
     }
 
-    public TryEatResponse tryToEat(String commandParameter){
+    public TryEatResponse tryToEat(String commandParameter) {
         Item itemToEat = player.takeItemFromRoom(commandParameter);
-        if(itemToEat == null) {
+        if (itemToEat == null) {
             itemToEat = player.dropItem(commandParameter);
         }
-        if(itemToEat != null){
-            if(itemToEat instanceof Food){
+        if (itemToEat != null) {
+            if (itemToEat instanceof Food) {
                 Food foodToEat = (Food) itemToEat;
                 int healthGained = player.eat(foodToEat);
                 returnString = Integer.toString(healthGained);
                 return TryEatResponse.YOU_EAT;
-            }else{
+            } else {
                 return TryEatResponse.IS_NOT_FOOD;
             }
-        }else{
+        } else {
             return TryEatResponse.FOOD_NOT_FOUND;
         }
     }
@@ -87,37 +88,47 @@ public class Adventure {
         return player.unEquipWeapon(commandParameter);
     }
 
-    public TryUseWeapon useWeapon(){
-        Weapons inHandWeapon;
-        for(Weapons weapon : player.getEquippedWeapons()){
-                if (weapon instanceof RangedWeapon) {
-                    if (((RangedWeapon) weapon).getAmmo() > 0) {
-                        returnString = Integer.toString(weapon.getWeaponDamage());
-                        ((RangedWeapon) weapon).getAmmo();
-                        weapon.useOneShot();
-                        //TODO monster takes damage
+    public TryUseWeapon useWeapon() {
+        for (Weapons weapon : player.getEquippedWeapons()) {
+            Random hitChance = new Random();
+            if (weapon == null) {
+                return TryUseWeapon.WEAPON_NOT_IN_HAND;
+            } else if (weapon instanceof RangedWeapon) {
+                if (((RangedWeapon) weapon).getAmmo() > 0) {
+                    //returnString = Integer.toString(weapon.getWeaponDamage());
+                    ((RangedWeapon) weapon).getAmmo();
+                    weapon.useOneShot();
+                    // Chance to hit
+                    if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
+                        System.out.println("hitChance = " + hitChance);
+                        System.out.println("weapon.hitChance = " + weapon.getHitChance());
+                        return TryUseWeapon.YOU_HIT_TARGET_RANGED;
+                    } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
+                        System.out.println("hitChance = " + hitChance);
+                        System.out.println("weapon.hitChance = " + weapon.getHitChance());
+                        return TryUseWeapon.YOU_MISS;
 
-                        return TryUseWeapon.YOU_HIT_TARGET_RANGED; // hvis vi går ud fra vi rammer hver gang
-                        //TODO hvis du ikke rammer
-                        //return TryUseWeapon.YOU_MISS;
                     } else {
                         return TryUseWeapon.NO_AMMO;
                     }
-                } else if (weapon instanceof MeleeWeapon){
+
+                }else if (weapon instanceof MeleeWeapon) {
                     returnString = Integer.toString(weapon.getWeaponDamage());
-                    return TryUseWeapon.YOU_HIT_TARGET_MELEE; // med sværd, hvis vi rammer hver gang
-                    //TODO hvis du ikke rammer
-                    //return TryUseWeapon.YOU_MISS;
+                    if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
+                        return TryUseWeapon.YOU_HIT_TARGET_MELEE;
+                    } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
+                        return TryUseWeapon.YOU_MISS;
+                    }
                 }
             }
-        return TryUseWeapon.WEAPON_NOT_IN_HAND;
+        }
+        return null;
     }
-
 
 
     public String look() {
         return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() +
-                "\n" + getCurrentRoom().getRoomItems() +"\n"+ getCurrentRoom().getEnemylist();
+                "\n" + getCurrentRoom().getRoomItems() + "\n" + getCurrentRoom().getEnemylist();
     }
 
     public ArrayList<Item> viewInventory() {
@@ -127,41 +138,42 @@ public class Adventure {
     public ArrayList<Weapons> viewEquippedWeapons() {
         return player.getEquippedWeapons();
     }
-    public TryOpen unlock(String doorSearch,String keySearch){
+
+    public TryOpen unlock(String doorSearch, String keySearch) {
         Item key = player.getItemFromInventory(keySearch);
-        if(key != null){
-            if(key instanceof Key){
-                Direction[] directions = {Direction.NORTH,Direction.SOUTH,Direction.EAST,Direction.WEST};
+        if (key != null) {
+            if (key instanceof Key) {
+                Direction[] directions = {Direction.NORTH, Direction.SOUTH, Direction.EAST, Direction.WEST};
                 Direction directionSaved = null;
                 Door door = null;
-                for(int i = 0; i <4 ; i++) {
-                    if(player.getCurrentRoom().getDoor(directions[i])!=null) {
+                for (int i = 0; i < 4; i++) {
+                    if (player.getCurrentRoom().getDoor(directions[i]) != null) {
                         if (player.getCurrentRoom().getDoor(directions[i]).getName().contains(doorSearch)) {
                             door = player.getCurrentRoom().getDoor(directions[i]);
                             directionSaved = directions[i];
                         }
                     }
                 }
-                if(door != null){
-                    if(door instanceof Door){
-                        if(door.openDoor(((Key) key).getKeyType())){
+                if (door != null) {
+                    if (door instanceof Door) {
+                        if (door.openDoor(((Key) key).getKeyType())) {
                             returnString = door.getOpenDescription();
                             go(directionSaved);
                             returnString += player.getCurrentRoom().getRoomDescription();
                             return TryOpen.IT_OPENS;
-                        }else {
+                        } else {
                             return TryOpen.NOT_RIGHT_KEY;
                         }
-                    }else {
+                    } else {
                         return TryOpen.IS_NOT_A_DOOR;
                     }
-                }else {
+                } else {
                     return TryOpen.CANT_FIND_DOOR;
                 }
-            }else {
+            } else {
                 return TryOpen.IS_NOT_A_KEY;
             }
-        }else {
+        } else {
             return TryOpen.DONT_HAVE_KEY;
         }
     }
@@ -169,7 +181,7 @@ public class Adventure {
     public String getAmmo() {
         for (Weapons weapon : player.getEquippedWeapons()) {
             if (weapon instanceof RangedWeapon) {
-               return String.valueOf(((RangedWeapon) weapon).getAmmo());
+                return String.valueOf(((RangedWeapon) weapon).getAmmo());
             }
         }
         return null;
@@ -184,9 +196,9 @@ public class Adventure {
         return null;
     }
 
-    public BattleOutcome battle(Enemy enemy){
+    public BattleOutcome battle(Enemy enemy) {
         Random dice = new Random();
-        dice.nextInt(1,10);
+        dice.nextInt(1, 10);
         int theyTakeDamage = 0;
         int youTakeDamage = 0;
 
@@ -206,12 +218,15 @@ public class Adventure {
             if (enemy.getEnemyHealth() > 0) {
 
                 // ENEMY ATTACK BACK
-                useWeapon = enemyAttack();
-                switch (useWeapon){
+                useWeapon = enemyAttack(enemy);
+                switch (useWeapon) {
                     case THEY_HIT -> {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
-                        youTakeDamage = -dice.nextInt(1,enemy.getDamage());
+                        youTakeDamage = -dice.nextInt(1, enemy.getDamage());
                         player.setHealth(player.getHealth() + youTakeDamage);
+                        if (player.playerDeath() == true){
+                            playerDeathOutput();
+                        }
                     }
                     case THEY_MISS -> {
                         outcome.addOutcome(TryUseWeapon.THEY_MISS);
@@ -219,12 +234,12 @@ public class Adventure {
                 }
             } else {
                 outcome.addOutcome(TryUseWeapon.ENEMY_DIES);
-                getCurrentRoom().removeEnemy(enemy);
+                getCurrentRoom().enemyDeath(enemy);
             }
 
-        } else if(useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE){
+        } else if (useWeapon == TryUseWeapon.YOU_HIT_TARGET_MELEE) {
             outcome.addOutcome(TryUseWeapon.YOU_HIT_TARGET_MELEE);
-            theyTakeDamage = -25;
+            theyTakeDamage = -15;
             enemy.setEnemyHealth(enemy.getEnemyHealth() + theyTakeDamage);
             if (enemy.getEnemyHealth() > 0) {
 
@@ -235,6 +250,9 @@ public class Adventure {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -10;
                         player.setHealth(player.getHealth() + youTakeDamage);
+                        if (player.playerDeath() == true){
+                            playerDeathOutput();
+                        }
                     }
                     case THEY_MISS -> {
                         outcome.addOutcome(TryUseWeapon.THEY_MISS);
@@ -242,7 +260,7 @@ public class Adventure {
                 }
             } else {
                 outcome.addOutcome(TryUseWeapon.ENEMY_DIES);
-                getCurrentRoom().removeEnemy(enemy);
+                getCurrentRoom().enemyDeath(enemy);
             }
         }
         outcome.setEnemyDamage(theyTakeDamage);
@@ -250,19 +268,25 @@ public class Adventure {
         return outcome;
     }
 
-    public Enemy findEnemy(String monster){
-        for(Enemy enemy : player.getCurrentRoom().getEnemylist()){
-            if(enemy.getEnemyName().toLowerCase().contains(monster.trim())){
+    public TryUseWeapon playerDeathOutput(){
+        return TryUseWeapon.PLAYER_DIES;
+    }
+
+    public Enemy findEnemy(String monster) {
+        for (Enemy enemy : player.getCurrentRoom().getEnemylist()) {
+            if (enemy.getEnemyName().toLowerCase().equals(monster.trim())) {
                 return enemy;
             }
         }
         return null;
     }
-    public TryUseWeapon enemyAttack(){
+
+    public TryUseWeapon enemyAttack(Enemy enemy) {
         boolean hit = true;
-        if(hit){
+        Random dice = new Random();
+        if (dice.nextInt(1, 100) < enemy.getChanceToHit()) {
             return TryUseWeapon.THEY_HIT;
-        }else{
+        } else {
             return TryUseWeapon.THEY_MISS;
         }
     }

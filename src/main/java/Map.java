@@ -20,22 +20,22 @@ public class Map {
     private Item apple = new Food("apple",10);
 
     // Weapons
-    private Item sword = new MeleeWeapon("sword",20);
-    private Weapons revolver = new RangedWeapon("revolver", 15, 6, AmmunitionType.BULLETS);
-    private Weapons bow = new RangedWeapon("bow", 20, 5,AmmunitionType.ARROWS);
+    private Item sword = new MeleeWeapon("sword",20, 75);
+    private Weapons revolver = new RangedWeapon("revolver", 15, 75, 6, AmmunitionType.BULLETS);
+    private Weapons bow = new RangedWeapon("bow", 20, 70, 5,AmmunitionType.ARROWS);
 
     // Ammo
     private Item arrows = new Ammunition("arrows",3,AmmunitionType.ARROWS);
+    private Item bullets = new Ammunition("bullets", 3, AmmunitionType.BULLETS);
 
     // Enemy
-
-    private Enemy monster = new Enemy("Monster Teacher", 50,10);
-    private Enemy zombie = new Enemy("Zombie Student", 30,6);
-    private Enemy giantRat = new Enemy("Giant Rat", 35,7);
-    private Enemy spider = new Enemy("Spider", 20,5);
-    private Enemy werewolf = new Enemy("Werewolf",40,12);
-    private Enemy vampire = new Enemy("Vampire",35,8);
-    private Enemy rastaFairy = new Enemy("Rasta Fairy",20,12);
+    private Enemy monster = new Enemy("monster", 50,10,20);
+    private Enemy zombie = new Enemy("zombie", 30,6,75);
+    private Enemy giantRat = new Enemy("giant", 35,7,60);
+    private Enemy spider = new Enemy("spider", 20,5,50);
+    private Enemy werewolf = new Enemy("werewolf",40,12,75);
+    private Enemy vampire = new Enemy("vampire",35,8,50);
+    private Enemy rastaFairy = new Enemy("rasta fairy",20,12,90);
 
 
     Room room1 = new Room("room1", storyLine(100),"",storyLine(140),storyLine(120),""); // north south east west

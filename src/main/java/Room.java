@@ -175,8 +175,10 @@ public class Room {
         enemylist.add(enemy);
     }
 
-    public void removeEnemy(Enemy enemy){
+    public void enemyDeath(Enemy enemy){
         enemylist.remove(enemy);
     }
+
+
 
 }

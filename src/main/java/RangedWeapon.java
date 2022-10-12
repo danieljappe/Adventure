@@ -3,8 +3,8 @@ public class RangedWeapon extends Weapons{
     private AmmunitionType ammoName;
 
 
-    public RangedWeapon(String itemName, int weaponDamage, int ammo,AmmunitionType ammoName) {
-        super(itemName, weaponDamage);
+    public RangedWeapon(String itemName, int weaponDamage, int hitChance, int ammo,AmmunitionType ammoName) {
+        super(itemName, weaponDamage, hitChance);
         this.ammo = ammo;
         this.ammoName = ammoName;
 

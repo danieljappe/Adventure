@@ -1,7 +1,7 @@
 public class MeleeWeapon extends Weapons{
 
-    public MeleeWeapon(String itemName,int weaponDamage) {
-        super(itemName, weaponDamage);
+    public MeleeWeapon(String itemName,int weaponDamage, int hitChance) {
+        super(itemName, weaponDamage, hitChance);
 
     }
 

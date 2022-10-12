@@ -12,6 +12,14 @@ public class Player {
         health = 100;
     }
 
+    public boolean playerDeath(){
+        if (health <= 0){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public Room getCurrentRoom() {
         return currentRoom;
     }
