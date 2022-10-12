@@ -223,7 +223,13 @@ public class UserInterface {
                                 "anything with");
                         case NOT_RIGHT_KEY -> System.out.println("You try to open the "+ commandParameter+ " with" +
                                 "the "+secondParameter+",\nbut unfortunately it doesn't work ");
-                        case IT_OPENS -> System.out.println(adventure.getReturnString());
+                        case IT_OPENS -> {
+                            System.out.println(adventure.getReturnString());
+                            if(adventure.getCurrentRoom().getEnemylist().size()>0){
+                                System.out.println("Out of the shadows emerges a horrific "+adventure.getCurrentRoom().getEnemylist()+
+                                        " and its heading right for you.");
+                            }
+                        }
                     }
 
                 }
