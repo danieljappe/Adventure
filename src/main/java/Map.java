@@ -92,12 +92,12 @@ public class Map {
                          [1;30m██████████████[0m  [31m▄▀[37m      [31m▀█[37m    [31m▀[37m    [31m▀[37m     [31m▀▀▀▀[37m [31m▀[37m   [31m▀[37m  [31m▀▀▀[37m   [31m▀▀▀[37m   [31m▀[37m     [31m▀█▄▄▄█[37m
                         [33m█[1;30;43m▀▀▀▀▀▀▀▀▀▀▀▀▀▀[0;33m▄[37m """ +
                         "\n\u001B[39m" +
-                        "After a couple of beers at the after class fridaysbar,\n" +
+                        "\nAfter a couple of beers at the after class fridaysbar,\n" +
                         "a couple of you and your fellow students decided\n" +
                         "to enjoy the sun on the grass of a nearby sematary.\n" +
                         "At least, that is what you remember\n" +
                         "You must have fallen asleep..\n" +
-                        "Why did no one wake you up?";
+                        "Why did no one wake you?\n";
                 break;
             case 100:
                 line = "You are standing in the middle of a deserted graveyard, in the distance you hear the sound of\n" +
@@ -108,10 +108,11 @@ public class Map {
                 line = "You leave the place woke up and wander into the darkness";
                 break;
             case 140:
-                line ="Your path ends in front of a mausoleum\n" ;
+                line ="Your path ends in front of a grand pail mausoleum, glooming in the bark \n" ;
                 break;
             case 141:
-                line ="the door to the closed\n";
+                line ="Your path ends in front of a mausoleum\n"+
+                        "The door to the closed\n It has a keyhole ornamented as a skeleton head";
                 break;
             case 142:
                 line ="the door is open you walk in\n";
@@ -131,7 +132,8 @@ public class Map {
                         "The gate is locked \n";
                 break;
             case 232:
-                 line = "You put the key in the lock, turn it, it opens, and you walk through\n";
+                 line = "Following the path going east, you get to a small rusty gate in a high spiked iron fence.\n" +
+                         "The gate is locked \n"+"You put the key in the lock, turn it, it opens, and you walk through\n";
                 break;
             case 300:
                 line = "It seems like you have reached a dead end. You are standing in small circular clearing between hedges\n" +
@@ -145,13 +147,14 @@ public class Map {
                 line = "leaving the clearing through the rusty gate\n";
                 break;
             case 360:
+                line = "";
+                break;
+            case 361:
                 line = "As you get closer, you can see a ladder fixed into the cement on the other side of the grid."+
                         "A person could with a little effort pass through the opening. It could be your imagination,\n" +
                         "but it seams to you that you can hear the sound of a violin playing\n" +
-                        "for a moment, and the sound seemed to be coming from down there\n";
-                break;
-            case 361:
-                line = "The grid is fixed with a bolt\n";
+                        "for a moment, and the sound seemed to be coming from down there\n"+
+                        "The grid is fixed with a bolt\n";
                 break;
             case 362:
                 line = "You unscrew the bolt, and you are able to lift it aside,\n" +
@@ -203,8 +206,14 @@ public class Map {
             case 720:
                 line = "You follow the archway out of the chamber, which leads to an endless hallway.";
                 break;
+            case 781:
+                line = "Ahead of you is only darkness you dare go no further ";
+                break;
+            case 782:
+                line = "You light the touch, and you can now see into the room ";
+                break;
             case 800:
-                line = "In the middle of the hallway, there is a huge door.\n" +
+                line = "In the middle of the hallway, in the north wall, there is a huge door.\n" +
                         "On closer inspection the door is locked with a gold padlock.\n" +
                         "Something important must be in here. But how do you get in?";
                 break;
@@ -217,6 +226,13 @@ public class Map {
             case 840:
                 line = "You follow the hallways and enter a room.";
                 break;
+            case 851:
+                line = "The golden padlock prevents you from opening the door ";
+                break;
+            case 852:
+                line = "You try the key in the lock. It fits perfectly, opening the padlock with a click,\n" +
+                        "the door opens, and you step inside";
+                break;
             case 900:
                 line = "This room is filled with barrels, some bigger than others.\n" +
                         "It smells better in here, it might be wine stored in these barrels.\n";
@@ -227,6 +243,12 @@ public class Map {
                 break;
             case 940:
                 line = "You leave the wine cellar and follow the path.";
+                break;
+            case 981:
+                line = "Ahead of you is only darkness you dare go no further ";
+                break;
+            case 982:
+                line = "You light the touch, and you can now see into the room ";
                 break;
             // 10 = north / 20 = east / 30 = south / 40 = west
         }
