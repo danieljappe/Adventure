@@ -125,7 +125,6 @@ public class Adventure {
         return null;
     }
 
-
     public String look() {
         return getCurrentRoom().getRoomName() + "\n" + getCurrentRoom().getRoomDescription() +
                 "\n" + getCurrentRoom().getRoomItems() + "\n" + getCurrentRoom().getEnemylist();

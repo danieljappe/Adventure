@@ -13,6 +13,7 @@ public class UserInterface {
             System.out.println("Out of the shadows emerges a horrific "+adventure.getCurrentRoom().getEnemylist()+
                     " and its heading right for you.");
         }
+        System.out.println("To get help, type \u001B[35m\"help\u001B[39m\"");
         do {
             System.out.println("\u001B[35mGo north/west/east/south\u001B[39m");
 
@@ -38,7 +39,7 @@ public class UserInterface {
                         case "e","east" -> direction = Direction.EAST;
                         case "w","west" -> direction = Direction.WEST;
                         default -> {
-                            System.out.println("invalid indput");
+                            System.out.println("Invalid input");
                         }
                     }
                     if(direction==null) break;
@@ -100,6 +101,7 @@ public class UserInterface {
 
                     }
                 }
+
                 case "attack","shoot","fire","throw","swing","stab" -> {
                     Enemy enemy = adventure.findEnemy(commandParameter);
                     if (adventure.getPlayer().getEquippedWeapons().size() == 0) {
@@ -185,8 +187,6 @@ public class UserInterface {
 
                     }
 
-
-
                 case "drop" -> {
                     Item droppedItem = adventure.dropItem(commandParameter);
                     if (droppedItem == null) {
@@ -211,6 +211,7 @@ public class UserInterface {
                                 " points of health");
                     }
                 }
+
                 case  "unlock", "open","light","illuminate" -> {
                     TryOpen tryOpen = adventure.unlock(commandParameter, secondParameter);
                     switch (tryOpen){
@@ -235,7 +236,16 @@ public class UserInterface {
                 }
 
                 case "help" -> {
-                    System.out.println("Print hjælp ud");
+                    System.out.println("\u001B[35m\"look\"\u001B[39m to get a description of the room.\n" +
+                            "\u001B[35m\"inventory\" or \"inv\"\u001B[39m to look in your backpack, see equipped weapons and ammunition.\n" +
+                            "\u001B[35m\"take\"\u001B[39m to pick up an item.\n" +
+                            "\u001B[35m\"equip\"\u001B[39m to equip a weapon.\n" +
+                            "\u001B[35m\"unequip\"\u001B[39m to unequip equipped weapon.\n" +
+                            "\u001B[35m\"attack, \"shoot\", \"fire\", \"throw\", \"swing\", \"stab\"\u001B[39m to attack an enemy.\n" +
+                            "\u001B[35m\"drop\"\u001B[39m to drop an item from inventory.\n" +
+                            "\u001B[35m\"health\" or \"hp\"\u001B[39m to view players health points.\n" +
+                            "\u001B[35m\"eat\"\u001B[39m to eat an edible item to gain health points.\n" +
+                            "\u001B[35m\"unlock\" or \"open\"\u001B[39m to open doors.");
                 }
 
                 case "exit" -> {

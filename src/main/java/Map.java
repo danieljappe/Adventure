@@ -269,14 +269,12 @@ public class Map {
         room1.addItem(ham);
         room1.addItem(sword);
         room1.addItem(revolver);
-        room1.addItem(bow);
         room1.addEnemy(zombie);
 
         room2.setWest(room1);
         room2.setEast(room3);
         room2.setDoors(null,null,door23,door12);
         room2.addItem(shoe);
-        room2.addItem(arrows);
         room2.addItem(wrench);
         room2.addEnemy(werewolf);
 
@@ -291,9 +289,11 @@ public class Map {
         room4.setDoors(door14,door47,null,null);
         room4.addItem(goldenKey);
         room4.addEnemy(spider);
+        room4.addItem(bow);
 
         room5.setSouth(room8);
         room5.setDoors(null,door58,null,null);
+        room5.addEnemy(vampire);
 
         room6.setSouth(room9);
         room6.setNorth(room3);
@@ -306,8 +306,8 @@ public class Map {
         room7.setEast(room8);
         room7.setDoors(door47,null,door78,null);
         room7.addItem(beans);
-        room7.addEnemy(vampire);
         room7.addItem(torch);
+        room7.addItem(arrows);
 
 
         room8.setWest(room7);
