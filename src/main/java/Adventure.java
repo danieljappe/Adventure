@@ -100,24 +100,18 @@ public class Adventure {
                     weapon.useOneShot();
                     // Chance to hit
                     if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
-                        System.out.println("hitChance = " + hitChance);
-                        System.out.println("weapon.hitChance = " + weapon.getHitChance());
                         return TryUseWeapon.YOU_HIT_TARGET_RANGED;
-                    } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
-                        System.out.println("hitChance = " + hitChance);
-                        System.out.println("weapon.hitChance = " + weapon.getHitChance());
-                        return TryUseWeapon.YOU_MISS;
-
                     } else {
-                        return TryUseWeapon.NO_AMMO;
+                        return TryUseWeapon.YOU_MISS;
                     }
-
+                } else {
+                    return TryUseWeapon.NO_AMMO;
                 }
             }else if (weapon instanceof MeleeWeapon) {
                 returnString = Integer.toString(weapon.getWeaponDamage());
                 if (weapon.hitChance >= hitChance.nextInt(1, 100)) {
                     return TryUseWeapon.YOU_HIT_TARGET_MELEE;
-                } else if (weapon.hitChance < hitChance.nextInt(1, 100)) {
+                } else {
                     return TryUseWeapon.YOU_MISS;
                 }
             }
@@ -223,7 +217,7 @@ public class Adventure {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -dice.nextInt(1, enemy.getDamage());
                         player.setHealth(player.getHealth() + youTakeDamage);
-                        if (player.playerDeath() == true){
+                        if (player.getHealth() <= 0){
                             playerDeathOutput();
                         }
                     }
@@ -249,7 +243,7 @@ public class Adventure {
                         outcome.addOutcome(TryUseWeapon.THEY_HIT);
                         youTakeDamage = -10;
                         player.setHealth(player.getHealth() + youTakeDamage);
-                        if (player.playerDeath() == true){
+                        if (player.getHealth() <= 0){
                             playerDeathOutput();
                         }
                     }

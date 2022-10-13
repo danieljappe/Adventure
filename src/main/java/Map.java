@@ -20,7 +20,7 @@ public class Map {
     private Item apple = new Food("apple",10);
 
     // Weapons
-    private Item sword = new MeleeWeapon("sword",20, 75);
+    private Item sword = new MeleeWeapon("sword",20, 70);
     private Weapons revolver = new RangedWeapon("revolver", 15, 75, 6, AmmunitionType.BULLETS);
     private Weapons bow = new RangedWeapon("bow", 20, 70, 5,AmmunitionType.ARROWS);
 

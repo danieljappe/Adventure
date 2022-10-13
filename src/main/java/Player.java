@@ -9,7 +9,7 @@ public class Player {
     public Player() {
         playerInventory = new ArrayList<>();
         equippedWeapons = new ArrayList<>();
-        health = 100;
+        health = 1;
     }
 
     public boolean playerDeath(){
